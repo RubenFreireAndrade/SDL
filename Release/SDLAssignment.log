@@ -1,0 +1,47 @@
+﻿  Background.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Background.cpp(22,41): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Background.cpp(22,27): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Bullet.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Bullet.cpp(32,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Bullet.cpp(33,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Bullet.cpp(34,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Bullet.cpp(35,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Coin.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Coin.cpp(37,41): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Coin.cpp(37,27): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  EndScreen.cpp
+  Enemy.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Enemy.cpp(32,41): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Enemy.cpp(32,27): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  GameObject.cpp
+  MainMenu.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\MainMenu.cpp(28,41): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\MainMenu.cpp(28,27): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Platform.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Platform.cpp(37,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Platform.cpp(38,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Platform.cpp(39,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Platform.cpp(40,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Sprite.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Sprite.cpp(95,40): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Sprite.cpp(95,40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Sprite.cpp(95,68): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Sprite.cpp(95,68): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Input.cpp
+  Main.cpp
+  Music.cpp
+  Player.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(138,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(138,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(142,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(142,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Screen.cpp
+  Sounds.cpp
+C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Sounds.cpp(34,49): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+  Vector2D.cpp
+  WriteToScreen.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 363 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SDLAssignment.vcxproj -> C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Release\SDLAssignment.exe
