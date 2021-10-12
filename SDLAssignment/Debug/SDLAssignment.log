@@ -1,6 +1,0 @@
-﻿  Player.cpp
-C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(138,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(138,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(142,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Player.cpp(142,37): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  SDLAssignment.vcxproj -> C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Debug\SDLAssignment.exe

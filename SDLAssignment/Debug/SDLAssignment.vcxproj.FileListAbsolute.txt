@@ -1,2 +1,0 @@
-C:\Users\reube\Desktop\Maybe Working SDLAssignment\SDLAssignment\Debug\SDLAssignment.exe
-C:\Users\reube\Desktop\SDL\Maybe Working SDLAssignment\SDLAssignment\Debug\SDLAssignment.exe

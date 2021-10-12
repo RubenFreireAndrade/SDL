@@ -1,3 +1,8 @@
 *.obj
 *.ipch
 *.tlog
+SDLAssignment/.vs/SDLAssignment/v16/
+
+SDLAssignment/Debug/
+
+SDLAssignment/Release/
