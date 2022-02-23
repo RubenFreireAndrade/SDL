@@ -1,8 +1,26 @@
-*.obj
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
 *.ipch
+*.obj
 *.tlog
-SDLAssignment/.vs/SDLAssignment/v16/
+*.user
+*.filters
 
-SDLAssignment/Debug/
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
 
-SDLAssignment/Release/
+Debug/
+Release/
