@@ -19,6 +19,5 @@ public:
 private:
 
 	Sprite m_image;
-	//int gameState;
 };
 

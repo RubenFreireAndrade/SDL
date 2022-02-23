@@ -24,7 +24,7 @@
 
 int gameState = 1;
 bool isGameRunning = true;
-
+//TODO: Organise this to make into a state for GAMELOOP.
 int main(int argc, char* argv[])
 {
 	std::list<GameObject*> objects{};
@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 	Player player;
 	WriteToScreen text(&player);
 	Music music;
-	Coin coin1(750, 140), coin2(500, 350) /*,coin3*/;
+	Coin coin1(750, 140), coin2(500, 350);
 	Platform platform(400, 400), platform2(650, 200);
 
 	if (!screen.Initialize("My game", 1280, 720))
@@ -74,7 +74,6 @@ int main(int argc, char* argv[])
 	{
 		input.Update();
 		screen.Clear();
-
 		auto it = std::begin(objects);
 
 		switch (gameState)

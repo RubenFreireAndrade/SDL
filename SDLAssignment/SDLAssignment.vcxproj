@@ -160,6 +160,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Sounds.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WriteToScreen.cpp" />
   </ItemGroup>
@@ -178,6 +179,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Sounds.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WriteToScreen.h" />
   </ItemGroup>

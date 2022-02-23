@@ -4,7 +4,7 @@
 
 class EndScreen
 {
-	enum State
+	enum ConditionState
 	{
 		WIN,
 		LOSS

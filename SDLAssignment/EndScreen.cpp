@@ -1,5 +1,5 @@
 #include "EndScreen.h"
-
+//TODO: Make this into a state.
 EndScreen::EndScreen()
 {
 
