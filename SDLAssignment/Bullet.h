@@ -21,8 +21,6 @@ public:
 
 	int GetScore();
 
-	//bool isDead = false;
-
 private:
 
 	SDL_Color m_color;
