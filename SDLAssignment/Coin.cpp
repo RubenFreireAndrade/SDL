@@ -1,12 +1,12 @@
 #include "Coin.h"
 #include <SDL.h>
 
-Coin::Coin(int x, int y)
+Coin::Coin(/*int x, int y*/)
 {
 	m_tag = "pickup";
 	isStatic = true;
 
-	this->SetPosition(x, y);
+	/*this->SetPosition(x, y);*/
 	this->SetSize(50, 50);
 }
 
@@ -40,6 +40,5 @@ void Coin::Render(Screen& screen)
 void Coin::Pickup(Player* player)
 {
 	player->AddScore(2);
-
 	this->FlagForDeletion();
 }

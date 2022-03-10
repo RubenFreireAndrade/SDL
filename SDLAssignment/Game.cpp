@@ -7,50 +7,48 @@ Game::Game(GameState* initialState)
 
 bool Game::Initialize()
 {
-	//Init screen 
 	//Init music system
 	//Init Font system
 	//Init third-party libraries
+	m_music.Initialise();
+	m_screen.Initialize();
 	return true;
 }
 
 bool Game::Run()
 {
-	m_gameState->OnEnter();
+	m_gameState->OnEnter(m_screen);
 	while (m_gameState)  //will break if m_gameState == nullptr
 	{
 		//clearing the screen
-
+		m_screen.Clear();
 		//updating the input
 
 		//checking delta time
 
 		//updating the current game state
 
-		//current game state will return a pointer to a different state if a switch is required 
-		//If no switch is required then the current states pointer is returned
-		GameState* nextState = m_gameState->Update();
+		GameState* nextState = m_gameState->Update(m_input);
 
-		m_gameState->Render();
+		m_gameState->Render(m_screen);
 
 		//This will only run if a switch is required
 		if (nextState != m_gameState.get())
 		{
 			m_gameState->OnExit();
 			m_gameState.reset(nextState);
-
 			if (m_gameState)
 			{
-				m_gameState->OnEnter();
+				m_gameState->OnEnter(m_screen);
 			}
 		}
-
-		//rendering the screen
+		m_screen.Present();
 	}
 	return true;
 }
 
 void Game::Shutdown()
 {
-
+	m_music.Shutdown();
+	m_screen.Shutdown();
 }

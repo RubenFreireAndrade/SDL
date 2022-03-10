@@ -1,12 +1,12 @@
 #include "Platform.h"
 
-Platform::Platform(int x, int y)
+Platform::Platform(/*int x, int y*/)
 {
 	isStatic = true;
 	m_tag = "platform";
 	m_color = { 29, 255, 0, 1 };
 
-	this->SetPosition(x, y);
+	//this->SetPosition(x, y);
 	this->SetSize(200, 30);
 }
 

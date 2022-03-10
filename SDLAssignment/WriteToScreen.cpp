@@ -6,9 +6,9 @@ Screen screen;
 
 //Rendering the score to screen.
 
-WriteToScreen::WriteToScreen(Player* p)
+WriteToScreen::WriteToScreen(/*Player* p*/)
 {
-	player = p;
+	//player = p;
 }
 
 WriteToScreen::~WriteToScreen()

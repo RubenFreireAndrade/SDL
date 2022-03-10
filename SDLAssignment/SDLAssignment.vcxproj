@@ -154,6 +154,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -163,7 +164,6 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Sounds.cpp" />
-    <ClCompile Include="State.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WriteToScreen.cpp" />
   </ItemGroup>
@@ -177,6 +177,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="Sprite.h" />
@@ -185,7 +186,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Sounds.h" />
-    <ClInclude Include="State.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WriteToScreen.h" />
   </ItemGroup>

@@ -1,7 +1,8 @@
 #pragma once
-#include<string>
-#include<list>
-#include<SDL.h>
+#include <string>
+#include <iostream>
+#include <list>
+#include <SDL.h>
 #include "Screen.h"
 #include "Input.h"
 #include "Vector2D.h"

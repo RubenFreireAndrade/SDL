@@ -14,7 +14,7 @@ class Coin : public GameObject
 
 public:
 
-	Coin(int x, int y);
+	Coin(/*int x, int y*/);
 	~Coin();
 
 	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);

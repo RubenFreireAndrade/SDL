@@ -5,16 +5,13 @@
 Player::Player()
 {
 	m_tag = "player";
+	score = 0;
 
 	m_position.x = 20;
 	m_position.y = 480;
 	isStatic = false;
 
 	this->SetSize(120, 145);
-
-	score = 0;
-	
-	// sound.load(File directory)
 }
 
 Player::~Player()

@@ -26,7 +26,6 @@ private:
 	SDL_Color m_color;
 
 	int speed = 4;
-	int score;
 
 	Sprite m_image;
 	Screen m_window;

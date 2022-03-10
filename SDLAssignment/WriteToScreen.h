@@ -1,5 +1,4 @@
 #pragma once
-
 #include <SDL_ttf.h>
 #include "Screen.h"
 #include "Player.h"
@@ -11,7 +10,7 @@ class WriteToScreen
 
 public:
 
-	WriteToScreen(Player* p);
+	WriteToScreen(/*Player* p*/);
 	~WriteToScreen();
 
 	void RenderScore(Screen& screen);

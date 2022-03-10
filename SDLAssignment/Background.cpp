@@ -8,6 +8,7 @@ Background::Background()
 	//worldSize = 6000;
 	isStatic = true;
 	this->SetSize(1280, 720);
+
 }
 
 void Background::Initialise(Screen& screen)

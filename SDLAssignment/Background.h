@@ -23,8 +23,5 @@ private:
 	Vector2D m_velocity;
 
 	int speed = 3;
-	bool m_shooting;
-
-	int worldSize;
 };
 

@@ -9,7 +9,7 @@ class Platform : public GameObject
 
 public: 
 
-	Platform(int x, int y);
+	Platform(/*int x, int y*/);
 	~Platform();
 
 	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);

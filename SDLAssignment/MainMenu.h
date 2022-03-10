@@ -15,6 +15,7 @@ public:
 	void Initialise(Screen& screen);
 	void Update(Input& input);
 	void Render(Screen& screen);
+	void ShutDown();
 
 private:
 

@@ -13,23 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\PlayerStuff">
-      <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\PlayerStuff">
-      <UniqueIdentifier>{df085bfa-c10b-4d5d-9d5f-db31ff1c2cfa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\WorldObjects">
       <UniqueIdentifier>{4db36319-3a78-4101-a9f2-59522d335951}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\WorldObjects">
       <UniqueIdentifier>{c43f19dc-339a-4f29-8289-ba2e0224ecf4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\EnemyStuff">
-      <UniqueIdentifier>{b2a66b07-783c-40a8-a9de-751a101f8831}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\EnemyStuff">
-      <UniqueIdentifier>{3bbf4278-dc59-4d9a-8525-b6dbff4b848a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{fb0c3750-2cd6-4a07-b458-b1c1269947de}</UniqueIdentifier>
@@ -37,29 +25,23 @@
     <Filter Include="Header Files\States">
       <UniqueIdentifier>{c498fc7d-9c84-4f8c-87b4-08c433d0e8b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\CoreComponents">
-      <UniqueIdentifier>{d2c3c8c1-b96d-4d21-b5ba-a675e980d057}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\CoreComponents\Audio">
-      <UniqueIdentifier>{be0b755e-6e4a-46ea-b18b-c2cc38a0bfad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\CoreComponents\Screen">
-      <UniqueIdentifier>{41c3e47c-d79b-4512-9edf-52c330e0ec3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\CoreComponents\Input">
-      <UniqueIdentifier>{8fe5810c-260d-47d3-9794-12772c1932d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\CoreComponents">
+    <Filter Include="Source Files\Core Components">
       <UniqueIdentifier>{ab29395d-b89c-4871-9feb-03e2866b5f2d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\CoreComponents\Audio">
-      <UniqueIdentifier>{37e86962-b83e-4a1b-af3c-63b7733c446b}</UniqueIdentifier>
+    <Filter Include="Header Files\Core Components">
+      <UniqueIdentifier>{d2c3c8c1-b96d-4d21-b5ba-a675e980d057}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\CoreComponents\Screen">
-      <UniqueIdentifier>{5e50e7dc-4bdb-4eb9-810f-f617a6ffb00c}</UniqueIdentifier>
+    <Filter Include="Header Files\Enemy Stuff">
+      <UniqueIdentifier>{3bbf4278-dc59-4d9a-8525-b6dbff4b848a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\CoreComponents\Input">
-      <UniqueIdentifier>{45cf3405-4ab7-4bfc-a83c-27b81ea0813f}</UniqueIdentifier>
+    <Filter Include="Header Files\Player Stuff">
+      <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player Stuff">
+      <UniqueIdentifier>{df085bfa-c10b-4d5d-9d5f-db31ff1c2cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemy Stuff">
+      <UniqueIdentifier>{b2a66b07-783c-40a8-a9de-751a101f8831}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +57,6 @@
     <ClCompile Include="WriteToScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Music.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -85,7 +64,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files\PlayerStuff</Filter>
+      <Filter>Source Files\Player Stuff</Filter>
     </ClCompile>
     <ClCompile Include="Coin.cpp">
       <Filter>Source Files\WorldObjects</Filter>
@@ -94,25 +73,13 @@
       <Filter>Source Files\WorldObjects</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\EnemyStuff</Filter>
+      <Filter>Source Files\Enemy Stuff</Filter>
     </ClCompile>
     <ClCompile Include="EndScreen.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\CoreComponents\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Sounds.cpp">
-      <Filter>Source Files\CoreComponents\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Source Files\CoreComponents\Screen</Filter>
-    </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\States</Filter>
@@ -124,7 +91,22 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vector2D.cpp">
-      <Filter>Source Files\CoreComponents</Filter>
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Sounds.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +129,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files\PlayerStuff</Filter>
+      <Filter>Header Files\Player Stuff</Filter>
     </ClInclude>
     <ClInclude Include="Coin.h">
       <Filter>Header Files\WorldObjects</Filter>
@@ -156,25 +138,13 @@
       <Filter>Header Files\WorldObjects</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Header Files\EnemyStuff</Filter>
+      <Filter>Header Files\Enemy Stuff</Filter>
     </ClInclude>
     <ClInclude Include="EndScreen.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Sounds.h">
-      <Filter>Header Files\CoreComponents\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>Header Files\CoreComponents\Screen</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files\CoreComponents\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Header Files\States</Filter>
@@ -186,7 +156,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
-      <Filter>Header Files\CoreComponents</Filter>
+      <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Sounds.h">
+      <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
