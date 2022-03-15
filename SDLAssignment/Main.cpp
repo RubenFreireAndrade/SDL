@@ -28,30 +28,21 @@
 
 int gameState = 2;
 bool isGameRunning = true;
-//TODO: Organise this to make into a state for GAMELOOP.
+
 int main(int argc, char* argv[])
 {
-	std::unique_ptr<Game> game = std::make_unique<Game>(new PlayState);
+	std::unique_ptr<Game> game = std::make_unique<Game>(new MainMenuState);
 	if (game->Initialize())
 	{
 		game->Run();
 		game->Shutdown();
 	}
-	//std::list<GameObject*> objects{};
 
 	////Initialising Classes.
-	//Screen screen;
-	//Background background;
 	//MainMenu mainMenu;
 	//EndScreen endScreen;
-	//Input input;
-	//Sprite sprite;
-	//Enemy enemy({ 1100, 470 }, {100, 470});
-	//Player player;
 	//WriteToScreen text(&player);
 	//Music music;
-	//Coin coin1/*(750, 140)*/, coin2/*(500, 350)*/;
-	//Platform platform/*(400, 400)*/, platform2/*(650, 200)*/;
 
 	//if (!screen.Initialize())
 	//{
@@ -59,17 +50,8 @@ int main(int argc, char* argv[])
 	//}
 	//TTF_Init();
 	//// For PlayState
-	//player.Initialise(screen, &objects);
-	//background.Initialise(screen);
-	//enemy.Initialise(screen, &objects);
-	//coin1.Initialise(screen, &objects);
-	//coin2.Initialise(screen, &objects);
-	//platform.Initialise(screen, &objects);
 
-	//coin1.SetPosition(750, 140);
-	//coin2.SetPosition(500, 350);
-	//platform.SetPosition(400, 400);
-	//platform2.SetPosition(650, 200);
+	
 	//// ============================================
 	//
 	//// For MainMenu State
@@ -77,13 +59,6 @@ int main(int argc, char* argv[])
 	//// ============================================
 	//
 	//// For PlayState.
-	//objects.push_back(&background);
-	//objects.push_back(&player);
-	//objects.push_back(&enemy);
-	//objects.push_back(&platform);
-	//objects.push_back(&platform2);
-	//objects.push_back(&coin1);
-	//objects.push_back(&coin2);
 
 	//music.Initialise();
 	//music.SetVolume(0);

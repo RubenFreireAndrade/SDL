@@ -10,8 +10,9 @@ bool Game::Initialize()
 	//Init music system
 	//Init Font system
 	//Init third-party libraries
+	m_screen.Initialize("SDL_Platformer");
 	m_music.Initialise();
-	m_screen.Initialize();
+
 	return true;
 }
 

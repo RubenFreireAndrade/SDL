@@ -3,6 +3,7 @@
 #include "MainMenu.h"
 #include "WriteToScreen.h"
 #include "Background.h"
+#include "PlayState.h"
 #include <memory>
 
 class MainMenuState : public GameState
@@ -17,8 +18,9 @@ public:
 	virtual bool OnEnter(Screen& screen);
 
 private:
-	
-	MainMenu m_mainMenu;
+	std::unique_ptr<MainMenu> m_mainMenu;
+	//MainMenu m_mainMenu;
+	PlayState m_playState;
 	std::unique_ptr<Background> m_background;
 	WriteToScreen m_writeToScreen;
 };

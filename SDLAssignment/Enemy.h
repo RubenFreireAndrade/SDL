@@ -18,9 +18,6 @@ public:
 	void Render(Screen& screen);
 	void Update(Input& input);
 	void EnemyHit();
-	
-	//bool isDead = false;
-
 private:
 
 	Sprite m_image;
