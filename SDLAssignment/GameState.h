@@ -13,7 +13,12 @@ public:
 	virtual GameState* Update(Input& input) = 0;
 	virtual bool Render(Screen& screen) = 0;
 	virtual void OnExit() = 0;
-private:
 
+	enum class ConditionState
+	{
+		WIN,
+		LOSS
+	};
+private:
 };
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL_ttf.h>
 #include "Screen.h"
+#include "Player.h"
 
 class EndScreen
 {
@@ -16,6 +17,7 @@ public:
 	~EndScreen();
 
 	void RenderEndScreen(Screen& screen, int state);
+	void Unload();
 
 private:
 
@@ -25,6 +27,5 @@ private:
 	SDL_Rect textBox;
 
 	TTF_Font* font;
-	Screen m_renderer;
 };
 

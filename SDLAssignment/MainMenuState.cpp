@@ -15,6 +15,7 @@ bool MainMenuState::OnEnter(Screen& screen)
 
 GameState* MainMenuState::Update(Input& input)
 {
+	input.Update();
 	m_background->Update(input);
 	m_mainMenu->Update(input);
 

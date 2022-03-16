@@ -16,9 +16,6 @@
     <Filter Include="Source Files\WorldObjects">
       <UniqueIdentifier>{4db36319-3a78-4101-a9f2-59522d335951}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\WorldObjects">
-      <UniqueIdentifier>{c43f19dc-339a-4f29-8289-ba2e0224ecf4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{fb0c3750-2cd6-4a07-b458-b1c1269947de}</UniqueIdentifier>
     </Filter>
@@ -43,6 +40,9 @@
     <Filter Include="Source Files\Enemy Stuff">
       <UniqueIdentifier>{b2a66b07-783c-40a8-a9de-751a101f8831}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\World Objects">
+      <UniqueIdentifier>{c43f19dc-339a-4f29-8289-ba2e0224ecf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -52,9 +52,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WriteToScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
@@ -74,12 +71,6 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Source Files\Enemy Stuff</Filter>
-    </ClCompile>
-    <ClCompile Include="EndScreen.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\States</Filter>
@@ -108,6 +99,18 @@
     <ClCompile Include="MainMenuState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
+    <ClCompile Include="EndScreenState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="EndScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteToScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -117,9 +120,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WriteToScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Music.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
@@ -132,19 +132,13 @@
       <Filter>Header Files\Player Stuff</Filter>
     </ClInclude>
     <ClInclude Include="Coin.h">
-      <Filter>Header Files\WorldObjects</Filter>
+      <Filter>Header Files\World Objects</Filter>
     </ClInclude>
     <ClInclude Include="Platform.h">
-      <Filter>Header Files\WorldObjects</Filter>
+      <Filter>Header Files\World Objects</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Header Files\Enemy Stuff</Filter>
-    </ClInclude>
-    <ClInclude Include="EndScreen.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Header Files\States</Filter>
@@ -169,6 +163,18 @@
     </ClInclude>
     <ClInclude Include="MainMenuState.h">
       <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScreenState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Header Files\Core Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

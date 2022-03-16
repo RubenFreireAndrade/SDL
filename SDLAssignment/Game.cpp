@@ -28,11 +28,9 @@ bool Game::Run()
 		//checking delta time
 
 		//updating the current game state
-
 		GameState* nextState = m_gameState->Update(m_input);
 
 		m_gameState->Render(m_screen);
-
 		//This will only run if a switch is required
 		if (nextState != m_gameState.get())
 		{

@@ -10,6 +10,7 @@ PlayState::PlayState()
 bool PlayState::OnEnter(Screen& screen)
 {
 	m_background.Initialise(screen);
+	m_writeToScreen.Initialise();
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform1.Initialise(screen, &objects);
@@ -47,19 +48,20 @@ GameState* PlayState::Update(Input& input)
 		{
 			(*it)->CheckCollision(objects);
 			(*it)->PreUpdate(input);
-			//(*it)->Render(screen);
 			++it;
 		}
 	}
-	// For End Game screen.
-	/*if (player.GetScore() >= 4)
+	//For EndScreenState.
+	if (m_player.GetScore() >= 4)
 	{
-		endScreen.RenderEndScreen(screen, 0);
-	}*/
-	/*else if (player.IsFlaggedForDeletion())
+		//endScreen.RenderEndScreen(screen, 0);
+		return new EndScreenState(ConditionState::WIN);
+	}
+	if (m_player.IsFlaggedForDeletion())
 	{
-		endScreen.RenderEndScreen(screen, 1);
-	}*/
+		//endScreen.RenderEndScreen(screen, 1);
+		return new EndScreenState(ConditionState::LOSS);
+	}
 	return this;
 }
 
@@ -68,7 +70,8 @@ bool PlayState::Render(Screen& screen)
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
-		//text.RenderScore(screen);
+		// TODO: fix access violation.
+		m_writeToScreen.RenderScore(screen);
 		if ((*it)->IsFlaggedForDeletion())
 		{
 			it = objects.erase(it);
@@ -79,7 +82,7 @@ bool PlayState::Render(Screen& screen)
 			++it;
 		}
 	}
-	// For Testing.
+	// TODO
 	/*SDL_SetRenderDrawColor(screen.GetRenderer(), 0, 0, 0, 255);
 	SDL_RenderPresent(screen.GetRenderer());*/
 	return true;
@@ -87,4 +90,5 @@ bool PlayState::Render(Screen& screen)
 
 void PlayState::OnExit()
 {
+	m_writeToScreen.Unload();
 }

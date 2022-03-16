@@ -7,14 +7,12 @@ class Sounds
 {
 
 public:
-
 	Sounds();
 
 	bool Load(const std::string& filename);
 	void Unload();
 
 	void SetVolume(int volume);
-
 	void Play(int loop);
 
 private:

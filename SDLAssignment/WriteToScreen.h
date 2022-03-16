@@ -3,7 +3,6 @@
 #include "Screen.h"
 #include "Player.h"
 #include "Enemy.h"
-#include "Bullet.h"
 
 class WriteToScreen
 {
@@ -13,15 +12,16 @@ public:
 	WriteToScreen(/*Player* p*/);
 	~WriteToScreen();
 
+	bool Initialise();
+	void Unload();
 	void RenderScore(Screen& screen);
 
 private:
 
-	Player* player;
-	Bullet* bullet;
+	Player player;
 
-	SDL_Surface* surface;
-	SDL_Texture* texture;
+	SDL_Surface* surface = nullptr;
+	SDL_Texture* texture = nullptr;
 	SDL_Color color;
 	SDL_Rect textBox;
 
