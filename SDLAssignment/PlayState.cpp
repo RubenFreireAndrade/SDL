@@ -4,8 +4,6 @@ Enemy m_enemy({ 1100, 470 }, { 100, 470 });
 
 PlayState::PlayState()
 {
-	/*m_textToScreen.Initialise();
-	m_textToScreen.Load("Assets/Fonts/impact.ttf", 100);*/
 }
 
 bool PlayState::OnEnter(Screen& screen)

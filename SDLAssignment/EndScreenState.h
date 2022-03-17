@@ -16,9 +16,11 @@ public:
 	virtual bool OnEnter(Screen& screen);
 
 private:
-	EndScreen m_endScreen;
+	//EndScreen m_endScreen;
 	Player m_player;
 	ConditionState m_enumState;
 	
 	int conditionState;
+
+	std::unique_ptr<EndScreen> m_endScreen;
 };

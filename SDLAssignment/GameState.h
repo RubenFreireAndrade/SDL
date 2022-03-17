@@ -7,6 +7,11 @@
 class GameState
 {
 public:
+	enum class ConditionState
+	{
+		WIN,
+		LOSS
+	};
 	virtual ~GameState() = 0 {}
 
 	virtual bool OnEnter(Screen& screen) = 0;
@@ -14,11 +19,6 @@ public:
 	virtual bool Render(Screen& screen) = 0;
 	virtual void OnExit() = 0;
 
-	enum class ConditionState
-	{
-		WIN,
-		LOSS
-	};
 private:
 };
 

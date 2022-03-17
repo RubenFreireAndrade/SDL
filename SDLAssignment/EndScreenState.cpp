@@ -9,17 +9,18 @@ EndScreenState::EndScreenState(ConditionState c)
 
 EndScreenState::~EndScreenState()
 {
-    m_endScreen.Unload();
+    m_endScreen->Unload();
 }
 
 bool EndScreenState::OnEnter(Screen& screen)
 {
+    m_endScreen = std::make_unique<EndScreen>();
     return true;
 }
 
 GameState* EndScreenState::Update(Input& input)
 {
-    //input.Update();
+    input.Update();
     // Quiting Game
     if (input.IsKeyDown(SDLK_ESCAPE))
     {
@@ -30,11 +31,11 @@ GameState* EndScreenState::Update(Input& input)
 
 bool EndScreenState::Render(Screen& screen)
 {
-    m_endScreen.RenderEndScreen(screen, conditionState);
+    m_endScreen->RenderEndScreen(screen, conditionState);
     return true;
 }
 
 void EndScreenState::OnExit()
 {
-    m_endScreen.Unload();
+    m_endScreen->Unload();
 }
