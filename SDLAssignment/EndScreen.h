@@ -21,11 +21,11 @@ public:
 
 private:
 
-	SDL_Surface* surface;
-	SDL_Texture* texture;
+	SDL_Surface* surface = nullptr;
+	SDL_Texture* texture = nullptr;
 	SDL_Color color;
-	SDL_Rect textBox;
+	SDL_Rect textBox = {0, 0, 0, 0};
 
-	TTF_Font* font;
+	TTF_Font* font = nullptr;
 };
 

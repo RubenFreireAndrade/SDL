@@ -7,6 +7,7 @@ class EndScreenState : public GameState
 {
 public:
 	EndScreenState(ConditionState c/*Player p*/);
+	~EndScreenState();
 
 	// Inherited via GameState
 	virtual GameState* Update(Input& input) override;

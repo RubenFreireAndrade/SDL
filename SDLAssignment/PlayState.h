@@ -1,12 +1,12 @@
 #pragma once
 #include "GameState.h"
 #include "EndScreenState.h"
-#include "WriteToScreen.h"
 #include "Background.h"
 #include "Coin.h"
 #include "Platform.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Score.h"
 
 class PlayState : public GameState
 {
@@ -27,8 +27,8 @@ private:
 	Coin m_coin1, m_coin2;
 	Player m_player;
 	Platform m_platform1, m_platform2;
-	WriteToScreen m_writeToScreen;
 
 	std::list<GameObject*> objects{};
+	std::unique_ptr<Score>m_score;
 };
 

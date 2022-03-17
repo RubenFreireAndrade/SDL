@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "MainMenu.h"
-#include "WriteToScreen.h"
+#include "TextToScreen.h"
 #include "Background.h"
 #include "PlayState.h"
 #include <memory>
@@ -22,6 +22,6 @@ private:
 	//MainMenu m_mainMenu;
 	PlayState m_playState;
 	std::unique_ptr<Background> m_background;
-	WriteToScreen m_writeToScreen;
+	TextToScreen m_textToScreen;
 };
 

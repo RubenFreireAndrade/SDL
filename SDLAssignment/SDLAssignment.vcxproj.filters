@@ -108,7 +108,10 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WriteToScreen.cpp">
+    <ClCompile Include="TextToScreen.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -117,9 +120,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WriteToScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
@@ -175,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="Music.h">
       <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TextToScreen.h">
+      <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

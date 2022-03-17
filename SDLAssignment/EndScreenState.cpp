@@ -7,6 +7,11 @@ EndScreenState::EndScreenState(ConditionState c)
     conditionState = static_cast<int>(m_enumState);
 }
 
+EndScreenState::~EndScreenState()
+{
+    m_endScreen.Unload();
+}
+
 bool EndScreenState::OnEnter(Screen& screen)
 {
     return true;
@@ -14,14 +19,18 @@ bool EndScreenState::OnEnter(Screen& screen)
 
 GameState* EndScreenState::Update(Input& input)
 {
-    input.Update();
+    //input.Update();
+    // Quiting Game
+    if (input.IsKeyDown(SDLK_ESCAPE))
+    {
+        return 0;
+    }
     return this;
 }
 
 bool EndScreenState::Render(Screen& screen)
 {
     m_endScreen.RenderEndScreen(screen, conditionState);
-    std::cout << "end screen is rendered" << std::endl;
     return true;
 }
 

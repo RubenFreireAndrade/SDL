@@ -12,6 +12,7 @@ bool Game::Initialize()
 	//Init third-party libraries
 	m_screen.Initialize("SDL_Platformer");
 	m_music.Initialise();
+	m_textToScreen.Initialise();
 
 	return true;
 }

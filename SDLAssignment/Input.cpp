@@ -43,7 +43,6 @@ void Input::Update()
 
 	while (SDL_PollEvent(&events))
 	{
-
 		if (events.type == SDL_QUIT)
 		{
 			m_isWindowClosed = true;

@@ -11,7 +11,7 @@
 #include "Screen.h"
 #include "Player.h"
 #include "Enemy.h"
-#include "WriteToScreen.h"
+#include "TextToScreen.h"
 #include "Vector2D.h"
 #include "Coin.h"
 #include "GameObject.h"
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 	////Initialising Classes.
 	//MainMenu mainMenu;
 	//EndScreen endScreen;
-	//WriteToScreen text(&player);
+	//TextToScreen text(&player);
 	//Music music;
 
 	//if (!screen.Initialize())

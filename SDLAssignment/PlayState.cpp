@@ -4,13 +4,15 @@ Enemy m_enemy({ 1100, 470 }, { 100, 470 });
 
 PlayState::PlayState()
 {
-
+	/*m_textToScreen.Initialise();
+	m_textToScreen.Load("Assets/Fonts/impact.ttf", 100);*/
 }
 
 bool PlayState::OnEnter(Screen& screen)
 {
+	m_score = std::make_unique<Score>();
+
 	m_background.Initialise(screen);
-	m_writeToScreen.Initialise();
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform1.Initialise(screen, &objects);
@@ -51,16 +53,18 @@ GameState* PlayState::Update(Input& input)
 			++it;
 		}
 	}
-	//For EndScreenState.
 	if (m_player.GetScore() >= 4)
 	{
-		//endScreen.RenderEndScreen(screen, 0);
 		return new EndScreenState(ConditionState::WIN);
 	}
 	if (m_player.IsFlaggedForDeletion())
 	{
-		//endScreen.RenderEndScreen(screen, 1);
 		return new EndScreenState(ConditionState::LOSS);
+	}
+	// Quiting Game
+	if (input.IsKeyDown(SDLK_ESCAPE))
+	{
+		return 0;
 	}
 	return this;
 }
@@ -70,8 +74,7 @@ bool PlayState::Render(Screen& screen)
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
-		// TODO: fix access violation.
-		m_writeToScreen.RenderScore(screen);
+		m_score->Render(screen);
 		if ((*it)->IsFlaggedForDeletion())
 		{
 			it = objects.erase(it);
@@ -90,5 +93,4 @@ bool PlayState::Render(Screen& screen)
 
 void PlayState::OnExit()
 {
-	m_writeToScreen.Unload();
 }

@@ -5,7 +5,7 @@
 Player::Player()
 {
 	m_tag = "player";
-	score = 0;
+	score = 1;
 
 	m_position.x = 20;
 	m_position.y = 480;
@@ -35,7 +35,6 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 	{
 		m_image[i].SetSpriteDimension(150,150);
 		m_image[i].SetImageDimension(10, 1, 5670, 556);
-				
 		m_image[i].SetAnimationSpeed(0.3f);
 		m_image[i].IsAnimated(true);
 
@@ -143,7 +142,6 @@ void Player::Render(Screen& screen)
 void Player::CheckCollision(std::list<GameObject*> objects)
 {
 	isBlocked = false;
-
 	for (GameObject* obj : objects)
 	{
 		if (obj->GetTag() == "pickup")
