@@ -4,6 +4,7 @@ Score::Score()
 {
 	m_text.Load("Assets/Fonts/impact.ttf", 100);
 	m_text.SetColor(255, 255, 255, 255);
+	m_text.SetDimension(70, 50);
 	score = m_player.GetScore();
 }
 

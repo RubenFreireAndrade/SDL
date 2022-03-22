@@ -3,9 +3,6 @@
 
 Background::Background()
 {
-	/*m_position.x = 0;
-	m_position.y = 0;*/
-	//worldSize = 6000;
 	isStatic = true;
 	this->SetSize(1280, 720);
 

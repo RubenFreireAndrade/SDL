@@ -83,12 +83,10 @@ bool PlayState::Render(Screen& screen)
 			++it;
 		}
 	}
-	// TODO
-	/*SDL_SetRenderDrawColor(screen.GetRenderer(), 0, 0, 0, 255);
-	SDL_RenderPresent(screen.GetRenderer());*/
 	return true;
 }
 
 void PlayState::OnExit()
 {
+	
 }
