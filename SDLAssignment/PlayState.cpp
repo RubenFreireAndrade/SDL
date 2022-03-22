@@ -72,7 +72,6 @@ bool PlayState::Render(Screen& screen)
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
-		m_score->Render(screen);
 		if ((*it)->IsFlaggedForDeletion())
 		{
 			it = objects.erase(it);
@@ -83,6 +82,7 @@ bool PlayState::Render(Screen& screen)
 			++it;
 		}
 	}
+	m_score->Render(screen);
 	return true;
 }
 
