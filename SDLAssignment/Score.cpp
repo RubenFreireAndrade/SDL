@@ -2,13 +2,18 @@
 
 Score::Score()
 {
-	m_text.Load("Assets/Fonts/impact.ttf", 100);
-	m_text.SetColor(255, 255, 255, 255);
-	m_text.SetDimension(70, 50);
 }
 
 Score::~Score()
 {
+}
+
+void Score::Initialise(Screen& screen, Player* p)
+{
+	m_player = p;
+	m_text.Load("Assets/Fonts/impact.ttf", 100);
+	m_text.SetColor(255, 255, 255, 255);
+	m_text.SetDimension(70, 50);
 }
 
 void Score::Render(Screen& screen)
@@ -19,5 +24,5 @@ void Score::Render(Screen& screen)
 
 void Score::AddToScore()
 {
-	m_text.SetText("Score: " + std::to_string(m_player.GetScore()));
+	m_text.SetText("Score: " + std::to_string(m_player->GetScore()));
 }

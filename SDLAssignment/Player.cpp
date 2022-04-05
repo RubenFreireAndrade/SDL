@@ -23,7 +23,7 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 {
 	m_gameObjects = gameObjects;
 	m_state = IDLE;
-	m_spriteDirection = RIGHT;
+	m_spriteDirection = Player::Direction::RIGHT;
 
 	m_image[IDLE].Load("Assets/Images/HeroIdleAnimation.png", screen);
 	m_image[RUN].Load("Assets/Images/HeroRunAnimation.png", screen);
@@ -37,7 +37,6 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 		m_image[i].SetImageDimension(10, 1, 5670, 556);
 		m_image[i].SetAnimationSpeed(0.3f);
 		m_image[i].IsAnimated(true);
-
 		if (i == JUMP || i == DEAD)
 		{
 			m_image[i].IsAnimationLooping(false);
@@ -70,14 +69,14 @@ void Player::Update(Input& input)
 	{
 		m_velocity.x -= speed;
 		m_state = RUN;
-		m_spriteDirection = LEFT;
+		m_spriteDirection = Player::Direction::LEFT;
 	}
 
 	if (input.IsKeyDown(SDLK_d))
 	{
 		m_velocity.x += speed;
 		m_state = RUN;
-		m_spriteDirection = RIGHT;
+		m_spriteDirection = Player::Direction::RIGHT;
 	}
 
 	if (input.IsKeyDown(SDLK_w) && isGrounded && !isJumping)
@@ -95,7 +94,7 @@ void Player::Update(Input& input)
 		m_shooting = true;
 		Vector2D offSet;
 		Vector2D direction;
-		if (m_spriteDirection == RIGHT)
+		if (m_spriteDirection == Player::Direction::RIGHT)
 		{
 			offSet = Vector2D(140, 60);
 			direction = Vector2D(1, 0);
@@ -129,7 +128,7 @@ void Player::Update(Input& input)
 
 void Player::Render(Screen& screen)
 {
-	if (m_spriteDirection != RIGHT)
+	if (m_spriteDirection != Player::Direction::RIGHT)
 	{
 		m_image[m_state].Render(m_position.x, m_position.y, screen, Sprite::HORZ_FLIP);
 	}

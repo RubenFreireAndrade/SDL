@@ -5,7 +5,6 @@ Background::Background()
 {
 	isStatic = true;
 	this->SetSize(1280, 720);
-
 }
 
 void Background::Initialise(Screen& screen)

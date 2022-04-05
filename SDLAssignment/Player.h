@@ -23,10 +23,10 @@ public:
 		TOTAL_STATES
 	};
 
-	enum Direction
+	enum class Direction
 	{
 		LEFT,
-		RIGHT,
+		RIGHT
 	};
 
 	Player();

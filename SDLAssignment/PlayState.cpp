@@ -11,6 +11,7 @@ bool PlayState::OnEnter(Screen& screen)
 	//m_score = std::make_unique<Score>();
 
 	m_background.Initialise(screen);
+	m_score.Initialise(screen, &m_player);
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform1.Initialise(screen, &objects);
