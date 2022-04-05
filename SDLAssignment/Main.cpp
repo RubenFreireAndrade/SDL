@@ -26,9 +26,6 @@
 #include "Game.h"
 #include "PlayState.h"
 
-int gameState = 2;
-bool isGameRunning = true;
-
 int main(int argc, char* argv[])
 {
 	std::unique_ptr<Game> game = std::make_unique<Game>(new MainMenuState);
@@ -37,10 +34,9 @@ int main(int argc, char* argv[])
 		game->Run();
 		game->Shutdown();
 	}
+	return 0;
 
 	////Initialising Classes.
-	//MainMenu mainMenu;
-	//EndScreen endScreen;
 	//TextToScreen text(&player);
 	//Music music;
 
@@ -136,6 +132,4 @@ int main(int argc, char* argv[])
 	//TTF_Quit();
 	//sprite.Unload();
 	//screen.Shutdown();
-
-	return 0;
 }

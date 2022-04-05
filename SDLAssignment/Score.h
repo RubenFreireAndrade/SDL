@@ -16,6 +16,5 @@ private:
 
 	int scorePosX = 0;
 	int scorePosY = 0;
-	int score;
 };
 

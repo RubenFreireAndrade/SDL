@@ -5,7 +5,7 @@
 Player::Player()
 {
 	m_tag = "player";
-	score = 1;
+	score = 0;
 
 	m_position.x = 20;
 	m_position.y = 480;

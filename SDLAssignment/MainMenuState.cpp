@@ -18,7 +18,6 @@ GameState* MainMenuState::Update(Input& input)
 	input.Update();
 	m_background->Update(input);
 	m_mainMenu->Update(input);
-
 	if (input.IsKeyPressed())
 	{
 		return new PlayState;

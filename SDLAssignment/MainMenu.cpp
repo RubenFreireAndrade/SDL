@@ -1,8 +1,7 @@
 #include "MainMenu.h"
-//TODO: Make this into a state.
+
 MainMenu::MainMenu()
 {
-	//this->SetSize(1280, 720);
 	isStatic = true;
 }
 

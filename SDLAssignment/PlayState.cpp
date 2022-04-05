@@ -8,7 +8,7 @@ PlayState::PlayState()
 
 bool PlayState::OnEnter(Screen& screen)
 {
-	m_score = std::make_unique<Score>();
+	//m_score = std::make_unique<Score>();
 
 	m_background.Initialise(screen);
 	m_coin1.Initialise(screen, &objects);
@@ -81,12 +81,11 @@ bool PlayState::Render(Screen& screen)
 			(*it)->Render(screen);
 			++it;
 		}
+		m_score.Render(screen);
 	}
-	m_score->Render(screen);
 	return true;
 }
 
 void PlayState::OnExit()
 {
-	
 }

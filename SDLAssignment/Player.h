@@ -42,19 +42,18 @@ public:
 	void SetState(State state);
 
 	int GetScore();
+	int score;
 
 private:
 
 	Sprite m_image[TOTAL_STATES];			// containment - player has an image
 
 	State m_state;
-	Direction m_spriteDirection;
 	Input input;
+	Direction m_spriteDirection;
 
 	int speed = 3;
 	int jumpHeight = 70;
-	int score;
-	int itemOnFloor;
 
 	bool isTouching;
 	bool m_shooting;

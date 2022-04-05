@@ -6,16 +6,14 @@ Screen::Screen()
 	m_window = nullptr;
 	m_renderer = nullptr;
 }
-
+//TODO - Fix this for fullscreen.
 bool Screen::Initialize(const std::string& windowTitle, int width, int height)
 {
-
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 	{
 		std::cout << "Error initializing SDL." << std::endl;
 		return false;
 	}
-
 	m_window = SDL_CreateWindow(windowTitle.c_str(),       //game window title
 		SDL_WINDOWPOS_CENTERED,    //pos x
 		SDL_WINDOWPOS_CENTERED,    //pos y
@@ -30,13 +28,11 @@ bool Screen::Initialize(const std::string& windowTitle, int width, int height)
 	}
 
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
 	if (!m_renderer)
 	{
 		std::cout << "Error creating renderer." << std::endl;
 		return false;
 	}
-
 	return true;
 }
 

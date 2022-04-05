@@ -29,6 +29,7 @@ private:
 	Platform m_platform1, m_platform2;
 
 	std::list<GameObject*> objects{};
-	std::unique_ptr<Score>m_score;
+	//std::unique_ptr<Score>m_score;
+	Score m_score;
 };
 
