@@ -20,6 +20,7 @@ public:
 private:
 	
 	Sprite m_image;
+	Screen m_screen;
 	Vector2D m_velocity;
 
 	int speed = 3;

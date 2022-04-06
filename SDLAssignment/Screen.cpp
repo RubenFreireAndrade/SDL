@@ -19,7 +19,7 @@ bool Screen::Initialize(const std::string& windowTitle, int width, int height)
 		SDL_WINDOWPOS_CENTERED,    //pos y
 		width,                     //width
 		height,                    //height
-		0);                        //flags
+		SDL_WINDOW_RESIZABLE);     //flags
 
 	if (!m_window)
 	{
@@ -51,6 +51,12 @@ void Screen::Shutdown()
 	SDL_DestroyRenderer(m_renderer);
 	SDL_DestroyWindow(m_window);
 	SDL_Quit();
+}
+
+int Screen::GetResolution()
+{
+	SDL_GetWindowSize(m_window, &m_width, &m_height);
+	return m_width, m_height;
 }
 
 SDL_Renderer* Screen::GetRenderer()
