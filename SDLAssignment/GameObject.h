@@ -42,7 +42,6 @@ public:
 protected:
 
 	std::string m_tag;
-
 	float m_angle;
 
 	bool IsCollidingWith(GameObject* obj);

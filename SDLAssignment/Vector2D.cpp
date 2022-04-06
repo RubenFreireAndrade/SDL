@@ -1,7 +1,7 @@
 #include "Vector2D.h"
 #include <math.h>
 
-Vector2D::Vector2D(double x, double y)
+Vector2D::Vector2D(int x, int y)
 {
 	this->x = x;
 	this->y = y;
@@ -47,7 +47,7 @@ Vector2D Vector2D::Scale(int scale)
 	return result;
 }
 
-double Vector2D::Distance(const Vector2D& secondVector)
+int Vector2D::Distance(const Vector2D& secondVector)
 {
 	Vector2D temp = Subtract(secondVector);
 
@@ -66,14 +66,14 @@ Vector2D Vector2D::Negate()
 
 Vector2D Vector2D::Normalised()
 {
-	double mag = this->Magnitude();
-	double x = this->x / mag;
-	double y = this->y / mag;
+	int mag = this->Magnitude();
+	int x = this->x / mag;
+	int y = this->y / mag;
 
 	return Vector2D(x, y);
 }
 
-double Vector2D::Magnitude()
+int Vector2D::Magnitude()
 {
 	double x = this->x;
 	double y = this->y;

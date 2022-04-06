@@ -1,5 +1,4 @@
 #pragma once
-
 #include<iostream>
 #include <string>
 #include <SDL.h>
@@ -8,26 +7,24 @@
 
 class Screen
 {
-
 public:
 
 	Screen();
 
-	bool Initialize(const std::string& windowTitle, int width, int height);
+	bool Initialize(const std::string& windowTitle = "<No name>");
 
 	void Clear();
 	void Present();
 	void Shutdown();
-	int GetResolution();
+	Vector2D GetResolution();
 
 	SDL_Renderer* GetRenderer();
-	int m_width;
-	int m_height;
+	int width = 1280;
+	int height = 720;
 
 private:
 
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
-
-	//Vector2D m_size;
+	Vector2D screenDimension;
 };

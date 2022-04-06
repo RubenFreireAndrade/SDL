@@ -7,7 +7,7 @@ Screen::Screen()
 	m_renderer = nullptr;
 }
 //TODO - Fix this for fullscreen.
-bool Screen::Initialize(const std::string& windowTitle, int width, int height)
+bool Screen::Initialize(const std::string& windowTitle)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 	{
@@ -53,10 +53,10 @@ void Screen::Shutdown()
 	SDL_Quit();
 }
 
-int Screen::GetResolution()
+Vector2D Screen::GetResolution()
 {
-	SDL_GetWindowSize(m_window, &m_width, &m_height);
-	return m_width, m_height;
+	SDL_GetWindowSize(m_window, &screenDimension.x, &screenDimension.y);
+	return screenDimension;
 }
 
 SDL_Renderer* Screen::GetRenderer()
