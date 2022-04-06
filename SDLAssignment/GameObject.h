@@ -26,7 +26,6 @@ public:
 	void SetSize(const Vector2D& position);
 	void SetSize(int width, int height);
 	void SetAngle(float angle);
-
 	void SetTag(const std::string& tag);
 
 	const Vector2D& GetSize() const;
@@ -40,10 +39,6 @@ public:
 	bool IsDead();
 
 protected:
-
-	std::string m_tag;
-	float m_angle;
-
 	bool IsCollidingWith(GameObject* obj);
 
 	bool deleteFlag;
@@ -56,6 +51,8 @@ protected:
 	Vector2D m_position;
 	Vector2D m_velocity;
 
-	int x;
-	int y;
+	int x = {};
+	int y = {};
+	float m_angle;
+	std::string m_tag;
 };

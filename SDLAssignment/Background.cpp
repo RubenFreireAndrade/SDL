@@ -4,7 +4,6 @@
 Background::Background()
 {
 	isStatic = true;
-	//this->SetSize(1280, 720);
 }
 
 void Background::Initialise(Screen& screen)
@@ -22,5 +21,4 @@ void Background::Render(Screen& screen)
 
 void Background::Update(Input& input)
 {
-	//m_image.SetSpriteDimension();
 }

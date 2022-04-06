@@ -3,9 +3,14 @@
 
 GameObject::GameObject()
 {
-	m_angle; 0.0f;
+	m_angle = 0.0f;
 	deleteFlag = false;
 	m_velocity = { 0, 0 };
+
+	isStatic = false;
+	isDead = false;
+	isGrounded = false;
+	isBlocked = false;
 }
 
 void GameObject::PreUpdate(Input& input) // Adding gravity to objects before Update();
@@ -111,7 +116,6 @@ bool GameObject::IsDead()
 	return isDead;
 }
 
-// Checking the collision
 bool GameObject::IsCollidingWith(GameObject* obj)
 {
 	Vector2D obj1Pos = this->GetPosition();

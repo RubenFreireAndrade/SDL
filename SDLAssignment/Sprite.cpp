@@ -8,6 +8,8 @@ Sprite::Sprite()
 
 	m_isAnimated = false;
 	m_isAnimatedLooping = false;
+	m_animationSpeed = {};
+	m_imageCell = {};
 
 	m_spriteDimension = {0, 0};
 	m_cellDimension = {0, 0};
