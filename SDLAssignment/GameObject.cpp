@@ -4,9 +4,9 @@
 GameObject::GameObject()
 {
 	m_angle = 0.0f;
-	deleteFlag = false;
 	m_velocity = { 0, 0 };
 
+	deleteFlag = false;
 	isStatic = false;
 	isDead = false;
 	isGrounded = false;
@@ -16,7 +16,6 @@ GameObject::GameObject()
 void GameObject::PreUpdate(Input& input) // Adding gravity to objects before Update();
 {
 	m_velocity = { 0, m_velocity.y };
-
 	this->Update(input);
 	if (!isStatic)
 	{
@@ -79,6 +78,11 @@ void GameObject::SetPosition(int x, int y)
 void GameObject::SetPosition(const Vector2D& position)
 {
 	m_position = position;
+}
+
+void GameObject::SetPosition(const Vector<int>& position)
+{
+	m_vectorPosition = position;
 }
 
 const Vector2D& GameObject::GetSize() const

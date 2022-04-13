@@ -1,27 +1,33 @@
 #pragma once
+#include <memory>
+#include <vector>
+#include "Screen.h"
 #include "GameState.h"
 #include "MainMenu.h"
 #include "TextToScreen.h"
 #include "Background.h"
 #include "PlayState.h"
-#include <memory>
+#include "MenuButton.h"
 
 class MainMenuState : public GameState
 {
 public:
 	MainMenuState();
-
+	~MainMenuState();
 	// Inherited via GameState
+	virtual bool OnEnter(Screen& screen);
 	virtual GameState* Update(Input& input) override;
 	virtual bool Render(Screen& screen) override;
 	virtual void OnExit() override;
-	virtual bool OnEnter(Screen& screen);
 
 private:
-	std::unique_ptr<MainMenu> m_mainMenu;
-	//MainMenu m_mainMenu;
+	Screen m_screen;
 	PlayState m_playState;
-	std::unique_ptr<Background> m_background;
 	TextToScreen m_textToScreen;
+
+	Vector<int> buttonPos;
+
+	std::unique_ptr<MainMenu> m_mainMenuBackground;
+	std::vector<MenuButton> m_button;
 };
 

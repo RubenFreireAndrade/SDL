@@ -26,6 +26,26 @@ void Sprite::IsAnimationLooping(bool flag)
 	m_isAnimatedLooping = flag;
 }
 
+Vector<int> Sprite::GetSpriteDimension() const
+{
+	return m_spriteDimension;
+}
+
+Vector<int> Sprite::GetImageDimension() const
+{
+	return m_imageDimension;
+}
+
+Vector<int> Sprite::GetSpriteDimension()
+{
+	return m_spriteDimension;
+}
+
+//SDL_Point Sprite::GetSpriteDimension()
+//{
+//	return m_spriteDimension;
+//}
+
 void Sprite::SetAnimationSpeed(float speed)
 {
 	m_animationSpeed = speed;

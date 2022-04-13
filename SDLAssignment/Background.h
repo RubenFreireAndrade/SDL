@@ -7,7 +7,6 @@
 
 class Background : public GameObject
 {
-
 public:
 
 	Background();
@@ -16,9 +15,9 @@ public:
 	void Initialise(Screen& screen);
 	void Update(Input& input);
 	void Render(Screen& screen);
+	void ShutDown();
 
 private:
-	
 	Sprite m_image;
 	Screen m_screen;
 	Vector2D m_velocity;

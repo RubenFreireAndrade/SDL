@@ -6,6 +6,7 @@
 #include "Screen.h"
 #include "Input.h"
 #include "Vector2D.h"
+#include "Vector.h"
 
 class GameObject
 {
@@ -23,6 +24,7 @@ public:
 
 	void SetPosition(int x, int y);
 	void SetPosition(const Vector2D& position);
+	void SetPosition(const Vector<int>& position);
 	void SetSize(const Vector2D& position);
 	void SetSize(int width, int height);
 	void SetAngle(float angle);
@@ -50,6 +52,8 @@ protected:
 	Vector2D m_size;
 	Vector2D m_position;
 	Vector2D m_velocity;
+
+	Vector<int> m_vectorPosition;
 
 	int x = {};
 	int y = {};

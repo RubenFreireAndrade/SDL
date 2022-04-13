@@ -130,6 +130,7 @@ void Player::Render(Screen& screen)
 {
 	if (m_spriteDirection != Player::Direction::RIGHT)
 	{
+		//m_image->SetSpriteDimension((screen.GetResolution().x / 2), screen.GetResolution().y / 2);
 		m_image[m_state].Render(m_position.x, m_position.y, screen, Sprite::HORZ_FLIP);
 	}
 	else

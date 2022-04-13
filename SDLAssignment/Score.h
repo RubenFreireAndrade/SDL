@@ -13,7 +13,7 @@ public:
 	void AddToScore();
 private:
 	TextToScreen m_text = {};
-	Player* m_player;
+	Player* m_player = {};
 
 	int scorePosX = 0;
 	int scorePosY = 0;

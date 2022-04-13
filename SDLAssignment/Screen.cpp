@@ -6,7 +6,7 @@ Screen::Screen()
 	m_window = nullptr;
 	m_renderer = nullptr;
 }
-//TODO - Fix this for fullscreen.
+
 bool Screen::Initialize(const std::string& windowTitle)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
@@ -14,6 +14,7 @@ bool Screen::Initialize(const std::string& windowTitle)
 		std::cout << "Error initializing SDL." << std::endl;
 		return false;
 	}
+	// TODO - Set the flag to Fullscreen if there is no time to fix RESIZABLE window.
 	m_window = SDL_CreateWindow(windowTitle.c_str(),       //game window title
 		SDL_WINDOWPOS_CENTERED,    //pos x
 		SDL_WINDOWPOS_CENTERED,    //pos y

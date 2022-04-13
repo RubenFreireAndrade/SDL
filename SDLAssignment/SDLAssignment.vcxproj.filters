@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\WorldObjects">
-      <UniqueIdentifier>{4db36319-3a78-4101-a9f2-59522d335951}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{fb0c3750-2cd6-4a07-b458-b1c1269947de}</UniqueIdentifier>
     </Filter>
@@ -34,14 +31,14 @@
     <Filter Include="Header Files\Player Stuff">
       <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Player Stuff">
-      <UniqueIdentifier>{df085bfa-c10b-4d5d-9d5f-db31ff1c2cfa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Enemy Stuff">
-      <UniqueIdentifier>{b2a66b07-783c-40a8-a9de-751a101f8831}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\World Objects">
       <UniqueIdentifier>{c43f19dc-339a-4f29-8289-ba2e0224ecf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World Objects">
+      <UniqueIdentifier>{4db36319-3a78-4101-a9f2-59522d335951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character Stuff">
+      <UniqueIdentifier>{3b28501b-4def-4ee1-91a4-cb7f4d6b4be8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,17 +57,11 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Player Stuff</Filter>
-    </ClCompile>
     <ClCompile Include="Coin.cpp">
-      <Filter>Source Files\WorldObjects</Filter>
+      <Filter>Source Files\World Objects</Filter>
     </ClCompile>
     <ClCompile Include="Platform.cpp">
-      <Filter>Source Files\WorldObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files\Enemy Stuff</Filter>
+      <Filter>Source Files\World Objects</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\States</Filter>
@@ -113,6 +104,15 @@
     </ClCompile>
     <ClCompile Include="Score.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Character Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Character Stuff</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="Score.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files\Core Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

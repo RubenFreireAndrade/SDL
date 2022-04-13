@@ -1,8 +1,8 @@
 #pragma once
-
 #include <string>
 #include <SDL.h>
 #include "Screen.h"
+#include "Vector.h"
 
 class Sprite
 {
@@ -15,12 +15,16 @@ public:
 		HORZ_FLIP = SDL_FLIP_HORIZONTAL,
 		VERT_FLIP = SDL_FLIP_VERTICAL
 	};
-
 	Sprite();
 	~Sprite() {}
 
 	void IsAnimated(bool flag);
 	void IsAnimationLooping(bool flag);
+
+	//SDL_Point GetSpriteDimension();
+	Vector<int> GetSpriteDimension() const;
+	Vector<int> GetImageDimension() const;
+	Vector<int> GetSpriteDimension();
 
 	void SetAnimationSpeed(float speed);
 	void SetSpriteDimension(int width, int height); // size on screen.
@@ -41,7 +45,11 @@ private:
 	float m_animationSpeed;
 
 	SDL_Texture* m_image;
-	SDL_Point m_spriteDimension;
+	/*SDL_Point m_spriteDimension;
 	SDL_Point m_cellDimension;
-	SDL_Point m_imageDimension;
+	SDL_Point m_imageDimension;*/
+
+	Vector<int> m_cellDimension;
+	Vector<int> m_imageDimension;
+	Vector<int> m_spriteDimension;
 };
