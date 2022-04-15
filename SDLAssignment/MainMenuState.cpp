@@ -2,8 +2,6 @@
 
 MainMenuState::MainMenuState()
 {
-	buttonPos.x = 0;
-	buttonPos.y = 0;
 }
 
 MainMenuState::~MainMenuState()
@@ -14,18 +12,24 @@ bool MainMenuState::OnEnter(Screen& screen)
 {
 	m_mainMenuBackground = std::make_unique<MainMenu>();
 
+	m_mainMenuBackground->Initialise(screen);
+	m_music.Initialise();
+
 	m_button.push_back(MenuButton("Play", screen));
 	m_button.push_back(MenuButton("Controls", screen));
 	m_button.push_back(MenuButton("Settings", screen));
 	m_button.push_back(MenuButton("Quit", screen));
+	m_music.Load("Assets/Audio/MenuBGM.mp3");
+	m_music.SetVolume(0);
+	m_music.Play();
 
-	m_mainMenuBackground->Initialise(screen);
-	//m_button[0].Initialise(screen);
-	/*for (auto& button : m_button)
+	for (auto i = 0; i < m_button.size(); i++)
 	{
-		button.SetPosition(buttonPos);
-		buttonPos.y += 100;
-	}*/
+		auto button = &m_button[i];
+		auto newX = button->GetPosition().x;
+		auto newY = button->GetPosition().y + 100 * i + screen.GetResolution().y / 3;
+		button->SetPosition(newX , newY);
+	}
 	return true;
 }
 
@@ -33,7 +37,6 @@ GameState* MainMenuState::Update(Input& input)
 {
 	input.Update();
 	m_mainMenuBackground->Update(input);
-	//m_button[0].Update(input);
 	for (auto& button : m_button)
 	{
 		button.Update(input);
@@ -44,7 +47,7 @@ GameState* MainMenuState::Update(Input& input)
 			{
 				return new PlayState;
 			}
-			if (tag == "Exit")
+			if (tag == "Quit")
 			{
 				return 0;
 			}
@@ -58,17 +61,19 @@ bool MainMenuState::Render(Screen& screen)
 	m_mainMenuBackground->Render(screen);
 	for (auto& button : m_button)
 	{
-		/*button.SetPosition(buttonPos);
-		buttonPos.y += 100;*/
-		//auto tag = button.GetTag();
 		button.Render(screen);
-		//m_button[0].Render(screen);
 	}
 	return true;
 }
 
 void MainMenuState::OnExit()
 {
-	m_mainMenuBackground->ShutDown();
+	m_music.Shutdown();
 	m_button[0].ShutDown();
+	m_mainMenuBackground->ShutDown();
+}
+
+Vector2D MainMenuState::SetPositionOfTag(std::string nameTag)
+{
+	return Vector2D(500, 300);
 }
