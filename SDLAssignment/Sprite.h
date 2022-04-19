@@ -21,7 +21,6 @@ public:
 	void IsAnimated(bool flag);
 	void IsAnimationLooping(bool flag);
 
-	//SDL_Point GetSpriteDimension();
 	Vector<int> GetSpriteDimension() const;
 	Vector<int> GetImageDimension() const;
 	Vector<int> GetSpriteDimension();
@@ -45,9 +44,6 @@ private:
 	float m_animationSpeed;
 
 	SDL_Texture* m_image;
-	/*SDL_Point m_spriteDimension;
-	SDL_Point m_cellDimension;
-	SDL_Point m_imageDimension;*/
 
 	Vector<int> m_cellDimension;
 	Vector<int> m_imageDimension;

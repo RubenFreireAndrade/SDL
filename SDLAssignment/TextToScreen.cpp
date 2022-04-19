@@ -65,6 +65,11 @@ void TextToScreen::Render(const int xPos, const int yPos, Screen& screen)
 	SDL_RenderCopy(screen.GetRenderer(), m_texture, nullptr, &m_targetRect);
 }
 
+SDL_Point TextToScreen::GetDimension() const
+{
+	return m_dimension;
+}
+
 void TextToScreen::Unload()
 {
 	TTF_CloseFont(m_font);

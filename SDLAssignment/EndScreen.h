@@ -1,8 +1,10 @@
 #pragma once
 #include <SDL_ttf.h>
+#include <vector>
 #include "Screen.h"
-#include "TextToScreen.h"
 #include "Player.h"
+#include "Sprite.h"
+#include "TextToScreen.h"
 
 class EndScreen
 {
@@ -14,7 +16,7 @@ class EndScreen
 
 public:
 
-	EndScreen();
+	EndScreen(Screen& screen);
 	~EndScreen();
 
 	void RenderEndScreen(Screen& screen, int state);
@@ -24,13 +26,12 @@ public:
 
 private:
 
+	TTF_Font* font = nullptr;
 	SDL_Surface* surface = nullptr;
 	SDL_Texture* texture = nullptr;
 	SDL_Rect textBox = {0, 0, 0, 0};
-	TTF_Font* font = nullptr;
 
+	Sprite m_sprite;
 	TextToScreen m_textToScreen;
-	int textPosX = 0;
-	int textPosY = 0;
 };
 

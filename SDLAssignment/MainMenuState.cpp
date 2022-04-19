@@ -20,7 +20,7 @@ bool MainMenuState::OnEnter(Screen& screen)
 	m_button.push_back(MenuButton("Settings", screen));
 	m_button.push_back(MenuButton("Quit", screen));
 	m_music.Load("Assets/Audio/MenuBGM.mp3");
-	m_music.SetVolume(0);
+	m_music.SetVolume(1);
 	m_music.Play();
 
 	for (auto i = 0; i < m_button.size(); i++)
@@ -69,11 +69,9 @@ bool MainMenuState::Render(Screen& screen)
 void MainMenuState::OnExit()
 {
 	m_music.Shutdown();
-	m_button[0].ShutDown();
 	m_mainMenuBackground->ShutDown();
-}
-
-Vector2D MainMenuState::SetPositionOfTag(std::string nameTag)
-{
-	return Vector2D(500, 300);
+	for (auto& button : m_button)
+	{
+		button.ShutDown();
+	}
 }

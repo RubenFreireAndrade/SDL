@@ -41,11 +41,6 @@ Vector<int> Sprite::GetSpriteDimension()
 	return m_spriteDimension;
 }
 
-//SDL_Point Sprite::GetSpriteDimension()
-//{
-//	return m_spriteDimension;
-//}
-
 void Sprite::SetAnimationSpeed(float speed)
 {
 	m_animationSpeed = speed;

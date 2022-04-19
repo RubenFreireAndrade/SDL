@@ -5,6 +5,8 @@ Input::Input()
 {
 	m_isMouseClicked = false;
 	m_isWindowClosed = false;
+	m_mouseButtonUp = 0;
+	m_mouseButtonDown = 0;
 }
 
 int Input::GetMouseButtonUp()

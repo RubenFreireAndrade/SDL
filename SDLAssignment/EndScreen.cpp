@@ -1,15 +1,18 @@
 #include "EndScreen.h"
 #include <iostream>
 
-EndScreen::EndScreen()
+EndScreen::EndScreen(Screen& screen)
 {
 	m_textToScreen.Load("Assets/Fonts/impact.ttf", 300);
 	m_textToScreen.SetColor(255, 153, 51, 255);
+
+	m_sprite.Load("Assets/Images/darkBackground.png", screen);
+	m_sprite.SetSpriteDimension(1280, 720);
+	m_sprite.SetImageDimension(1, 1, 1280, 720);
 }
 
 EndScreen::~EndScreen()
 {
-
 }
 
 void EndScreen::RenderEndScreen(Screen& screen, int state)
@@ -17,8 +20,6 @@ void EndScreen::RenderEndScreen(Screen& screen, int state)
 	if (state == WIN)
 	{
 		const char* message = "";
-		/*SetDimension(300, 150);
-		SetPosition(525, 600 / 2);*/
 		message = "You Win!";
 		m_textToScreen.SetText(message);
 		m_textToScreen.SetDimension(300, 150);
@@ -26,19 +27,12 @@ void EndScreen::RenderEndScreen(Screen& screen, int state)
 	else if(state == LOSS)
 	{
 		const char* message = "";
-		/*SetDimension(700, 150);
-		SetPosition(300, 600 / 2);*/
 		message = "You Lost! Restart Game To Try Again!";
 		m_textToScreen.SetText(message);
 		m_textToScreen.SetDimension(700, 150);
 	}
-	m_textToScreen.Render(textBox.x, textBox.y, screen);
-	/*surface = TTF_RenderText_Solid(font, message, color);
-	texture = SDL_CreateTextureFromSurface(screen.GetRenderer(), surface);
-	textBox.y = 600 / 2;
-	textBox.h = 150;*/
-
-	//SDL_RenderCopy(screen.GetRenderer(), texture, NULL, &textBox);
+	m_sprite.Render(0, 0, screen, m_sprite.NO_FLIP);
+	m_textToScreen.Render((screen.GetResolution().x / 2) - m_textToScreen.GetDimension().x / 2 , screen.GetResolution().y / 2 - m_textToScreen.GetDimension().y / 2, screen);
 }
 
 void EndScreen::SetPosition(int x, int y)
@@ -55,5 +49,6 @@ void EndScreen::SetDimension(int w, int h)
 
 void EndScreen::Unload()
 {
+	m_sprite.Unload();
 	TTF_CloseFont(font);
 }

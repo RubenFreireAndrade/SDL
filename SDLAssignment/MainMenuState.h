@@ -21,8 +21,6 @@ public:
 	virtual bool Render(Screen& screen) override;
 	virtual void OnExit() override;
 
-	Vector2D SetPositionOfTag(std::string nameTag);
-
 private:
 	Music m_music;
 	Screen m_screen;

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "GameState.h"
 #include "EndScreen.h"
 #include "Player.h"
@@ -6,7 +7,7 @@
 class EndScreenState : public GameState
 {
 public:
-	EndScreenState(ConditionState c/*Player p*/);
+	EndScreenState(ConditionState c);
 	~EndScreenState();
 
 	// Inherited via GameState
@@ -16,11 +17,9 @@ public:
 	virtual bool OnEnter(Screen& screen);
 
 private:
-	//EndScreen m_endScreen;
 	Player m_player;
 	ConditionState m_enumState;
 	
 	int conditionState;
-
 	std::unique_ptr<EndScreen> m_endScreen;
 };
