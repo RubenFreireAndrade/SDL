@@ -2,7 +2,6 @@
 #include <SDL_ttf.h>
 #include <vector>
 #include "Screen.h"
-#include "Player.h"
 #include "Sprite.h"
 #include "TextToScreen.h"
 
@@ -16,13 +15,15 @@ class EndScreen
 
 public:
 
-	EndScreen(Screen& screen);
+	EndScreen();
 	~EndScreen();
 
-	void RenderEndScreen(Screen& screen, int state);
+	void Initialise(Screen& screen);
+	void Render(Screen& screen, int state);
+	void ShutDown();
+
 	void SetPosition(int x, int y);
 	void SetDimension(int w, int h);
-	void Unload();
 
 private:
 
@@ -31,6 +32,8 @@ private:
 	SDL_Texture* texture = nullptr;
 	SDL_Rect textBox = {0, 0, 0, 0};
 
+	int PosX = 0;
+	int PosY = 0;
 	Sprite m_sprite;
 	TextToScreen m_textToScreen;
 };

@@ -9,12 +9,12 @@ EndScreenState::EndScreenState(ConditionState c)
 
 EndScreenState::~EndScreenState()
 {
-    m_endScreen->Unload();
 }
 
 bool EndScreenState::OnEnter(Screen& screen)
 {
     m_endScreen = std::make_unique<EndScreen>();
+    m_endScreen->Initialise(screen);
     return true;
 }
 
@@ -31,11 +31,11 @@ GameState* EndScreenState::Update(Input& input)
 
 bool EndScreenState::Render(Screen& screen)
 {
-    m_endScreen->RenderEndScreen(screen, conditionState);
+    m_endScreen->Render(screen, conditionState);
     return true;
 }
 
 void EndScreenState::OnExit()
 {
-    m_endScreen->Unload();
+    m_endScreen->ShutDown();
 }

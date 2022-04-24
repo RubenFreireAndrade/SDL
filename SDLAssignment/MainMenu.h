@@ -19,6 +19,6 @@ public:
 
 private:
 
-	Sprite m_image;
+	Sprite m_sprite;
 };
 
