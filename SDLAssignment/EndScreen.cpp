@@ -1,7 +1,14 @@
 #include "EndScreen.h"
 
-EndScreen::EndScreen()
+EndScreen::EndScreen(const std::string& fileName, Screen& screen)
 {
+	/*endScreenBtnState = EndScreenButtonState::DEFAULT;*/
+	this->SetTag(fileName);
+
+	m_button.Load("Assets/Images/" + this->GetTag() + ".png", screen);
+	m_button.SetImageDimension(2, 1, 1200, 200);
+	m_button.SetSpriteDimension(150, 50);
+	m_button.SetImageCell(1, 1);
 }
 
 EndScreen::~EndScreen()
@@ -10,17 +17,21 @@ EndScreen::~EndScreen()
 
 void EndScreen::Initialise(Screen& screen)
 {
-	m_textToScreen.Load("Assets/Fonts/impact.ttf", 300);
-	m_textToScreen.SetColor(0, 168, 255, 255);
+	/*m_textToScreen.Load("Assets/Fonts/impact.ttf", 300);
+	m_textToScreen.SetColor(0, 168, 255, 255);*/
 
-	m_sprite.Load("Assets/Images/darkBackground.jpg", screen);
-	m_sprite.SetSpriteDimension(1280, 720);
-	m_sprite.SetImageDimension(1, 1, 1280, 720);
+	//m_background.Load("Assets/Images/MountainBackgrundBlue.png", screen);
+	//m_background.SetSpriteDimension(1280, 720);
+	//m_background.SetImageDimension(1, 1, 1280, 720);
+}
+
+void EndScreen::Update(Input& input)
+{
 }
 
 void EndScreen::Render(Screen& screen, int state)
 {
-	if (state == WIN)
+	/*if (state == WIN)
 	{
 		const char* message = "";
 		message = "You Win!";
@@ -34,24 +45,16 @@ void EndScreen::Render(Screen& screen, int state)
 		m_textToScreen.SetText(message);
 		m_textToScreen.SetDimension(700, 150);
 	}
-	m_sprite.Render(PosX, PosY, screen, m_sprite.NO_FLIP);
-	m_textToScreen.Render((screen.GetResolution().x / 2) - m_textToScreen.GetDimension().x / 2, screen.GetResolution().y / 2 - m_textToScreen.GetDimension().y / 2, screen);
-}
+	m_background.Render(PosX, PosY, screen, m_background.NO_FLIP);
+	m_textToScreen.Render((screen.GetResolution().x / 2) - m_textToScreen.GetDimension().x / 2, screen.GetResolution().y / 2 - m_textToScreen.GetDimension().y / 2, screen);*/
+	m_button.Render((screen.GetResolution().x / 2) - m_button.GetSpriteDimension().x / 2, this->GetPosition().y, screen);
 
-void EndScreen::SetPosition(int x, int y)
-{
-	textBox.x = x;
-	textBox.y = y;
-}
-
-void EndScreen::SetDimension(int w, int h)
-{
-	textBox.w = w;
-	textBox.h = h;
+	//this->SetPosition((screen.GetResolution().x / 2) - m_btnSprite.GetSpriteDimension().x / 2, this->GetPosition().y);
 }
 
 void EndScreen::ShutDown()
 {
-	m_sprite.Unload();
-	TTF_CloseFont(font);
+	m_button.Unload();
+	//m_background.Unload();
+	//TTF_CloseFont(font);
 }

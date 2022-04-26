@@ -1,40 +1,46 @@
 #pragma once
-#include <SDL_ttf.h>
 #include <vector>
 #include "Screen.h"
 #include "Sprite.h"
-#include "TextToScreen.h"
+#include "GameObject.h"
 
-class EndScreen
+class EndScreen : public GameObject
 {
+public:
+
 	enum ConditionState
 	{
 		WIN,
 		LOSS
 	};
 
-public:
+	enum class EndScreenButtonState
+	{
+		DEFAULT,
+		HOVERED,
+		CLICKED
+	};
 
-	EndScreen();
+	EndScreen(const std::string& fileName, Screen& screen);
 	~EndScreen();
 
+	// Inherited via GameObject
+	virtual void Update(Input& input);
+	virtual void Render(Screen& screen, int state);
 	void Initialise(Screen& screen);
-	void Render(Screen& screen, int state);
+	//void Render(Screen& screen, int state);
 	void ShutDown();
-
-	void SetPosition(int x, int y);
-	void SetDimension(int w, int h);
-
 private:
-
+/*
 	TTF_Font* font = nullptr;
 	SDL_Surface* surface = nullptr;
-	SDL_Texture* texture = nullptr;
-	SDL_Rect textBox = {0, 0, 0, 0};
+	SDL_Texture* texture = nullptr;*/
+	//SDL_Rect textBox = {0, 0, 0, 0};
 
 	int PosX = 0;
 	int PosY = 0;
-	Sprite m_sprite;
-	TextToScreen m_textToScreen;
+	Sprite m_button;
+
+	EndScreenButtonState endScreenBtnState;
 };
 

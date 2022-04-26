@@ -15,10 +15,10 @@ bool MainMenuState::OnEnter(Screen& screen)
 	m_mainMenuBackground->Initialise(screen);
 	m_music.Initialise();
 
-	m_button.push_back(MenuButton("Play", screen));
-	m_button.push_back(MenuButton("Controls", screen));
-	m_button.push_back(MenuButton("Settings", screen));
-	m_button.push_back(MenuButton("Quit", screen));
+	m_button.push_back(MenuButton("PlayButton", screen));
+	m_button.push_back(MenuButton("ControlsButton", screen));
+	m_button.push_back(MenuButton("SettingsButton", screen));
+	m_button.push_back(MenuButton("QuitButton", screen));
 	m_music.Load("Assets/Audio/MenuBGM.mp3");
 	m_music.SetVolume(1);
 	m_music.Play();
@@ -43,11 +43,11 @@ GameState* MainMenuState::Update(Input& input)
 		auto tag = button.GetTag();
 		if (button.GetState() == MenuButton::ButtonState::CLICKED)
 		{
-			if (tag == "Play")
+			if (tag == "PlayButton")
 			{
 				return new PlayState;
 			}
-			if (tag == "Quit")
+			if (tag == "QuitButton")
 			{
 				return 0;
 			}

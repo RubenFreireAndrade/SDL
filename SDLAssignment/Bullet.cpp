@@ -8,7 +8,6 @@ Bullet::Bullet(Vector2D spawnPos, Vector2D bulletDir)
 	m_velocity = m_direction.Scale(speed);
 	m_size = { 30, 10 };
 	isStatic = true;
-	//m_window = width;
 }
 
 Bullet::~Bullet()
@@ -28,7 +27,6 @@ void Bullet::Update(Input& input)
 void Bullet::Render(Screen& screen)
 {
 	SDL_Rect box;
-
 	box.x = m_position.x;
 	box.y = m_position.y;
 	box.h = m_size.y;

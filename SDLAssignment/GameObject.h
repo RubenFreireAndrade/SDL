@@ -19,7 +19,7 @@ public:
 
 	void PreUpdate(Input& input);
 	virtual void Update(Input& input) = 0;
-	virtual void Render(Screen& screen) = 0;
+	virtual void Render(Screen& screen);
 	virtual void CheckCollision(std::list<GameObject*> objects);
 
 	void SetPosition(int x, int y);

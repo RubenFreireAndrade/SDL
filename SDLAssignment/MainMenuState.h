@@ -27,7 +27,7 @@ private:
 	PlayState m_playState;
 	TextToScreen m_textToScreen;
 
-	std::unique_ptr<MainMenu> m_mainMenuBackground;
 	std::vector<MenuButton> m_button;
+	std::unique_ptr<MainMenu> m_mainMenuBackground;
 };
 

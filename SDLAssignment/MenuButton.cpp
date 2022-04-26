@@ -8,10 +8,10 @@ MenuButton::MenuButton(const std::string& fileName, Screen& screen)
 	buttonState = ButtonState::DEFAULT;
 
 	this->SetTag(fileName);
-	m_sprite.Load("Assets/Images/" + this->GetTag() + "Button.png", screen);
-	m_sprite.SetImageDimension(2, 1, 1200, 200);
-	m_sprite.SetSpriteDimension(150, 50);
-	m_sprite.SetImageCell(1, 1);
+	m_btnSprite.Load("Assets/Images/" + this->GetTag() + ".png", screen);
+	m_btnSprite.SetImageDimension(2, 1, 1200, 200);
+	m_btnSprite.SetSpriteDimension(150, 50);
+	m_btnSprite.SetImageCell(1, 1);
 }
 
 void MenuButton::Initialise(Screen& screen)
@@ -43,22 +43,22 @@ void MenuButton::Render(Screen& screen)
 {
 	if (buttonState == ButtonState::HOVER)
 	{
-		m_sprite.SetImageCell(2, 1);
+		m_btnSprite.SetImageCell(2, 1);
 	}
 	if (buttonState == ButtonState::DEFAULT)
 	{
-		m_sprite.SetImageCell(1, 1);
+		m_btnSprite.SetImageCell(1, 1);
 	}
-	this->SetPosition((screen.GetResolution().x / 2) - m_sprite.GetSpriteDimension().x / 2, this->GetPosition().y);
-	m_sprite.Render(this->GetPosition().x, this->GetPosition().y, screen);
+	this->SetPosition((screen.GetResolution().x / 2) - m_btnSprite.GetSpriteDimension().x / 2, this->GetPosition().y);
+	m_btnSprite.Render(this->GetPosition().x, this->GetPosition().y, screen);
 }
 
 void MenuButton::GetButtonRect()
 {
 	buttonPosition.x = this->GetPosition().x;
 	buttonPosition.y = this->GetPosition().y;
-	buttonPosition.w = m_sprite.GetSpriteDimension().x;
-	buttonPosition.h = m_sprite.GetSpriteDimension().y;
+	buttonPosition.w = m_btnSprite.GetSpriteDimension().x;
+	buttonPosition.h = m_btnSprite.GetSpriteDimension().y;
 }
 
 const MenuButton::ButtonState& MenuButton::GetState() const
@@ -68,5 +68,5 @@ const MenuButton::ButtonState& MenuButton::GetState() const
 
 void MenuButton::ShutDown()
 {
-	m_sprite.Unload();
+	m_btnSprite.Unload();
 }

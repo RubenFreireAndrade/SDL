@@ -15,15 +15,16 @@ public:
 
 	MenuButton(const std::string& filename, Screen& screen);
 	void Initialise(Screen& screen);
-	void GetButtonRect();
-	const ButtonState& GetState() const;
-	void ShutDown();
 	// Inherited via GameObject
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
+	void ShutDown();
+	
+	void GetButtonRect();
+	const ButtonState& GetState() const;
 
 private:
-	Sprite m_sprite;
+	Sprite m_btnSprite;
 
 	SDL_Rect buttonPosition;
 	SDL_Point mousePosition;
