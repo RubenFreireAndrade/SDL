@@ -7,6 +7,7 @@
 #include "Input.h"
 #include "Vector2D.h"
 #include "Vector.h"
+#include "Sprite.h"
 
 class GameObject
 {
@@ -39,6 +40,7 @@ public:
 	void FlagForDeletion();
 	bool IsFlaggedForDeletion();
 	bool IsDead();
+	void ShutDown();
 
 protected:
 	bool IsCollidingWith(GameObject* obj);
@@ -52,6 +54,7 @@ protected:
 	Vector2D m_size;
 	Vector2D m_position;
 	Vector2D m_velocity;
+	Sprite m_sprite;
 
 	Vector<int> m_vectorPosition;
 

@@ -1,5 +1,4 @@
 #include "MenuButton.h"
-#include <iostream>
 
 MenuButton::MenuButton(const std::string& fileName, Screen& screen)
 {

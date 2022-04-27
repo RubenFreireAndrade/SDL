@@ -1,18 +1,15 @@
 #include "Coin.h"
 #include <SDL.h>
 
-Coin::Coin(/*int x, int y*/)
+Coin::Coin()
 {
 	m_tag = "pickup";
 	isStatic = true;
-
-	/*this->SetPosition(x, y);*/
 	this->SetSize(50, 50);
 }
 
 Coin::~Coin()
 {
-
 }
 
 void Coin::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
@@ -41,4 +38,9 @@ void Coin::Pickup(Player* player)
 {
 	player->AddScore(2);
 	this->FlagForDeletion();
+}
+
+void Coin::ShutDown()
+{
+	m_image.Unload();
 }

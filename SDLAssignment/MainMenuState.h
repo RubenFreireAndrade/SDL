@@ -4,7 +4,6 @@
 #include "Music.h"
 #include "Screen.h"
 #include "GameState.h"
-//#include "MainMenu.h"
 #include "TextToScreen.h"
 #include "Background.h"
 #include "PlayState.h"
@@ -24,8 +23,7 @@ public:
 private:
 	Music m_music;
 	Screen m_screen;
-	PlayState m_playState;
-	//Background m_background;
+	//PlayState m_playState;
 	TextToScreen m_textToScreen;
 
 	std::vector<MenuButton> m_button;

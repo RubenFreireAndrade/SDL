@@ -13,7 +13,6 @@ bool Game::Initialize()
 	m_screen.Initialize("SDL_Platformer");
 	m_music.Initialise();
 	m_textToScreen.Initialise();
-
 	return true;
 }
 
@@ -49,6 +48,7 @@ bool Game::Run()
 
 void Game::Shutdown()
 {
+	m_textToScreen.ShutDown();
 	m_music.Shutdown();
 	m_screen.Shutdown();
 }

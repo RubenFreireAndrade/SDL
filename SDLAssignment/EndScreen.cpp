@@ -2,7 +2,6 @@
 
 EndScreen::EndScreen(const std::string& fileName, Screen& screen)
 {
-	/*endScreenBtnState = EndScreenButtonState::DEFAULT;*/
 	this->SetTag(fileName);
 
 	m_button.Load("Assets/Images/" + this->GetTag() + ".png", screen);

@@ -70,7 +70,7 @@ SDL_Point TextToScreen::GetDimension() const
 	return m_dimension;
 }
 
-void TextToScreen::Unload()
+void TextToScreen::ShutDown()
 {
 	TTF_CloseFont(m_font);
 }

@@ -1,7 +1,8 @@
 #pragma once
-#include "GameObject.h"
+#include <iostream>
 #include "Sprite.h"
 #include "Screen.h"
+#include "GameObject.h"
 
 class MenuButton : public GameObject
 {

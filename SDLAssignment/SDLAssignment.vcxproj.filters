@@ -25,12 +25,6 @@
     <Filter Include="Header Files\Core Components">
       <UniqueIdentifier>{d2c3c8c1-b96d-4d21-b5ba-a675e980d057}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Enemy Stuff">
-      <UniqueIdentifier>{3bbf4278-dc59-4d9a-8525-b6dbff4b848a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Player Stuff">
-      <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\World Objects">
       <UniqueIdentifier>{c43f19dc-339a-4f29-8289-ba2e0224ecf4}</UniqueIdentifier>
     </Filter>
@@ -40,18 +34,15 @@
     <Filter Include="Source Files\Character Stuff">
       <UniqueIdentifier>{3b28501b-4def-4ee1-91a4-cb7f4d6b4be8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Character Stuff">
+      <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Background.cpp">
@@ -96,9 +87,6 @@
     <ClCompile Include="EndScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TextToScreen.cpp">
       <Filter>Source Files\Core Components</Filter>
     </ClCompile>
@@ -114,31 +102,28 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Source Files\Character Stuff</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Character Stuff</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files\Player Stuff</Filter>
+      <Filter>Header Files\Character Stuff</Filter>
     </ClInclude>
     <ClInclude Include="Coin.h">
       <Filter>Header Files\World Objects</Filter>
     </ClInclude>
     <ClInclude Include="Platform.h">
       <Filter>Header Files\World Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files\Enemy Stuff</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Header Files\States</Filter>
@@ -167,9 +152,6 @@
     <ClInclude Include="EndScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EndScreenState.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
@@ -187,6 +169,15 @@
     </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Character Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Character Stuff</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

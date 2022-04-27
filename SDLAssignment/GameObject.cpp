@@ -132,3 +132,8 @@ bool GameObject::IsCollidingWith(GameObject* obj)
 
 	return horizontalCheck && verticalCheck;
 }
+
+void GameObject::ShutDown()
+{
+	m_sprite.Unload();
+}

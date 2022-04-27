@@ -86,5 +86,13 @@ bool PlayState::Render(Screen& screen)
 
 void PlayState::OnExit()
 {
+	/*auto it = std::begin(objects);
+	(*it)->ShutDown();*/
+	/*m_coin1.ShutDown();
+	m_coin2.ShutDown();
+	m_platform1.ShutDown();
+	m_platform2.ShutDown();
+	m_player.ShutDown();
+	m_enemy.ShutDown();*/
 	m_background->ShutDown();
 }

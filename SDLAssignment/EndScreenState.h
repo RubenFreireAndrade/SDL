@@ -5,8 +5,10 @@
 #include "Player.h"
 #include "GameState.h"
 #include "EndScreen.h"
+#include "MenuButton.h"
 #include "Background.h"
 #include "TextToScreen.h"
+#include "MainMenuState.h"
 
 class EndScreenState : public GameState
 {
@@ -23,7 +25,6 @@ public:
 private:
 
 	Player m_player;
-	//Background m_background;
 	TextToScreen m_textToScreen;
 
 	ConditionState m_enumState;
@@ -31,5 +32,5 @@ private:
 
 	std::unique_ptr<EndScreen> m_endScreen;
 	std::unique_ptr<Background> m_background;
-	std::vector<EndScreen> m_button;
+	std::vector<MenuButton> m_button;
 };

@@ -1,18 +1,15 @@
 #include "Platform.h"
 
-Platform::Platform(/*int x, int y*/)
+Platform::Platform()
 {
 	isStatic = true;
 	m_tag = "platform";
 	m_color = { 29, 255, 0, 1 };
-
-	//this->SetPosition(x, y);
 	this->SetSize(200, 30);
 }
 
 Platform::~Platform()
 {
-
 }
 
 void Platform::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
@@ -22,7 +19,6 @@ void Platform::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 
 void Platform::Collision()
 {
-
 }
 
 void Platform::Update(Input& input)
@@ -41,4 +37,9 @@ void Platform::Render(Screen& screen)
 
 	SDL_SetRenderDrawColor(screen.GetRenderer(), m_color.r, m_color.g, m_color.b, m_color.a);
 	SDL_RenderFillRect(screen.GetRenderer(), &box);
+}
+
+void Platform::ShutDown()
+{
+	m_image.Unload();
 }
