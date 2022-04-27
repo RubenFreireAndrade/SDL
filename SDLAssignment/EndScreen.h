@@ -31,9 +31,9 @@ public:
 	//void Render(Screen& screen, int state);
 	void ShutDown();
 private:
-/*
+
 	TTF_Font* font = nullptr;
-	SDL_Surface* surface = nullptr;
+	/*SDL_Surface* surface = nullptr;
 	SDL_Texture* texture = nullptr;*/
 	//SDL_Rect textBox = {0, 0, 0, 0};
 

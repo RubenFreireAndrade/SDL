@@ -1,16 +1,14 @@
 #include "Background.h"
-#include <SDL_image.h>
 
-Background::Background()
+Background::Background(const std::string& fileName, Screen& screen)
 {
-	isStatic = true;
+	m_image.Load("Assets/Images/" + fileName + ".png", screen);
+	m_image.SetSpriteDimension(1280, 720);
+	m_image.SetImageDimension(1, 1, 1280, 720);
 }
 
 void Background::Initialise(Screen& screen)
 {
-	m_image.Load("Assets/Images/gaERSZ.png", screen);
-	m_image.SetSpriteDimension(1280, 720);
-	m_image.SetImageDimension(1, 1, 1280, 720);
 }
 
 void Background::Render(Screen& screen)

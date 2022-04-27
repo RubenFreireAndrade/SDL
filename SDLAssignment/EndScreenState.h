@@ -1,10 +1,12 @@
 #pragma once
 #include <vector>
+#include <iostream>
+#include <SDL_ttf.h>
+#include "Player.h"
 #include "GameState.h"
 #include "EndScreen.h"
-#include <SDL_ttf.h>
+#include "Background.h"
 #include "TextToScreen.h"
-#include "Player.h"
 
 class EndScreenState : public GameState
 {
@@ -19,14 +21,15 @@ public:
 	virtual bool OnEnter(Screen& screen);
 
 private:
+
 	Player m_player;
-	//EndScreen m_endScreen;
-	//EndScreen* m_endScreen;
-	ConditionState m_enumState;
-	Sprite m_background;
+	//Background m_background;
 	TextToScreen m_textToScreen;
 
+	ConditionState m_enumState;
 	int conditionState;
+
 	std::unique_ptr<EndScreen> m_endScreen;
+	std::unique_ptr<Background> m_background;
 	std::vector<EndScreen> m_button;
 };

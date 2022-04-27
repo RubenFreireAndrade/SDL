@@ -1,15 +1,15 @@
 #pragma once
 #include <string>
 #include <SDL.h>
-#include "Screen.h"
-#include "GameObject.h"
+#include <SDL_image.h>
 #include "Sprite.h"
+#include "GameObject.h"
 
 class Background : public GameObject
 {
 public:
 
-	Background();
+	Background(const std::string& fileName, Screen& screen);
 	~Background() {}
 	
 	void Initialise(Screen& screen);
@@ -19,9 +19,5 @@ public:
 
 private:
 	Sprite m_image;
-	Screen m_screen;
-	Vector2D m_velocity;
-
-	int speed = 3;
 };
 

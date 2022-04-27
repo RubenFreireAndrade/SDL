@@ -56,5 +56,5 @@ void EndScreen::ShutDown()
 {
 	m_button.Unload();
 	//m_background.Unload();
-	//TTF_CloseFont(font);
+	TTF_CloseFont(font);
 }

@@ -8,7 +8,7 @@ PlayState::PlayState()
 
 bool PlayState::OnEnter(Screen& screen)
 {
-	m_background.Initialise(screen);
+	m_background = std::make_unique<Background>(Background("gaERSZ", screen));
 	m_score.Initialise(screen, &m_player);
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
@@ -17,7 +17,6 @@ bool PlayState::OnEnter(Screen& screen)
 	m_player.Initialise(screen, &objects);
 	m_enemy.Initialise(screen, &objects);
 
-	objects.push_back(&m_background);
 	objects.push_back(&m_coin1);
 	objects.push_back(&m_coin2);
 	objects.push_back(&m_platform1);
@@ -35,7 +34,6 @@ bool PlayState::OnEnter(Screen& screen)
 GameState* PlayState::Update(Input& input)
 {
 	input.Update();
-	m_background.Update(input);
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
@@ -68,6 +66,7 @@ GameState* PlayState::Update(Input& input)
 
 bool PlayState::Render(Screen& screen)
 {
+	m_background->Render(screen);
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
@@ -87,4 +86,5 @@ bool PlayState::Render(Screen& screen)
 
 void PlayState::OnExit()
 {
+	m_background->ShutDown();
 }

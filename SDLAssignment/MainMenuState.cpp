@@ -10,9 +10,7 @@ MainMenuState::~MainMenuState()
 
 bool MainMenuState::OnEnter(Screen& screen)
 {
-	m_mainMenuBackground = std::make_unique<MainMenu>();
-
-	m_mainMenuBackground->Initialise(screen);
+	m_background = std::make_unique<Background>(Background("MountainBackgrundBlue", screen));
 	m_music.Initialise();
 
 	m_button.push_back(MenuButton("PlayButton", screen));
@@ -36,7 +34,6 @@ bool MainMenuState::OnEnter(Screen& screen)
 GameState* MainMenuState::Update(Input& input)
 {
 	input.Update();
-	m_mainMenuBackground->Update(input);
 	for (auto& button : m_button)
 	{
 		button.Update(input);
@@ -58,7 +55,7 @@ GameState* MainMenuState::Update(Input& input)
 
 bool MainMenuState::Render(Screen& screen)
 {
-	m_mainMenuBackground->Render(screen);
+	m_background->Render(screen);
 	for (auto& button : m_button)
 	{
 		button.Render(screen);
@@ -69,7 +66,7 @@ bool MainMenuState::Render(Screen& screen)
 void MainMenuState::OnExit()
 {
 	m_music.Shutdown();
-	m_mainMenuBackground->ShutDown();
+	m_background->ShutDown();
 	for (auto& button : m_button)
 	{
 		button.ShutDown();
