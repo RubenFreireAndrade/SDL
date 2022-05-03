@@ -11,24 +11,21 @@ class Bullet : public GameObject
 
 public:
 
-	Bullet(Vector2D spawnPos, Vector2D bulletDir);
+	Bullet(Vector2D spawnPos, Vector2D bulletDir, Screen& screen);
 	~Bullet();
-
+	
+	void Initialise(Screen& screen);
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
 	void CheckCollision(std::list<GameObject*> objects);
-	void AddScore(int amount);
-
-	int GetScore();
 
 private:
 
+	int speed = 4;
 	SDL_Color m_color;
 
-	int speed = 4;
-
-	Sprite m_image;
 	Screen m_window;
+	Sprite m_bulletSprite;
 	Vector2D m_direction;
 	Vector2D m_velocity;
 };

@@ -7,8 +7,8 @@ Player::Player()
 	m_tag = "player";
 	score = 0;
 
-	m_position.x = 20;
-	m_position.y = 480;
+	this->m_position.x = 20;
+	this->m_position.y = 480;
 	isStatic = false;
 
 	this->SetSize(120, 145);
@@ -92,8 +92,9 @@ void Player::Update(Input& input)
 	{
 		m_state = SHOOT;
 		m_shooting = true;
-		Vector2D offSet;
+		/*Vector2D offSet;
 		Vector2D direction;
+		Screen screen;
 		if (m_spriteDirection == Player::Direction::RIGHT)
 		{
 			offSet = Vector2D(140, 60);
@@ -105,8 +106,8 @@ void Player::Update(Input& input)
 			direction = Vector2D(-1, 0);
 		}
 		Vector2D spawnPos = m_position.Add(offSet);
-		Bullet* bullet = new Bullet(spawnPos, direction);
-		m_gameObjects->push_back(bullet);
+		Bullet* bullet = new Bullet(spawnPos, direction, screen);
+		m_gameObjects->push_back(bullet);*/
 	}
 
 	if (!input.IsMouseClicked())
@@ -135,6 +136,27 @@ void Player::Render(Screen& screen)
 	else
 	{
 		m_image[m_state].Render(m_position.x, m_position.y, screen, Sprite::NO_FLIP);
+	}
+
+	if (m_shooting == true)
+	{
+		Bullet* m_bullet;
+		Vector2D offSet;
+		Vector2D direction;
+		if (m_spriteDirection == Player::Direction::RIGHT)
+		{
+			offSet = Vector2D(140, 40);
+			direction = Vector2D(1, 0);
+		}
+		if (m_spriteDirection == Player::Direction::LEFT)
+		{
+			offSet = Vector2D(-30, 40);
+			direction = Vector2D(-1, 0);
+			//m_image[m_state].
+		}
+		Vector2D spawnPos = m_position.Add(offSet);
+		m_bullet = new Bullet(spawnPos, direction, screen);
+		m_gameObjects->push_back(m_bullet);
 	}
 }
 

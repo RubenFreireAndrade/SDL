@@ -1,9 +1,13 @@
 #include "Bullet.h"
 
-Bullet::Bullet(Vector2D spawnPos, Vector2D bulletDir)
+Bullet::Bullet(Vector2D spawnPos, Vector2D bulletDir, Screen& screen)
 {
+	m_bulletSprite.Load("Assets/Images/RedLaser.png", screen);
+	m_bulletSprite.SetImageDimension(1, 1, 251, 144);
+	m_bulletSprite.SetSpriteDimension(100, 100);
+
 	m_color = { 255, 0, 0, 1 };
-	m_position = spawnPos;
+	this->m_position = spawnPos;
 	m_direction = bulletDir;
 	m_velocity = m_direction.Scale(speed);
 	m_size = { 30, 10 };
@@ -12,7 +16,6 @@ Bullet::Bullet(Vector2D spawnPos, Vector2D bulletDir)
 
 Bullet::~Bullet()
 {
-
 }
 
 void Bullet::Update(Input& input)
@@ -26,14 +29,15 @@ void Bullet::Update(Input& input)
 
 void Bullet::Render(Screen& screen)
 {
-	SDL_Rect box;
+	/*SDL_Rect box;
 	box.x = m_position.x;
 	box.y = m_position.y;
 	box.h = m_size.y;
 	box.w = m_size.x;
 
 	SDL_SetRenderDrawColor(screen.GetRenderer(), m_color.r, m_color.g, m_color.b, m_color.a);
-	SDL_RenderFillRect(screen.GetRenderer(), &box);
+	SDL_RenderFillRect(screen.GetRenderer(), &box);*/
+	m_bulletSprite.Render(this->m_position.x, this->m_position.y, screen);
 }
 
 void Bullet::CheckCollision(std::list<GameObject*> objects)

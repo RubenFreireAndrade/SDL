@@ -1,5 +1,4 @@
 #pragma once
-
 #include "GameObject.h"
 #include <SDL.h>
 #include "Sprite.h"
@@ -8,7 +7,7 @@
 #include "Bullet.h"
 #include "input.h"
 
-class Player : public GameObject		//inheritance - player is a game object
+class Player : public GameObject
 {
 
 public:
@@ -42,16 +41,15 @@ public:
 	void SetState(State state);
 
 	int GetScore();
-	int score;
 
 private:
 
-	Sprite m_image[TOTAL_STATES];			// containment - player has an image
-
-	State m_state;
 	Input input;
+	State m_state;
 	Direction m_spriteDirection;
+	Sprite m_image[TOTAL_STATES];
 
+	int score;
 	int speed = 3;
 	int jumpHeight = 70;
 
