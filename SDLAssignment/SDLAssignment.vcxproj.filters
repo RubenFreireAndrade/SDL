@@ -108,6 +108,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Character Stuff</Filter>
     </ClCompile>
+    <ClCompile Include="PlayStateLevel2.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -178,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Header Files\Character Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateLevel2.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

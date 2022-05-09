@@ -50,7 +50,7 @@ GameState* PlayState::Update(Input& input)
 	}
 	if (m_player.GetScore() >= 4)
 	{
-		return new EndScreenState(ConditionState::WIN);
+		return new PlayStateLevel2();
 	}
 	if (m_player.IsFlaggedForDeletion())
 	{
@@ -87,4 +87,10 @@ bool PlayState::Render(Screen& screen)
 void PlayState::OnExit()
 {
 	m_background->ShutDown();
+	m_coin1.ShutDown();
+	m_coin2.ShutDown();
+	m_enemy.ShutDown();
+	m_platform1.ShutDown();
+	m_platform2.ShutDown();
+	m_player.ShutDown();
 }
