@@ -13,8 +13,7 @@ public:
 
 	Bullet(Vector2D spawnPos, Vector2D bulletDir, Screen& screen);
 	~Bullet();
-	
-	void Initialise(Screen& screen);
+
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
 	void CheckCollision(std::list<GameObject*> objects);

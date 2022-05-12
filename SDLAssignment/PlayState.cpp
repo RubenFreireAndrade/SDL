@@ -1,15 +1,17 @@
 #include "PlayState.h"
 
-Enemy m_enemy({ 1100, 470 }, { 100, 470 });
+Enemy m_enemy({ 1100, 500 }, { 100, 500 });
 
 PlayState::PlayState()
 {
+	m_score = new Score();
 }
 
 bool PlayState::OnEnter(Screen& screen)
 {
 	m_background = std::make_unique<Background>(Background("gaERSZ", screen));
-	m_score.Initialise(screen, &m_player);
+
+	m_score->Initialise(screen, &m_player);
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform1.Initialise(screen, &objects);
@@ -48,9 +50,9 @@ GameState* PlayState::Update(Input& input)
 			++it;
 		}
 	}
-	if (m_player.GetScore() >= 4)
+	if (m_player.GetScore() >= maxCoinPoints)
 	{
-		return new PlayStateLevel2();
+		return new PlayStateLevel2(m_score);
 	}
 	if (m_player.IsFlaggedForDeletion())
 	{
@@ -79,18 +81,18 @@ bool PlayState::Render(Screen& screen)
 			(*it)->Render(screen);
 			++it;
 		}
-		m_score.Render(screen);
+		m_score->Render(screen);
 	}
 	return true;
 }
 
 void PlayState::OnExit()
 {
-	m_background->ShutDown();
 	m_coin1.ShutDown();
 	m_coin2.ShutDown();
 	m_enemy.ShutDown();
 	m_platform1.ShutDown();
 	m_platform2.ShutDown();
 	m_player.ShutDown();
+	m_background->ShutDown();
 }

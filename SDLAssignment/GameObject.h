@@ -60,6 +60,7 @@ protected:
 
 	int x = {};
 	int y = {};
+	int pointsPerCoin = 2;
 	float m_angle;
 	std::string m_tag;
 };

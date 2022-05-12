@@ -1,11 +1,12 @@
 #pragma once
-#include "GameObject.h"
+#include <iostream>
 #include <SDL.h>
+#include "input.h"
 #include "Sprite.h"
-#include "Vector2D.h"
 #include "Sounds.h"
 #include "Bullet.h"
-#include "input.h"
+#include "Vector2D.h"
+#include "GameObject.h"
 
 class Player : public GameObject
 {
@@ -52,11 +53,11 @@ private:
 	int score;
 	int speed = 3;
 	int jumpHeight = 70;
+	int maxCoinPoints = 4;
 
 	bool isTouching;
-	bool m_shooting;
-	bool isJumping;
-	bool isGoalReached;
+	bool m_shooting = false;
+	bool isJumping = false;
 
-	std::list<GameObject*>* m_gameObjects;
+	std::list<GameObject*>* m_gameObjects = {};
 };

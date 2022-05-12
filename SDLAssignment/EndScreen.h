@@ -28,19 +28,13 @@ public:
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen, int state);
 	void Initialise(Screen& screen);
-	//void Render(Screen& screen, int state);
 	void ShutDown();
 private:
 
 	TTF_Font* font = nullptr;
-	/*SDL_Surface* surface = nullptr;
-	SDL_Texture* texture = nullptr;*/
-	//SDL_Rect textBox = {0, 0, 0, 0};
 
 	int PosX = 0;
 	int PosY = 0;
 	Sprite m_button;
-
-	EndScreenButtonState endScreenBtnState;
 };
 

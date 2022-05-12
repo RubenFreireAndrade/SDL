@@ -36,18 +36,15 @@ void GameObject::PreUpdate(Input& input) // Adding gravity to objects before Upd
 }
 
 void GameObject::Update(Input& input)
-{
-	
+{	
 }
 
 void GameObject::Render(Screen& screen)
 {
-
 }
 
 void GameObject::CheckCollision(std::list<GameObject*> objects)
 {
-
 }
 
 void GameObject::SetTag(const std::string& tag)

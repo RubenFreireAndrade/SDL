@@ -17,10 +17,6 @@ void Platform::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 	m_gameObjects = gameObjects;
 }
 
-void Platform::Collision()
-{
-}
-
 void Platform::Update(Input& input)
 {
 	m_image.Update();
@@ -29,7 +25,6 @@ void Platform::Update(Input& input)
 void Platform::Render(Screen& screen)
 {
 	SDL_Rect box;
-
 	box.x = m_position.x;
 	box.y = m_position.y;
 	box.h = m_size.y;

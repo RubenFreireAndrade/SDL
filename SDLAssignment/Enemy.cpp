@@ -7,7 +7,7 @@ Enemy::Enemy(Vector2D pos, Vector2D dest)
 	m_position = pos;
 	m_destination = dest;
 	m_startingPos = pos;
-	this->SetSize(150, 150);
+	this->SetSize(100, 100);
 }
 
 Enemy::~Enemy()
@@ -19,7 +19,7 @@ void Enemy::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 {
 	m_gameObjects = gameObjects;
 	m_image.Load("Assets/Images/EnemyWalkingSheet.png", screen);
-	m_image.SetSpriteDimension(150, 150);
+	m_image.SetSpriteDimension(120, 120);
 	m_image.SetImageDimension(12, 1, 9600, 700);
 	m_image.SetAnimationSpeed(0.2f);
 

@@ -19,6 +19,7 @@ public:
 	virtual bool Render(Screen& screen) = 0;
 	virtual void OnExit() = 0;
 
-private:
+protected:
+	int maxCoinPoints = 4;
 };
 

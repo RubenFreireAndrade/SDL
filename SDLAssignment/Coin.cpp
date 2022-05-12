@@ -3,8 +3,8 @@
 
 Coin::Coin()
 {
-	m_tag = "pickup";
 	isStatic = true;
+	this->SetTag("pickup");
 	this->SetSize(50, 50);
 }
 
@@ -36,7 +36,7 @@ void Coin::Render(Screen& screen)
 
 void Coin::Pickup(Player* player)
 {
-	player->AddScore(2);
+	player->AddScore(pointsPerCoin);
 	this->FlagForDeletion();
 }
 

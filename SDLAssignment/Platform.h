@@ -1,8 +1,8 @@
 #pragma once
 
-#include "GameObject.h"
-#include "Sprite.h"
 #include <SDL.h>
+#include "Sprite.h"
+#include "GameObject.h"
 
 class Platform : public GameObject
 {
@@ -13,7 +13,6 @@ public:
 	~Platform();
 
 	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);
-	void Collision();
 	void ShutDown();
 
 	virtual void Update(Input& input);

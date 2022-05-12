@@ -1,15 +1,16 @@
 #include "PlayStateLevel2.h"
 
-Enemy m_lvl2Enemy({ 1100, 470 }, { 100, 470 });
+Enemy m_lvl2Enemy({ 1100, 500 }, { 100, 500 });
 
-PlayStateLevel2::PlayStateLevel2()
+PlayStateLevel2::PlayStateLevel2(Score* score)
 {
+	m_score = score;
 }
 
 bool PlayStateLevel2::OnEnter(Screen& screen)
 {
 	m_background = std::make_unique<Background>(Background("Moon", screen));
-	m_score = std::make_unique<Score>();
+	//m_score = std::make_unique<Score>();
 
 	m_score->Initialise(screen, &m_player);
 	m_coin.Initialise(screen, &objects);
@@ -18,10 +19,7 @@ bool PlayStateLevel2::OnEnter(Screen& screen)
 	m_platform2.Initialise(screen, &objects);
 	m_player.Initialise(screen, &objects);
 	m_lvl2Enemy.Initialise(screen, &objects);
-
-	m_rocket.Load("Assets/Images/rocket.png", screen);
-	m_rocket.SetImageDimension(1, 1, 512, 512);
-	m_rocket.SetSpriteDimension(100, 100);
+	m_rocket.Initialise(screen, &objects);
 
 	objects.push_back(&m_coin);
 	objects.push_back(&m_coin2);
@@ -29,11 +27,13 @@ bool PlayStateLevel2::OnEnter(Screen& screen)
 	objects.push_back(&m_platform2);
 	objects.push_back(&m_player);
 	objects.push_back(&m_lvl2Enemy);
+	objects.push_back(&m_rocket);
 
 	m_coin.SetPosition(500, 140);
 	m_coin2.SetPosition(650, 350);
 	m_platform.SetPosition(600, 400);
 	m_platform2.SetPosition(400, 200);
+	m_rocket.SetPosition(1000, 400);
 	return true;
 }
 
@@ -54,7 +54,8 @@ GameState* PlayStateLevel2::Update(Input& input)
 			++it;
 		}
 	}
-	if (m_player.GetScore() >= 4)
+
+	if (m_player.GetScore() >= 5)
 	{
 		return new EndScreenState(ConditionState::WIN);
 	}
@@ -86,12 +87,15 @@ bool PlayStateLevel2::Render(Screen& screen)
 			++it;
 		}
 		m_score->Render(screen);
-		m_rocket.Render(0, 0, screen, m_rocket.NO_FLIP);
+		m_rocket.Render(screen);
 	}
 	return true;
 }
 
 void PlayStateLevel2::OnExit()
 {
+	m_coin.ShutDown();
+	m_coin2.ShutDown();
+	m_rocket.ShutDown();
 	m_background->ShutDown();
 }
