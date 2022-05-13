@@ -2,17 +2,15 @@
 
 Enemy::Enemy(Vector2D pos, Vector2D dest)
 {
-	m_tag = "enemy";
-
 	m_position = pos;
 	m_destination = dest;
 	m_startingPos = pos;
+	this->SetTag("enemy");
 	this->SetSize(100, 100);
 }
 
 Enemy::~Enemy()
 {
-
 }
 
 void Enemy::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)

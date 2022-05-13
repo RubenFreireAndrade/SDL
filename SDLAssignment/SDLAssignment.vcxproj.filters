@@ -114,6 +114,9 @@
     <ClCompile Include="Rocket.cpp">
       <Filter>Source Files\World Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files\Core Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="Rocket.h">
       <Filter>Header Files\World Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Header Files\Core Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

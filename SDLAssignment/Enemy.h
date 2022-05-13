@@ -28,5 +28,5 @@ private:
 	Vector2D m_destination;
 	Vector2D m_startingPos;
 
-	std::list<GameObject*>* m_gameObjects;
+	std::list<GameObject*>* m_gameObjects = {};
 };
