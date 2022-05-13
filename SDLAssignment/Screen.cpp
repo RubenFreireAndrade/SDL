@@ -7,20 +7,28 @@ Screen::Screen()
 	m_renderer = nullptr;
 }
 
-bool Screen::Initialize(const std::string& windowTitle)
+bool Screen::Initialize(const std::string& fileName)
 {
+	std::map<std::string, std::string> dataMap;
+	if (!m_parser.LoadConfigFile(fileName, dataMap))
+	{
+		std::cout << "Config.ini was not loaded properly" << std::endl;
+	}
+
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 	{
 		std::cout << "Error initializing SDL." << std::endl;
 		return false;
 	}
 	// TODO - Set the flag to Fullscreen if there is no time to fix RESIZABLE window.
-	m_window = SDL_CreateWindow(windowTitle.c_str(),       //game window title
+	auto screenFlag = std::stoi(dataMap["Fullscreen"]) | SDL_WINDOW_RESIZABLE; // == 1
+
+	m_window = SDL_CreateWindow(dataMap["Name"].c_str(),       //game window title
 		SDL_WINDOWPOS_CENTERED,    //pos x
 		SDL_WINDOWPOS_CENTERED,    //pos y
-		width,                     //width
-		height,                    //height
-		SDL_WINDOW_RESIZABLE);     //flags
+		std::stoi(dataMap["Width"]),                     //width
+		std::stoi(dataMap["Height"]),                    //height
+		screenFlag);     //flags
 
 	if (!m_window)
 	{

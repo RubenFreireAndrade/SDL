@@ -12,7 +12,7 @@ public:
 
 	Screen();
 
-	bool Initialize(const std::string& windowTitle);
+	bool Initialize(const std::string& fileName);
 
 	void Clear();
 	void Present();
@@ -24,6 +24,7 @@ private:
 
 	int width = 1280;
 	int height = 720;
+	Parser m_parser;
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
 	Vector2D screenDimension;
