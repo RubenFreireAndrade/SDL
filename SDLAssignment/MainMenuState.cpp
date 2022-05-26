@@ -18,7 +18,7 @@ bool MainMenuState::OnEnter(Screen& screen)
 	m_button.push_back(MenuButton("SettingsButton", screen));
 	m_button.push_back(MenuButton("QuitButton", screen));
 	m_music.Load("Assets/Audio/MenuBGM.mp3");
-	m_music.SetVolume(1);
+	m_music.SetVolume(2);
 	m_music.Play();
 	// Making each element in the container spread out by 100px.
 	for (auto i = 0; i < m_button.size(); i++)

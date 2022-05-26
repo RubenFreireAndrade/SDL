@@ -26,7 +26,7 @@ private:
 	Score* m_score;
 	Player m_player;
 	Coin m_coin1, m_coin2;
-	Platform m_platform1, m_platform2;
+	Platform m_platform1, m_platform2, m_platform3;
 
 	std::list<GameObject*> objects{};
 	std::unique_ptr<Background> m_background;

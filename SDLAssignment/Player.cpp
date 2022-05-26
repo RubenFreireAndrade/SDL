@@ -6,8 +6,7 @@ Player::Player()
 	score = 0;
 	isStatic = false;
 	this->SetTag("player");
-	this->SetSize(100, 110);
-
+	this->SetSize(50, 110);
 	this->m_position.x = 20;
 	this->m_position.y = 500;
 }

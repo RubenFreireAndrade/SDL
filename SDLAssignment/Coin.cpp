@@ -1,5 +1,4 @@
 #include "Coin.h"
-#include <SDL.h>
 
 Coin::Coin()
 {
@@ -31,7 +30,7 @@ void Coin::Update(Input& input)
 
 void Coin::Render(Screen& screen)
 {
-	m_image.Render(m_position.x, m_position.y, screen);
+	m_image.Render(this->m_position.x, this->m_position.y, screen, Sprite::Flip::NO_FLIP);
 }
 
 void Coin::Pickup(Player* player)

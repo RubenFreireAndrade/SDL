@@ -20,8 +20,7 @@ public:
 
 private:
 
-	SDL_Color m_color;
 	Sprite m_image;
-	std::list<GameObject*>* m_gameObjects;
+	std::list<GameObject*>* m_gameObjects = {};
 };
 

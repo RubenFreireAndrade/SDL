@@ -9,13 +9,14 @@ PlayState::PlayState()
 
 bool PlayState::OnEnter(Screen& screen)
 {
-	m_background = std::make_unique<Background>(Background("gaERSZ", screen));
+	m_background = std::make_unique<Background>(Background("DarkYellowMoon", screen));
 
 	m_score->Initialise(screen, &m_player);
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform1.Initialise(screen, &objects);
 	m_platform2.Initialise(screen, &objects);
+	m_platform3.Initialise(screen, &objects);
 	m_player.Initialise(screen, &objects);
 	m_enemy.Initialise(screen, &objects);
 
@@ -23,13 +24,15 @@ bool PlayState::OnEnter(Screen& screen)
 	objects.push_back(&m_coin2);
 	objects.push_back(&m_platform1);
 	objects.push_back(&m_platform2);
+	objects.push_back(&m_platform3);
 	objects.push_back(&m_player);
 	objects.push_back(&m_enemy);
 
-	m_coin1.SetPosition(750, 140);
-	m_coin2.SetPosition(500, 350);
-	m_platform1.SetPosition(400, 400);
-	m_platform2.SetPosition(650, 200);
+	m_coin1.SetPosition(1000, 140);
+	m_coin2.SetPosition(550, 350);
+	m_platform1.SetPosition(500, 400);
+	m_platform2.SetPosition(950, 200);
+	m_platform3.SetPosition(700, 300);
 	return true;
 }
 

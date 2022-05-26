@@ -23,13 +23,13 @@ public:
 
 private:
 	Player m_player;
-	Rocket m_rocket;
+	//Rocket m_rocket;
 	Score* m_score;
 	Coin m_coin, m_coin2;
 	Platform m_platform, m_platform2;
 
 	std::list<GameObject*> objects{};
-	//std::unique_ptr<Score> m_score;
 	std::unique_ptr<Background> m_background;
+	std::unique_ptr<Rocket> m_rocket;
 };
 

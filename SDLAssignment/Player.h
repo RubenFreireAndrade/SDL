@@ -46,8 +46,8 @@ public:
 private:
 
 	Input input;
-	State m_state;
-	Direction m_spriteDirection;
+	State m_state = {};
+	Direction m_spriteDirection = {};
 	Sprite m_image[TOTAL_STATES];
 
 	int score;
@@ -55,7 +55,7 @@ private:
 	int jumpHeight = 70;
 	int maxCoinPoints = 4;
 
-	bool isTouching;
+	bool isTouching = false;
 	bool m_shooting = false;
 	bool isJumping = false;
 
