@@ -13,9 +13,6 @@ void Background::Initialise(Screen& screen)
 
 void Background::Render(Screen& screen)
 {
-	// This function is to react with resizing of the screen.
-	//m_image.SetSpriteDimension(screen.GetResolution().x, screen.GetResolution().y);
-	///////////////////////////////////////////////////////////////////////////////////
 	m_image.Render(this->GetPosition().x, this->GetPosition().y, screen);
 }
 
