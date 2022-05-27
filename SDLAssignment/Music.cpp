@@ -2,7 +2,7 @@
 
 #include "Music.h"
 
-bool Music::Initialise() // Maybe pass through? not hard coded.
+bool Music::Initialise()
 {
     if (Mix_OpenAudio(44100, AUDIO_S16SYS, 2, 1024))
     {
