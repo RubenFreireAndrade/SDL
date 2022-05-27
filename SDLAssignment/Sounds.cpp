@@ -31,7 +31,7 @@ void Sounds::SetVolume(int volume)
 
 void Sounds::Play(int loop)
 {
-    if (!Mix_PlayChannel(-1, m_sound, loop) == -1)
+    if (!Mix_PlayChannel(-1, m_sound, loop))
     {
         std::cout << "Error loading sound" << std::endl;
     }
