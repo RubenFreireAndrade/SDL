@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Character Stuff">
       <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Multiplayer">
+      <UniqueIdentifier>{22cd05b0-6b33-4571-9709-d8acade915db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Multiplayer">
+      <UniqueIdentifier>{fbf66d05-d407-40da-8c1f-2c59b194c74a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -117,6 +123,12 @@
     <ClCompile Include="Parser.cpp">
       <Filter>Source Files\Core Components</Filter>
     </ClCompile>
+    <ClCompile Include="TCPConnection.cpp">
+      <Filter>Source Files\Multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Multiplayer.cpp">
+      <Filter>Source Files\Multiplayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -196,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="Parser.h">
       <Filter>Header Files\Core Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Multiplayer.h">
+      <Filter>Header Files\Multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPConnection.h">
+      <Filter>Header Files\Multiplayer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

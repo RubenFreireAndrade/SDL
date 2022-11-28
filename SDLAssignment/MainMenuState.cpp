@@ -12,6 +12,7 @@ bool MainMenuState::OnEnter(Screen& screen)
 {
 	m_background = std::make_unique<Background>(Background("MountainBackgrundBlue", screen));
 	m_music.Initialise();
+	m_multiplayer.SDLNetInitialize();
 
 	m_button.push_back(MenuButton("PlayButton", screen));
 	m_button.push_back(MenuButton("ControlsButton", screen));

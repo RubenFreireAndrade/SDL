@@ -14,12 +14,9 @@ public:
 	Music();
 
 	bool Load(const std::string& filename);
-
-	void Shutdown();
-
-	void Unload();
-
 	void SetVolume(int volume);
+	void Unload();
+	void Shutdown();
 	
 	void Play();
 	void Pause();
