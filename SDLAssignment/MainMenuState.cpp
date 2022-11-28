@@ -12,9 +12,10 @@ bool MainMenuState::OnEnter(Screen& screen)
 {
 	m_background = std::make_unique<Background>(Background("MountainBackgrundBlue", screen));
 	m_music.Initialise();
-	m_multiplayer.SDLNetInitialize();
 
 	m_button.push_back(MenuButton("PlayButton", screen));
+	// Add multiplayer button to the Main Menu.
+	//m_button.push_back(MenuButton("Multiplayer", screen));
 	m_button.push_back(MenuButton("ControlsButton", screen));
 	m_button.push_back(MenuButton("SettingsButton", screen));
 	m_button.push_back(MenuButton("QuitButton", screen));
@@ -45,6 +46,10 @@ GameState* MainMenuState::Update(Input& input)
 			{
 				return new PlayState;
 			}
+			/*if (tag == "Multiplayer")
+			{
+				return new MultiplayerState;
+			}*/
 			if (tag == "QuitButton")
 			{
 				return 0;
