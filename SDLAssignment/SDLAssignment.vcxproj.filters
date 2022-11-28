@@ -129,6 +129,9 @@
     <ClCompile Include="Multiplayer.cpp">
       <Filter>Source Files\Multiplayer</Filter>
     </ClCompile>
+    <ClCompile Include="MultiplayerState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="TCPConnection.h">
       <Filter>Header Files\Multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiplayerState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
