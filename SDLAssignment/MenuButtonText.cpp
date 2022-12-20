@@ -1,6 +1,6 @@
 #include "MenuButtonText.h"
 
-MenuButtonText::MenuButtonText(std::string text/*, Screen& screen*/)
+MenuButtonText::MenuButtonText(std::string text)
 {
 	mousePosition = { 0, 0 };
 	buttonPosition = { 0, 0 };

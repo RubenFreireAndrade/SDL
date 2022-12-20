@@ -35,13 +35,14 @@ bool Host::OpenSocket()
 
 bool Host::ListenSocket()
 {
+	std::cout << "Listening for Clients" << std::endl;
 	while (isListening)
 	{
 		TCPsocket tempSock = SDLNet_TCP_Accept(listenSocket);
 		if (!tempSock)
 		{
 			//this->SetConsoleTextColor(2);
-			std::cout << "Listening for Clients. . ." << std::endl;
+			std::cout << ".";
 			//this->SetConsoleTextColor(7);
 			SDL_Delay(1000);
 		}

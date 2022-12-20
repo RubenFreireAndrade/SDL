@@ -10,12 +10,18 @@ Join::~Join()
 
 bool Join::SDLNetInitialize()
 {
-	if (SDLNet_Init() == -1)
+	std::cout << "This is Client" << std::endl;
+	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
+	{
+		std::cout << "SDL2 is not initialize properly" << std::endl;
+		return false;
+	}
+	else if (SDLNet_Init() == -1)
 	{
 		std::cout << "SDL_net is not initialize properly" << std::endl;
 		return false;
 	}
-    return true;
+	return true;
 }
 
 bool Join::OpenSocket()
@@ -37,11 +43,12 @@ bool Join::OpenSocket()
 
 bool Join::ListenSocket()
 {
+	std::cout << "Trying to connect" << std::endl;
 	while (isListening)
 	{
 		if (!listenSocket)
 		{
-			std::cout << "Trying to connect. . ." << std::endl;
+			std::cout << ".";
 			SDL_Delay(1000);
 		}
 		else

@@ -15,7 +15,7 @@ public:
 		CLICKED
 	};
 
-	MenuButtonText(std::string text/*, Screen& screen*/);
+	MenuButtonText(std::string text);
 	// Inherited via GameObject
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);

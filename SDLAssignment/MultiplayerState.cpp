@@ -3,10 +3,9 @@
 bool MultiplayerState::OnEnter(Screen& screen)
 {
     m_host = new Host();
+    m_join = new Join();
     m_host->SDLNetInitialize();
-    m_host->OpenSocket();
-    //m_join->SDLNetInitialize();
-    //m_join->OpenSocket();
+    m_join->SDLNetInitialize();
 
     m_background = std::make_unique<Background>(Background("Moon", screen));
 
@@ -34,6 +33,7 @@ GameState* MultiplayerState::Update(Input& input)
         {
             if (tag == "HOST GAME")
             {
+                m_host->OpenSocket();
                 int clientId = m_host->ListenSocket();
                 std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, clientId);
                 receiveMsgThr.detach();
@@ -41,6 +41,10 @@ GameState* MultiplayerState::Update(Input& input)
             }
             if (tag == "JOIN GAME")
             {
+                m_join->OpenSocket();
+                int serverId = m_join->ListenSocket();
+                std::thread receiveMsgThr(&Join::ReceiveMessage, m_join, serverId);
+                receiveMsgThr.detach();
                 return new PlayState;
             }
             // TODO - Add BACK button when have time
