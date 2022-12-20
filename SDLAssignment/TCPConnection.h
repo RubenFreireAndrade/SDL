@@ -11,8 +11,6 @@ public:
 	virtual bool SDLNetInitialize() = 0;
 	virtual bool OpenSocket() = 0;
 	virtual bool ListenSocket() = 0;
-	/*virtual bool SendMessage(int clientId) = 0;
-	virtual bool ReceiveMessage(int clientId) = 0;*/
 	virtual bool GetListenSocket(TCPsocket sock) = 0;
 	virtual void ShutDown() = 0;
 	virtual Uint32 GetIp(TCPsocket sock) = 0;

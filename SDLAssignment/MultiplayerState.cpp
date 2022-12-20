@@ -2,8 +2,12 @@
 
 bool MultiplayerState::OnEnter(Screen& screen)
 {
-    m_host.SDLNetInitialize();
-    m_join.SDLNetInitialize();
+    m_host = new Host();
+    m_host->SDLNetInitialize();
+    m_host->OpenSocket();
+    //m_join->SDLNetInitialize();
+    //m_join->OpenSocket();
+
     m_background = std::make_unique<Background>(Background("Moon", screen));
 
     m_btnText.push_back(MenuButtonText("HOST GAME"));
@@ -30,11 +34,14 @@ GameState* MultiplayerState::Update(Input& input)
         {
             if (tag == "HOST GAME")
             {
-                //return new PlayState;
+                int clientId = m_host->ListenSocket();
+                std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, clientId);
+                receiveMsgThr.detach();
+                return new PlayState;
             }
             if (tag == "JOIN GAME")
             {
-                return new MultiplayerState;
+                return new PlayState;
             }
             // TODO - Add BACK button when have time
             /*if (tag == "QuitButton")
@@ -43,11 +50,6 @@ GameState* MultiplayerState::Update(Input& input)
             }*/
         }
     }
-
-    //int serverId = m_join.ListenSocket();
-   /* std::thread receiveMsgThr(&Join::ReceiveMessage, m_join, serverId);
-    receiveMsgThr.detach();*/
-
     // change this when proper buttons are implemented.
     if (input.IsKeyDown(SDLK_ESCAPE))
     {

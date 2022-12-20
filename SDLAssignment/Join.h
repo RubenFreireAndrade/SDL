@@ -1,7 +1,4 @@
 #pragma once
-//#include<string>
-//#include<iostream>
-
 #include"TCPConnection.h"
 
 class Join : public TCPConnection
