@@ -37,11 +37,17 @@
     <Filter Include="Header Files\Character Stuff">
       <UniqueIdentifier>{b1f65b1c-7e98-4ff3-b4a3-7fe7f18014ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Multiplayer">
+    <Filter Include="Source Files\Networking">
       <UniqueIdentifier>{22cd05b0-6b33-4571-9709-d8acade915db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Multiplayer">
+    <Filter Include="Header Files\Networking">
       <UniqueIdentifier>{fbf66d05-d407-40da-8c1f-2c59b194c74a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Buttons">
+      <UniqueIdentifier>{299f4126-7794-4e3c-9cea-cd9cd88fc27f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Buttons">
+      <UniqueIdentifier>{d8fc2494-1227-4d2b-9091-ceec7eac1901}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,12 +102,6 @@
     <ClCompile Include="TextToScreen.cpp">
       <Filter>Source Files\Core Components</Filter>
     </ClCompile>
-    <ClCompile Include="Score.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Character Stuff</Filter>
     </ClCompile>
@@ -124,13 +124,25 @@
       <Filter>Source Files\Core Components</Filter>
     </ClCompile>
     <ClCompile Include="TCPConnection.cpp">
-      <Filter>Source Files\Multiplayer</Filter>
+      <Filter>Source Files\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="Multiplayer.cpp">
-      <Filter>Source Files\Multiplayer</Filter>
+    <ClCompile Include="Join.cpp">
+      <Filter>Source Files\Networking</Filter>
     </ClCompile>
     <ClCompile Include="MultiplayerState.cpp">
       <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Host.cpp">
+      <Filter>Source Files\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Source Files\Character Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButton.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButtonText.cpp">
+      <Filter>Source Files\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,12 +197,6 @@
     <ClInclude Include="TextToScreen.h">
       <Filter>Header Files\Core Components</Filter>
     </ClInclude>
-    <ClInclude Include="Score.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Header Files\Core Components</Filter>
     </ClInclude>
@@ -212,14 +218,26 @@
     <ClInclude Include="Parser.h">
       <Filter>Header Files\Core Components</Filter>
     </ClInclude>
-    <ClInclude Include="Multiplayer.h">
-      <Filter>Header Files\Multiplayer</Filter>
+    <ClInclude Include="Join.h">
+      <Filter>Header Files\Networking</Filter>
     </ClInclude>
     <ClInclude Include="TCPConnection.h">
-      <Filter>Header Files\Multiplayer</Filter>
+      <Filter>Header Files\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="Host.h">
+      <Filter>Header Files\Networking</Filter>
     </ClInclude>
     <ClInclude Include="MultiplayerState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Header Files\Character Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButton.h">
+      <Filter>Header Files\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButtonText.h">
+      <Filter>Header Files\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -8,7 +8,6 @@
 
 #include "MainMenuState.h"
 #include "Game.h"
-#include "PlayState.h"
 
 int main(int argc, char* argv[])
 {

@@ -20,7 +20,7 @@ void MenuButton::Initialise(Screen& screen)
 void MenuButton::Update(Input& input)
 {
 	input.Update();
-	GetButtonRect();
+	this->GetButtonRect();
 	mousePosition.x = input.GetMousePosition().x;
 	mousePosition.y = input.GetMousePosition().y;
 	if (SDL_PointInRect(&mousePosition, &buttonPosition))

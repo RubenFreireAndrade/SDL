@@ -1,6 +1,11 @@
 #pragma once
+#include"Host.h"
+#include"Join.h"
 #include"GameState.h"
-#include"Multiplayer.h"
+#include"Background.h"
+#include"MenuButtonText.h"
+
+#include<thread>
 
 class MultiplayerState : public GameState
 {
@@ -11,6 +16,11 @@ public:
 	virtual void OnExit() override;
 	virtual bool OnEnter(Screen& screen);
 private:
-	Multiplayer m_multiplayer;
+	Host m_host;
+	Join m_join;
+	//MenuButtonText m_btnText;
+
+	std::vector<MenuButtonText> m_btnText;
+	std::unique_ptr<Background> m_background;
 };
 

@@ -1,14 +1,15 @@
 #pragma once
-#include <memory>
-#include <vector>
-#include "Music.h"
-#include "Screen.h"
-#include "GameState.h"
-#include "PlayState.h"
-#include "Background.h"
-#include "MenuButton.h"
-#include "Multiplayer.h"
-#include "TextToScreen.h"
+#include<memory>
+#include<vector>
+#include"Music.h"
+#include"Screen.h"
+#include"GameState.h"
+#include"PlayState.h"
+#include"Background.h"
+#include"MenuButton.h"
+#include"Join.h"
+#include"TextToScreen.h"
+#include"MultiplayerState.h"
 
 class MainMenuState : public GameState
 {
@@ -24,7 +25,7 @@ public:
 private:
 	Music m_music;
 	Screen m_screen;
-	Multiplayer m_multiplayer;
+	Join m_join;
 	TextToScreen m_textToScreen;
 
 	std::vector<MenuButton> m_button;
