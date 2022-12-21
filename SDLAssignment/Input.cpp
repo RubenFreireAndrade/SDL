@@ -39,10 +39,19 @@ Vector2D& Input::GetMousePosition()
 	return m_mousePosition;
 }
 
+std::string Input::GetInput()
+{
+	std::string str = "";
+	for (auto it = m_keys.begin(); it != m_keys.end(); it++)
+	{
+		str += *it;
+	}
+	return str;
+}
+
 void Input::Update()
 {
 	SDL_Event events;
-
 	while (SDL_PollEvent(&events))
 	{
 		if (events.type == SDL_QUIT)
@@ -52,16 +61,18 @@ void Input::Update()
 
 		else if (events.type == SDL_KEYDOWN) //Key has been pressed.
 		{
-			m_keys.push_back(events.key.keysym.sym);
+			auto input = events.key.keysym.sym;
+			m_keys.push_back(input);
+			std::cout << "down" << input << std::endl;
 		}
 
 		else if (events.type == SDL_KEYUP) //Key has been released.
 		{
+			auto input = events.key.keysym.sym;
 			auto k = std::begin(m_keys);
-
 			while (k != std::end(m_keys))
 			{
-				if (*k == events.key.keysym.sym)
+				if (*k == input)
 				{
 					k = m_keys.erase(k);
 				}
@@ -70,6 +81,7 @@ void Input::Update()
 					++k;
 				}
 			}
+			std::cout << "up" << input << std::endl;
 		}
 
 		else if (events.type == SDL_MOUSEBUTTONDOWN)

@@ -13,7 +13,6 @@ MenuButtonText::MenuButtonText(std::string text)
 
 void MenuButtonText::Update(Input& input)
 {
-	input.Update();
 	this->GetButtonRect();
 	mousePosition.x = input.GetMousePosition().x;
 	mousePosition.y = input.GetMousePosition().y;

@@ -20,6 +20,8 @@ bool Game::Run()
 	{
 		m_screen.Clear();
 
+		m_input.Update();
+
 		GameState* nextState = m_gameState->Update(m_input);
 
 		m_gameState->Render(m_screen);

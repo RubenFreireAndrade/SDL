@@ -32,7 +32,6 @@ bool EndScreenState::OnEnter(Screen& screen)
 
 GameState* EndScreenState::Update(Input& input)
 {
-	input.Update();
 	for (auto& button : m_button)
 	{
 		button.Update(input);

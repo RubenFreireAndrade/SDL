@@ -62,21 +62,33 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 
 void Player::Update(Input& input)
 {
-	if (input.IsKeyDown(SDLK_a))
+	if (input.IsKeyDown(SDLK_RETURN))
+	{
+		isChatting = !isChatting;
+;		std::cout << chatInput << std::endl;
+		chatInput = "";
+	}
+
+	if (isChatting)
+	{
+		chatInput += input.GetInput();
+	}
+
+	if (input.IsKeyDown(SDLK_a) && !isChatting)
 	{
 		m_velocity.x -= speed;
 		m_state = RUN;
 		m_spriteDirection = Player::Direction::LEFT;
 	}
 
-	if (input.IsKeyDown(SDLK_d))
+	if (input.IsKeyDown(SDLK_d) && !isChatting)
 	{
 		m_velocity.x += speed;
 		m_state = RUN;
 		m_spriteDirection = Player::Direction::RIGHT;
 	}
 
-	if (input.IsKeyDown(SDLK_w) && isGrounded && !isJumping)
+	if (input.IsKeyDown(SDLK_w) && isGrounded && !isJumping && !isChatting)
 	{
 		m_state = JUMP;
 		m_velocity.y -= jumpHeight;
@@ -85,7 +97,7 @@ void Player::Update(Input& input)
 		isBlocked = false;
 	}
 
-	if (input.IsMouseClicked() && !m_shooting)
+	if (input.IsMouseClicked() && !m_shooting && !isChatting)
 	{
 		m_state = SHOOT;
 		m_shooting = true;

@@ -24,7 +24,6 @@ bool MultiplayerState::OnEnter(Screen& screen)
 
 GameState* MultiplayerState::Update(Input& input)
 {
-    input.Update();
     for (auto& btnText : m_btnText)
     {
         btnText.Update(input);

@@ -38,7 +38,6 @@ bool PlayState::OnEnter(Screen& screen)
 
 GameState* PlayState::Update(Input& input)
 {
-	input.Update();
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{

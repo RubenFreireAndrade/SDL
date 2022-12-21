@@ -1,8 +1,9 @@
 #pragma once
-
 #include <SDL.h>
-#include "Vector2D.h"
 #include <list>
+#include <iostream>
+
+#include "Vector2D.h"
 
 class Input
 {
@@ -23,6 +24,7 @@ public:
 	bool IsWindowClosed();
 
 	Vector2D& GetMousePosition();
+	std::string GetInput();
 
 private:
 
@@ -35,5 +37,4 @@ private:
 	int m_mouseButtonDown;
 
 	Vector2D m_mousePosition;
-
 };

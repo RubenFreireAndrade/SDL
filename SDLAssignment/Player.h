@@ -58,6 +58,8 @@ private:
 	bool isTouching = false;
 	bool m_shooting = false;
 	bool isJumping = false;
+	bool isChatting = false;
+	std::string chatInput;
 
 	std::list<GameObject*>* m_gameObjects = {};
 };

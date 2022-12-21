@@ -34,7 +34,6 @@ bool MainMenuState::OnEnter(Screen& screen)
 
 GameState* MainMenuState::Update(Input& input)
 {
-	input.Update();
 	for (auto& button : m_button)
 	{
 		button.Update(input);
