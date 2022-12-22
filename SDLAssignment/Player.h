@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include <iostream>
 #include <SDL.h>
 #include "input.h"
@@ -29,10 +30,10 @@ public:
 		RIGHT
 	};
 
-	Player();
+	Player(bool isOnlineMode);
 	~Player();
 
-	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);
+	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Input& input);
 
 	virtual void Update(Input& input);
 	virtual void Render(Screen& screen);
@@ -40,6 +41,11 @@ public:
 
 	void AddScore(int amount);
 	void SetState(State state);
+	void ToggleChatMode();
+	void RecordChatInput(char key);
+	void MoveLeft();
+	void MoveRight();
+	void Jump();
 
 	int GetScore();
 
@@ -53,12 +59,12 @@ private:
 	int score;
 	int speed = 3;
 	int jumpHeight = 70;
-	int maxCoinPoints = 4;
+	int maxCoinPoints = 8;
 
 	bool isTouching = false;
 	bool m_shooting = false;
 	bool isJumping = false;
-	bool isChatting = false;
+	bool isOnlineMode = false;
 	std::string chatInput;
 
 	std::list<GameObject*>* m_gameObjects = {};

@@ -129,7 +129,7 @@
     <ClCompile Include="Join.cpp">
       <Filter>Source Files\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="MultiplayerState.cpp">
+    <ClCompile Include="MultiplayerMenuState.cpp">
       <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="Host.cpp">
@@ -143,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="MenuButtonText.cpp">
       <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayStateMultiplayer.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,7 +233,7 @@
     <ClInclude Include="Host.h">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
-    <ClInclude Include="MultiplayerState.h">
+    <ClInclude Include="MultiplayerMenuState.h">
       <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="Score.h">
@@ -238,6 +244,12 @@
     </ClInclude>
     <ClInclude Include="MenuButtonText.h">
       <Filter>Header Files\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateMultiplayer.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

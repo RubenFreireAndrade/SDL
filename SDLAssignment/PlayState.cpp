@@ -4,20 +4,22 @@ Enemy m_enemy({ 1100, 500 }, { 100, 500 });
 
 PlayState::PlayState()
 {
+	m_player = new Player(false);
 	m_score = new Score();
 }
 
-bool PlayState::OnEnter(Screen& screen)
+bool PlayState::OnEnter(Screen& screen, Input& input)
 {
+	m_chatBox = new ChatBox("ChatBox", screen);
 	m_background = std::make_unique<Background>(Background("DarkYellowMoon", screen));
-
-	m_score->Initialise(screen, &m_player);
+	
+	m_score->Initialise(screen, m_player);
 	m_coin1.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform1.Initialise(screen, &objects);
 	m_platform2.Initialise(screen, &objects);
 	m_platform3.Initialise(screen, &objects);
-	m_player.Initialise(screen, &objects);
+	m_player->Initialise(screen, &objects, input);
 	m_enemy.Initialise(screen, &objects);
 
 	objects.push_back(&m_coin1);
@@ -25,7 +27,7 @@ bool PlayState::OnEnter(Screen& screen)
 	objects.push_back(&m_platform1);
 	objects.push_back(&m_platform2);
 	objects.push_back(&m_platform3);
-	objects.push_back(&m_player);
+	objects.push_back(m_player);
 	objects.push_back(&m_enemy);
 
 	m_coin1.SetPosition(1000, 140);
@@ -52,11 +54,11 @@ GameState* PlayState::Update(Input& input)
 			++it;
 		}
 	}
-	if (m_player.GetScore() >= maxCoinPoints)
+	if (m_player->GetScore() >= maxCoinPoints)
 	{
-		return new PlayStateLevel2(m_score);
+		return new PlayStateLevel2(m_player);
 	}
-	if (m_player.IsFlaggedForDeletion())
+	if (m_player->IsFlaggedForDeletion())
 	{
 		return new EndScreenState(ConditionState::LOSS);
 	}
@@ -71,6 +73,7 @@ GameState* PlayState::Update(Input& input)
 bool PlayState::Render(Screen& screen)
 {
 	m_background->Render(screen);
+	m_chatBox->Render(screen);
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
@@ -95,6 +98,6 @@ void PlayState::OnExit()
 	m_enemy.ShutDown();
 	m_platform1.ShutDown();
 	m_platform2.ShutDown();
-	m_player.ShutDown();
+	m_player->ShutDown();
 	m_background->ShutDown();
 }

@@ -117,6 +117,11 @@ bool GameObject::IsDead()
 	return isDead;
 }
 
+bool GameObject::GetIsChatting()
+{
+	return isChatting;
+}
+
 bool GameObject::IsCollidingWith(GameObject* obj)
 {
 	Vector2D obj1Pos = this->GetPosition();

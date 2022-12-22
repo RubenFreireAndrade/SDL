@@ -1,8 +1,11 @@
 #pragma once
 #include "Coin.h"
+#include "Host.h"
+#include "Join.h"
 #include "Enemy.h"
 #include "Score.h"
 #include "Player.h"
+#include "ChatBox.h"
 #include "Platform.h"
 #include "GameState.h"
 #include "Background.h"
@@ -16,15 +19,17 @@ public:
 	PlayState();
 	~PlayState() override {}
 
-	virtual bool OnEnter(Screen& screen);
+	virtual bool OnEnter(Screen& screen, Input& input);
 	virtual GameState* Update(Input& input) override;
 	virtual bool Render(Screen& screen) override;
 	virtual void OnExit() override;
 
 private:
-
+	Host* m_host;
+	Join* m_join;
 	Score* m_score;
-	Player m_player;
+	Player* m_player;
+	ChatBox* m_chatBox;
 	Coin m_coin1, m_coin2;
 	Platform m_platform1, m_platform2, m_platform3;
 

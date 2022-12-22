@@ -39,21 +39,12 @@ Vector2D& Input::GetMousePosition()
 	return m_mousePosition;
 }
 
-std::string Input::GetInput()
-{
-	std::string str = "";
-	for (auto it = m_keys.begin(); it != m_keys.end(); it++)
-	{
-		str += *it;
-	}
-	return str;
-}
-
 void Input::Update()
 {
 	SDL_Event events;
 	while (SDL_PollEvent(&events))
 	{
+		auto input = events.key.keysym.sym;
 		if (events.type == SDL_QUIT)
 		{
 			m_isWindowClosed = true;
@@ -61,9 +52,15 @@ void Input::Update()
 
 		else if (events.type == SDL_KEYDOWN) //Key has been pressed.
 		{
-			auto input = events.key.keysym.sym;
 			m_keys.push_back(input);
-			std::cout << "down" << input << std::endl;
+			for (auto func = m_keyBinds[input].begin(); func != m_keyBinds[input].end(); func++)
+			{
+				(*func)();
+			}
+			for (auto func = m_onAnyKeyBinds.begin(); func != m_onAnyKeyBinds.end(); func++)
+			{
+				(*func)(input);
+			}
 		}
 
 		else if (events.type == SDL_KEYUP) //Key has been released.
@@ -81,7 +78,6 @@ void Input::Update()
 					++k;
 				}
 			}
-			std::cout << "up" << input << std::endl;
 		}
 
 		else if (events.type == SDL_MOUSEBUTTONDOWN)
@@ -102,6 +98,16 @@ void Input::Update()
 			m_mousePosition.y = events.motion.y;
 		}
 	}
+}
+
+void Input::RegisterKeyBind(char key, std::function<void()> bind)
+{
+	m_keyBinds[key].push_back(bind);
+}
+
+void Input::RegisterAnyKeyBind(std::function<void(char)> bind)
+{
+	m_onAnyKeyBinds.push_back(bind);
 }
 
 bool Input::IsKeyUp(char key)

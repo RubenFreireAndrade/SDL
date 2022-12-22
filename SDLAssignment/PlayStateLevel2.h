@@ -14,16 +14,15 @@ class PlayStateLevel2 : public GameState
 {
 
 public:
-	PlayStateLevel2(Score* score);
+	PlayStateLevel2(Player* p);
 	// Inherited via GameState
-	virtual bool OnEnter(Screen& screen);
+	virtual bool OnEnter(Screen& screen, Input& input);
 	virtual GameState* Update(Input& input) override;
 	virtual bool Render(Screen& screen) override;
 	virtual void OnExit() override;
 
 private:
-	Player m_player;
-	//Rocket m_rocket;
+	Player* m_player;
 	Score* m_score;
 	Coin m_coin, m_coin2;
 	Platform m_platform, m_platform2;

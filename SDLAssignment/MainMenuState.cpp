@@ -8,7 +8,7 @@ MainMenuState::~MainMenuState()
 {
 }
 
-bool MainMenuState::OnEnter(Screen& screen)
+bool MainMenuState::OnEnter(Screen& screen, Input& input)
 {
 	m_background = std::make_unique<Background>(Background("MountainBackgrundBlue", screen));
 	m_music.Initialise();
@@ -46,7 +46,7 @@ GameState* MainMenuState::Update(Input& input)
 			}
 			if (tag == "MultiplayerButton")
 			{
-				return new MultiplayerState;
+				return new MultiplayerMenuState;
 			}
 			if (tag == "QuitButton")
 			{

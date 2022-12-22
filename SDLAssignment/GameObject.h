@@ -37,19 +37,21 @@ public:
 
 	float GetAngle() const;
 
-	void FlagForDeletion();
-	bool IsFlaggedForDeletion();
 	bool IsDead();
+	bool IsFlaggedForDeletion();
 	void ShutDown();
+	void FlagForDeletion();
 
 protected:
+	bool GetIsChatting();
 	bool IsCollidingWith(GameObject* obj);
 
-	bool deleteFlag;
-	bool isStatic;
 	bool isDead;
-	bool isGrounded;
+	bool isStatic;
 	bool isBlocked;
+	bool isChatting;
+	bool isGrounded;
+	bool deleteFlag;
 
 	Vector2D m_size;
 	Vector2D m_position;

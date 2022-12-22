@@ -1,14 +1,13 @@
 #include "Player.h"
 #include "Coin.h"
 
-Player::Player()
+Player::Player(bool isOnlineMode)
 {
 	score = 0;
 	isStatic = false;
 	this->SetTag("player");
 	this->SetSize(50, 110);
-	this->m_position.x = 20;
-	this->m_position.y = 500;
+	this->isOnlineMode = isOnlineMode;
 }
 
 Player::~Player()
@@ -16,8 +15,11 @@ Player::~Player()
 	m_image[IDLE].Unload();
 }
 
-void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
+void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Input& input)
 {
+	this->m_position.x = 20;
+	this->m_position.y = 500;
+
 	m_gameObjects = gameObjects;
 	m_state = IDLE;
 	m_spriteDirection = Player::Direction::RIGHT;
@@ -58,43 +60,26 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 			m_image[i].SetImageDimension(4, 1, 2268, 556);
 		}
 	}
+
+	input.RegisterKeyBind(SDLK_RETURN, std::bind(&Player::ToggleChatMode, this));
+	input.RegisterAnyKeyBind(std::bind(&Player::RecordChatInput, this, std::placeholders::_1));
 }
 
 void Player::Update(Input& input)
 {
-	if (input.IsKeyDown(SDLK_RETURN))
+	if (input.IsKeyDown(SDLK_a))
 	{
-		isChatting = !isChatting;
-;		std::cout << chatInput << std::endl;
-		chatInput = "";
+		this->MoveLeft();
 	}
 
-	if (isChatting)
+	if (input.IsKeyDown(SDLK_d))
 	{
-		chatInput += input.GetInput();
+		this->MoveRight();
 	}
 
-	if (input.IsKeyDown(SDLK_a) && !isChatting)
+	if (input.IsKeyDown(SDLK_w))
 	{
-		m_velocity.x -= speed;
-		m_state = RUN;
-		m_spriteDirection = Player::Direction::LEFT;
-	}
-
-	if (input.IsKeyDown(SDLK_d) && !isChatting)
-	{
-		m_velocity.x += speed;
-		m_state = RUN;
-		m_spriteDirection = Player::Direction::RIGHT;
-	}
-
-	if (input.IsKeyDown(SDLK_w) && isGrounded && !isJumping && !isChatting)
-	{
-		m_state = JUMP;
-		m_velocity.y -= jumpHeight;
-		isJumping = true;
-		isGrounded = false;
-		isBlocked = false;
+		this->Jump();
 	}
 
 	if (input.IsMouseClicked() && !m_shooting && !isChatting)
@@ -118,6 +103,7 @@ void Player::Update(Input& input)
 		isJumping = false;
 	}
 	m_image[m_state].Update();
+
 }
 
 void Player::Render(Screen& screen)
@@ -208,4 +194,55 @@ int Player::GetScore()
 void Player::SetState(State state)
 {
 	m_state = state;
+}
+
+void Player::ToggleChatMode()
+{
+	isChatting = !isChatting;
+	if (isChatting)
+	{
+		std::cout << "chat mode enabled" << std::endl;
+	}
+	else
+	{
+		// This is when to send chatInput to server.
+		std::cout << std::endl << "chat mode disabled" << std::endl;
+		std::cout << chatInput << std::endl;
+		chatInput = "";
+	}
+}
+
+void Player::RecordChatInput(char key)
+{
+	if (!isChatting) return;
+	chatInput += key;
+	std::cout << key;
+}
+
+void Player::MoveLeft()
+{
+	if (isChatting) return;
+	m_velocity.x -= speed;
+	m_state = RUN;
+	m_spriteDirection = Player::Direction::LEFT;
+	std::cout << "moving left" << std::endl;
+}
+
+void Player::MoveRight()
+{
+	if (isChatting) return;
+	m_velocity.x += speed;
+	m_state = RUN;
+	m_spriteDirection = Player::Direction::RIGHT;
+	std::cout << "moving right" << std::endl;
+}
+
+void Player::Jump()
+{
+	if (!isGrounded || isJumping || isChatting) return;
+	m_state = JUMP;
+	m_velocity.y -= jumpHeight;
+	isJumping = true;
+	isGrounded = false;
+	isBlocked = false;
 }

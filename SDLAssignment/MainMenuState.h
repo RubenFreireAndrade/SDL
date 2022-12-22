@@ -9,7 +9,7 @@
 #include"MenuButton.h"
 #include"Join.h"
 #include"TextToScreen.h"
-#include"MultiplayerState.h"
+#include"MultiplayerMenuState.h"
 
 class MainMenuState : public GameState
 {
@@ -17,7 +17,7 @@ public:
 	MainMenuState();
 	~MainMenuState();
 	// Inherited via GameState
-	virtual bool OnEnter(Screen& screen);
+	virtual bool OnEnter(Screen& screen, Input& input);
 	virtual GameState* Update(Input& input) override;
 	virtual bool Render(Screen& screen) override;
 	virtual void OnExit() override;

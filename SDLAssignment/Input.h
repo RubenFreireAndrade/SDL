@@ -1,7 +1,9 @@
 #pragma once
 #include <SDL.h>
 #include <list>
+#include <map>
 #include <iostream>
+#include <functional>
 
 #include "Vector2D.h"
 
@@ -12,6 +14,8 @@ public:
 
 	Input();
 	void Update();
+	void RegisterKeyBind(char key, std::function<void()> bind);
+	void RegisterAnyKeyBind(std::function<void(char)> bind);
 
 	bool IsKeyUp(char key);
 	bool IsKeyDown(char key);
@@ -24,11 +28,12 @@ public:
 	bool IsWindowClosed();
 
 	Vector2D& GetMousePosition();
-	std::string GetInput();
 
 private:
 
 	std::list<char> m_keys;
+	std::list<std::function<void(char)>> m_onAnyKeyBinds;
+	std::map<char, std::list<std::function<void()>>> m_keyBinds;
 
 	bool m_isMouseClicked;
 	bool m_isWindowClosed;

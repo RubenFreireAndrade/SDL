@@ -9,12 +9,12 @@ public:
 	virtual bool OpenSocket() override;
 	virtual bool ListenSocket() override;
 	virtual bool GetListenSocket(TCPsocket sock) override;
+	virtual char* GetMsgReceived() override;
 	virtual void ShutDown() override;
 
 	bool SendMessage(int clientId, std::string message);
 	bool ReceiveMessage(int clientId);
 private:
 	virtual Uint32 GetIp(TCPsocket sock) override;
-
 };
 

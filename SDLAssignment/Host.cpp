@@ -81,7 +81,7 @@ bool Host::SendMessage(int clientId, std::string message)
 bool Host::ReceiveMessage(int clientId)
 {
 	TCPsocket sock = clients[clientId];
-	char message[100];
+	//char message[100];
 	while (SDLNet_TCP_Recv(sock, message, 100))
 	{
 		SDL_Delay(100);
@@ -116,4 +116,9 @@ Uint32 Host::GetIp(TCPsocket sock)
 {
 	IPaddress* clientIp = SDLNet_TCP_GetPeerAddress(sock);
 	return SDLNet_Read32(&clientIp->host);
+}
+
+char* Host::GetMsgReceived()
+{
+	return message;
 }

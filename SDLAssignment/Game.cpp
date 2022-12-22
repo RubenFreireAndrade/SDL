@@ -15,7 +15,7 @@ bool Game::Initialize()
 
 bool Game::Run()
 {
-	m_gameState->OnEnter(m_screen);
+	m_gameState->OnEnter(m_screen, m_input);
 	while (m_gameState)
 	{
 		m_screen.Clear();
@@ -31,7 +31,7 @@ bool Game::Run()
 			m_gameState.reset(nextState);
 			if (m_gameState)
 			{
-				m_gameState->OnEnter(m_screen);
+				m_gameState->OnEnter(m_screen, m_input);
 			}
 		}
 		m_screen.Present();

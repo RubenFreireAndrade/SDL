@@ -20,11 +20,9 @@ public:
 	virtual GameState* Update(Input& input) override;
 	virtual bool Render(Screen& screen) override;
 	virtual void OnExit() override;
-	virtual bool OnEnter(Screen& screen);
+	virtual bool OnEnter(Screen& screen, Input& input);
 
 private:
-
-	Player m_player;
 	TextToScreen m_textToScreen;
 
 	ConditionState m_enumState;

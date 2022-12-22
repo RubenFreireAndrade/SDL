@@ -10,7 +10,7 @@ EndScreenState::~EndScreenState()
 {
 }
 
-bool EndScreenState::OnEnter(Screen& screen)
+bool EndScreenState::OnEnter(Screen& screen, Input& input)
 {
 	m_background = std::make_unique<Background>(Background("MountainBackgrundBlue", screen));
 

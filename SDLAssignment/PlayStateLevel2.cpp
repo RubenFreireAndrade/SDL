@@ -2,22 +2,23 @@
 
 Enemy m_lvl2Enemy({ 1100, 500 }, { 100, 500 });
 
-PlayStateLevel2::PlayStateLevel2(Score* score)
+PlayStateLevel2::PlayStateLevel2(Player* p)
 {
-	m_score = score;
+	m_player = p;
+	m_score = new Score();
 }
 
-bool PlayStateLevel2::OnEnter(Screen& screen)
+bool PlayStateLevel2::OnEnter(Screen& screen, Input& input)
 {
 	m_background = std::make_unique<Background>(Background("Moon", screen));
 	m_rocket = std::make_unique<Rocket>();
 
-	m_score->Initialise(screen, &m_player);
+	m_score->Initialise(screen, m_player);
 	m_coin.Initialise(screen, &objects);
 	m_coin2.Initialise(screen, &objects);
 	m_platform.Initialise(screen, &objects);
 	m_platform2.Initialise(screen, &objects);
-	m_player.Initialise(screen, &objects);
+	m_player->Initialise(screen, &objects, input);
 	m_lvl2Enemy.Initialise(screen, &objects);
 	m_rocket->Initialise(screen, &objects);
 
@@ -25,7 +26,7 @@ bool PlayStateLevel2::OnEnter(Screen& screen)
 	objects.push_back(&m_coin2);
 	objects.push_back(&m_platform);
 	objects.push_back(&m_platform2);
-	objects.push_back(&m_player);
+	objects.push_back(m_player);
 	objects.push_back(&m_lvl2Enemy);
 	objects.push_back(&*m_rocket);
 
@@ -54,11 +55,11 @@ GameState* PlayStateLevel2::Update(Input& input)
 		}
 	}
 
-	if (m_player.GetScore() >= 5)
+	if (m_player->GetScore() >= 9)
 	{
 		return new EndScreenState(ConditionState::WIN);
 	}
-	if (m_player.IsFlaggedForDeletion())
+	if (m_player->IsFlaggedForDeletion())
 	{
 		return new EndScreenState(ConditionState::LOSS);
 	}

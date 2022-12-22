@@ -10,8 +10,9 @@ public:
 	virtual bool SDLNetInitialize() override;
 	virtual bool OpenSocket() override;
 	virtual bool ListenSocket() override;
-	virtual void ShutDown() override;
 	virtual bool GetListenSocket(TCPsocket sock) override;
+	virtual char* GetMsgReceived() override;
+	virtual void ShutDown() override;
 
 	bool SendMessage(int serverId);
 	bool ReceiveMessage(int serverId);
