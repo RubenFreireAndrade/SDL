@@ -1,41 +1,28 @@
 #include "PlayState.h"
 
-Enemy m_enemy({ 1100, 500 }, { 100, 500 });
-
-PlayState::PlayState()
+PlayState::PlayState(Player* p)
 {
-	m_player = new Player(false);
-	m_score = new Score();
+	if (p != nullptr)
+	{
+		m_player = p;
+	}
+	else
+	{
+		m_player = new Player(false);
+	}
 }
 
 bool PlayState::OnEnter(Screen& screen, Input& input)
 {
-	m_chatBox = new ChatBox("ChatBox", screen);
-	m_background = std::make_unique<Background>(Background("DarkYellowMoon", screen));
-	
-	m_score->Initialise(screen, m_player);
-	m_coin1.Initialise(screen, &objects);
-	m_coin2.Initialise(screen, &objects);
-	m_platform1.Initialise(screen, &objects);
-	m_platform2.Initialise(screen, &objects);
-	m_platform3.Initialise(screen, &objects);
+	CreateLevel(screen);
+
 	m_player->Initialise(screen, &objects, input);
-	m_enemy.Initialise(screen, &objects);
-
-	objects.push_back(&m_coin1);
-	objects.push_back(&m_coin2);
-	objects.push_back(&m_platform1);
-	objects.push_back(&m_platform2);
-	objects.push_back(&m_platform3);
 	objects.push_back(m_player);
-	objects.push_back(&m_enemy);
-
-	m_coin1.SetPosition(1000, 140);
-	m_coin2.SetPosition(550, 350);
-	m_platform1.SetPosition(500, 400);
-	m_platform2.SetPosition(950, 200);
-	m_platform3.SetPosition(700, 300);
 	return true;
+}
+
+void PlayState::CreateLevel(Screen& screen)
+{
 }
 
 GameState* PlayState::Update(Input& input)
@@ -54,14 +41,10 @@ GameState* PlayState::Update(Input& input)
 			++it;
 		}
 	}
-	if (m_player->GetScore() >= maxCoinPoints)
-	{
-		return new PlayStateLevel2(m_player);
-	}
-	if (m_player->IsFlaggedForDeletion())
-	{
-		return new EndScreenState(ConditionState::LOSS);
-	}
+
+	GameState* stateChange = UpdateStateChange(input);
+	if (stateChange != nullptr) return stateChange;
+
 	// Quiting Game
 	if (input.IsKeyDown(SDLK_ESCAPE))
 	{
@@ -70,10 +53,13 @@ GameState* PlayState::Update(Input& input)
 	return this;
 }
 
+GameState* PlayState::UpdateStateChange(Input& input)
+{
+	return nullptr;
+}
+
 bool PlayState::Render(Screen& screen)
 {
-	m_background->Render(screen);
-	m_chatBox->Render(screen);
 	auto it = std::begin(objects);
 	while (it != std::end(objects))
 	{
@@ -86,18 +72,14 @@ bool PlayState::Render(Screen& screen)
 			(*it)->Render(screen);
 			++it;
 		}
-		m_score->Render(screen);
 	}
 	return true;
 }
 
 void PlayState::OnExit()
 {
-	m_coin1.ShutDown();
-	m_coin2.ShutDown();
-	m_enemy.ShutDown();
-	m_platform1.ShutDown();
-	m_platform2.ShutDown();
-	m_player->ShutDown();
-	m_background->ShutDown();
+	for (auto obj = objects.begin(); obj != objects.end(); obj++)
+	{
+		(*obj)->ShutDown();
+	}
 }

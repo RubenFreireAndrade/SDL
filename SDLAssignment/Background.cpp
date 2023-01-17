@@ -2,6 +2,7 @@
 
 Background::Background(const std::string& fileName, Screen& screen)
 {
+	isStatic = true;
 	m_image.Load("Assets/Images/" + fileName + ".png", screen);
 	m_image.SetSpriteDimension(1280, 720);
 	m_image.SetImageDimension(1, 1, 1280, 720);

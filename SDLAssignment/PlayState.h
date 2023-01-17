@@ -1,39 +1,25 @@
 #pragma once
-#include "Coin.h"
-#include "Host.h"
-#include "Join.h"
-#include "Enemy.h"
-#include "Score.h"
 #include "Player.h"
-#include "ChatBox.h"
-#include "Platform.h"
 #include "GameState.h"
-#include "Background.h"
-#include "EndScreenState.h"
-#include "PlayStateLevel2.h"
 
 class PlayState : public GameState
 {
 public: 
 	// Inherited via GameState
-	PlayState();
+	explicit PlayState(Player* p);
 	~PlayState() override {}
 
 	virtual bool OnEnter(Screen& screen, Input& input);
-	virtual GameState* Update(Input& input) override;
-	virtual bool Render(Screen& screen) override;
-	virtual void OnExit() override;
+	virtual void CreateLevel(Screen& screen);
+	virtual GameState* UpdateStateChange(Input& input);
+	virtual GameState* Update(Input& input);
+	virtual bool Render(Screen& screen);
+	virtual void OnExit();
+
+protected:
+	Player* m_player;
+	std::list<GameObject*> objects{};
 
 private:
-	Host* m_host;
-	Join* m_join;
-	Score* m_score;
-	Player* m_player;
-	ChatBox* m_chatBox;
-	Coin m_coin1, m_coin2;
-	Platform m_platform1, m_platform2, m_platform3;
-
-	std::list<GameObject*> objects{};
-	std::unique_ptr<Background> m_background;
 };
 

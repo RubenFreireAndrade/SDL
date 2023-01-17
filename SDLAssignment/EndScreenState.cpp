@@ -44,7 +44,7 @@ GameState* EndScreenState::Update(Input& input)
 			}
 		}
 	}
-    // Quiting Game
+	// TODO - change this when proper buttons are implemented.
     if (input.IsKeyDown(SDLK_ESCAPE))
     {
         return 0;

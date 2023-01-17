@@ -49,6 +49,12 @@
     <Filter Include="Header Files\Buttons">
       <UniqueIdentifier>{d8fc2494-1227-4d2b-9091-ceec7eac1901}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Levels">
+      <UniqueIdentifier>{aa6413e3-c6f7-4792-9938-e50a213d39f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Levels">
+      <UniqueIdentifier>{4d9a59de-cfad-4034-b002-1f584e2f36a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -114,9 +120,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Character Stuff</Filter>
     </ClCompile>
-    <ClCompile Include="PlayStateLevel2.cpp">
-      <Filter>Source Files\States</Filter>
-    </ClCompile>
     <ClCompile Include="Rocket.cpp">
       <Filter>Source Files\World Objects</Filter>
     </ClCompile>
@@ -147,8 +150,14 @@
     <ClCompile Include="ChatBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayStateMultiplayer.cpp">
-      <Filter>Source Files\States</Filter>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Level1.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiplayerLevel1.cpp">
+      <Filter>Source Files\Levels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,9 +224,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>Header Files\Character Stuff</Filter>
     </ClInclude>
-    <ClInclude Include="PlayStateLevel2.h">
-      <Filter>Header Files\States</Filter>
-    </ClInclude>
     <ClInclude Include="Rocket.h">
       <Filter>Header Files\World Objects</Filter>
     </ClInclude>
@@ -248,8 +254,14 @@
     <ClInclude Include="ChatBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayStateMultiplayer.h">
-      <Filter>Header Files\States</Filter>
+    <ClInclude Include="Level2.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Level1.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiplayerLevel1.h">
+      <Filter>Header Files\Levels</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

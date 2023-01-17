@@ -1,21 +1,22 @@
 #pragma once
+#include "GameObject.h"
 #include "TextToScreen.h"
 #include "Player.h"
 
-class Score
+class Score : public GameObject
 {
 public:
 	Score();
 	~Score();
 
 	void Initialise(Screen& screen, Player* p);
+	virtual void Update(Input& input) override;
 	void Render(Screen& screen);
 	void AddToScore();
 private:
 	TextToScreen m_text = {};
 	Player* m_player = {};
 
-	int scorePosX = 0;
-	int scorePosY = 0;
+	// Inherited via GameObject
 };
 

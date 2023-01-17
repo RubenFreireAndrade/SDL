@@ -2,6 +2,7 @@
 
 Score::Score()
 {
+	isStatic = true;
 }
 
 Score::~Score()
@@ -19,10 +20,14 @@ void Score::Initialise(Screen& screen, Player* p)
 void Score::Render(Screen& screen)
 {
 	AddToScore();
-	m_text.Render(scorePosX, scorePosY, screen);
+	m_text.Render(this->GetPosition().x, this->GetPosition().y, screen);
 }
 
 void Score::AddToScore()
 {
 	m_text.SetText("Score: " + std::to_string(m_player->GetScore()));
+}
+
+void Score::Update(Input& input)
+{
 }

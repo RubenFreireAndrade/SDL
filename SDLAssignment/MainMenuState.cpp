@@ -42,7 +42,7 @@ GameState* MainMenuState::Update(Input& input)
 		{
 			if (tag == "PlayButton")
 			{
-				return new PlayState;
+				return new Level1(nullptr);
 			}
 			if (tag == "MultiplayerButton")
 			{
