@@ -3,6 +3,10 @@
 
 bool MultiplayerMenuState::OnEnter(Screen& screen, Input& input)
 {
+    m_host = new Host();
+    m_join = new Join();
+    m_host->SDLNetInitialize();
+    m_join->SDLNetInitialize();
     m_background = std::make_unique<Background>(Background("Moon", screen));
 
     m_btnText.push_back(MenuButtonText("HOST GAME"));
@@ -28,19 +32,24 @@ GameState* MultiplayerMenuState::Update(Input& input)
         {
             if (tag == "HOST GAME")
             {
-               /* m_host->OpenSocket();
-                int clientId = m_host->ListenSocket();
-                std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, clientId);
+                m_host->OpenSocket();
+                //int clientId = m_host->ListenSocket();
+                std::thread listenSockThr(&Host::ListenSocket, m_host);
+                listenSockThr.detach();
+               /* std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, m_host->clientId);
                 receiveMsgThr.detach();*/
             }
             if (tag == "JOIN GAME")
             {
-              /*  m_join->OpenSocket();
+                m_join->OpenSocket();
                 int serverId = m_join->ListenSocket();
+               /* std::thread listenSockThr(&Join::ListenSocket, m_join);
+                listenSockThr.detach();*/
                 std::thread receiveMsgThr(&Join::ReceiveMessage, m_join, serverId);
-                receiveMsgThr.detach();*/
+                receiveMsgThr.detach();
             }
             return new MultiplayerLevel1(new Player(true));
+
             // TODO - Add BACK button when have time
             /*if (tag == "QuitButton")
             {

@@ -55,6 +55,7 @@ bool Join::ListenSocket()
 		{
 			clients.push_back(listenSocket);
 			int serverId = clients.size() - 1;
+			//ReceiveMessage(serverId);
 			if (SendMessage(serverId))
 			{
 				//this->SetConsoleTextColor(6);
@@ -66,14 +67,9 @@ bool Join::ListenSocket()
 	}
 }
 
-void Join::ShutDown()
-{
-	SDLNet_Quit();
-}
-
 bool Join::SendMessage(int serverId)
 {
-	std::cout << "Say Something Or I'm Giving Up On You!" << std::endl;
+	//std::cout << "Say Something Or I'm Giving Up On You!" << std::endl;
 	std::cout << "Type Your Message: " << std::endl;
 	//this->SetConsoleTextColor(3);
 	std::getline(std::cin, clientInput);
@@ -105,15 +101,15 @@ bool Join::ReceiveMessage(int serverId)
 	return false;
 }
 
+void Join::ShutDown()
+{
+	SDLNet_Quit();
+}
+
 Uint32 Join::GetIp(TCPsocket sock)
 {
 	IPaddress* clientIp = SDLNet_TCP_GetPeerAddress(sock);
 	return SDLNet_Read32(&clientIp->host);
-}
-
-char* Join::GetMsgReceived()
-{
-	return message;
 }
 
 bool Join::GetListenSocket(TCPsocket sock)

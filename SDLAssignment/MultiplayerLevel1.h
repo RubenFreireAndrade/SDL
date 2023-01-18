@@ -9,6 +9,7 @@
 class MultiplayerLevel1 : public PlayState
 {
 	using PlayState::PlayState;
+
 public:
 	virtual void CreateLevel(Screen& screen);
 	virtual GameState* UpdateStateChange(Input& input);

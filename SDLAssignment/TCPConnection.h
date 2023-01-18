@@ -13,7 +13,6 @@ public:
 	virtual bool ListenSocket() = 0;
 	virtual void ShutDown() = 0;
 
-	virtual char* GetMsgReceived() = 0;
 	virtual Uint32 GetIp(TCPsocket sock) = 0;
 	virtual bool GetListenSocket(TCPsocket sock) = 0;
 protected:

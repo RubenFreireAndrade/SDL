@@ -267,7 +267,7 @@
       <Filter>Header Files\Levels</Filter>
     </ClInclude>
     <ClInclude Include="MultiplayerLevel2.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Levels</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

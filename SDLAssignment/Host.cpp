@@ -63,7 +63,11 @@ bool Host::ListenSocket()
 				std::cout << "Welcome message sent successfully!" << std::endl;
 				//this->SetConsoleTextColor(7);
 			}
-			return clientId;
+
+			ReceiveMessage(clientId);
+
+			//return clientId;
+			return true;
 		}
 	}
 }
@@ -116,9 +120,4 @@ Uint32 Host::GetIp(TCPsocket sock)
 {
 	IPaddress* clientIp = SDLNet_TCP_GetPeerAddress(sock);
 	return SDLNet_Read32(&clientIp->host);
-}
-
-char* Host::GetMsgReceived()
-{
-	return message;
 }
