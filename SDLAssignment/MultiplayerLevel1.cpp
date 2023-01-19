@@ -41,7 +41,7 @@ GameState* MultiplayerLevel1::UpdateStateChange(Input& input)
 {
 	if (m_player->GetScore() >= maxCoinPoints)
 	{
-		return new MultiplayerLevel2(m_player);
+		return new MultiplayerLevel2(m_player, this->connectType);
 	}
 	if (m_player->IsFlaggedForDeletion())
 	{

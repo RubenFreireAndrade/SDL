@@ -24,7 +24,6 @@ public:
 private:
 	Music m_music;
 	Screen m_screen;
-	Join m_join;
 	TextToScreen m_textToScreen;
 
 	std::vector<MenuButton> m_button;

@@ -164,6 +164,7 @@
     <ClCompile Include="MultiplayerLevel1.cpp" />
     <ClCompile Include="MultiplayerLevel2.cpp" />
     <ClCompile Include="MultiplayerMenuState.cpp" />
+    <ClCompile Include="MultiplayerState.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayState.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="MultiplayerLevel1.h" />
     <ClInclude Include="MultiplayerLevel2.h" />
     <ClInclude Include="MultiplayerMenuState.h" />
+    <ClInclude Include="MultiplayerState.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayState.h" />

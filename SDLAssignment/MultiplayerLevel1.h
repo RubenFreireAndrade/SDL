@@ -3,12 +3,12 @@
 #include "Enemy.h"
 #include "Score.h"
 #include "Platform.h"
-#include "PlayState.h"
 #include "Background.h"
+#include "MultiplayerState.h"
 
-class MultiplayerLevel1 : public PlayState
+class MultiplayerLevel1 : public MultiplayerState
 {
-	using PlayState::PlayState;
+	using MultiplayerState::MultiplayerState;
 
 public:
 	virtual void CreateLevel(Screen& screen);

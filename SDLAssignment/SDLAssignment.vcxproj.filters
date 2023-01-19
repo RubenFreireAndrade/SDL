@@ -55,6 +55,12 @@
     <Filter Include="Header Files\Levels">
       <UniqueIdentifier>{4d9a59de-cfad-4034-b002-1f584e2f36a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HUD">
+      <UniqueIdentifier>{fb4100b4-2bb0-42ad-bec3-db5d45f88f66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HUD">
+      <UniqueIdentifier>{4f74eabd-f77c-46b3-a421-7e06bea7d33b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -147,9 +153,6 @@
     <ClCompile Include="MenuButtonText.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
-    <ClCompile Include="ChatBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Level2.cpp">
       <Filter>Source Files\Levels</Filter>
     </ClCompile>
@@ -161,6 +164,12 @@
     </ClCompile>
     <ClCompile Include="MultiplayerLevel2.cpp">
       <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiplayerState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="ChatBox.cpp">
+      <Filter>Source Files\HUD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,9 +263,6 @@
     <ClInclude Include="MenuButtonText.h">
       <Filter>Header Files\Buttons</Filter>
     </ClInclude>
-    <ClInclude Include="ChatBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Level2.h">
       <Filter>Header Files\Levels</Filter>
     </ClInclude>
@@ -268,6 +274,12 @@
     </ClInclude>
     <ClInclude Include="MultiplayerLevel2.h">
       <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiplayerState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ChatBox.h">
+      <Filter>Header Files\HUD</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

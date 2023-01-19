@@ -9,7 +9,7 @@ public:
 	ChatBox(const std::string fileName, Screen& screen);
 	~ChatBox();
 	// Inherited via GameObject
-	//void Initialise(Screen& screen, const std::string fileName, std::string msgText);
+	void Initialise(Screen& screen);
 	void Update(Input& input);
 	void Render(Screen& screen);
 	void UpdateText();

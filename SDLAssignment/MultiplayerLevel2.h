@@ -4,14 +4,14 @@
 #include "Score.h"
 #include "Rocket.h"
 #include "Platform.h"
-#include "PlayState.h"
 #include "Background.h"
+#include "MultiplayerState.h"
 
-class EndScreenState;
+//class EndScreenState;
 
-class MultiplayerLevel2 : public PlayState
+class MultiplayerLevel2 : public MultiplayerState
 {
-	using PlayState::PlayState;
+	using MultiplayerState::MultiplayerState;
 public:
 	virtual void CreateLevel(Screen& screen);
 	virtual GameState* UpdateStateChange(Input& input);
