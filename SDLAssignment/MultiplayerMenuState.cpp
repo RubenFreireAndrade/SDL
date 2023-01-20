@@ -28,11 +28,11 @@ GameState* MultiplayerMenuState::Update(Input& input)
         {
             if (tag == "HOST GAME")
             {
-                return new MultiplayerLevel1(new Player(true), "host");
+                return new MultiplayerLevel1(new Player(true), "HOST");
             }
             if (tag == "JOIN GAME")
             {
-                return new MultiplayerLevel1(new Player(true), "client");
+                return new MultiplayerLevel1(new Player(true), "CLIENT");
             }
 
             // TODO - Add BACK button when have time

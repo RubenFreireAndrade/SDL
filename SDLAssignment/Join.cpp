@@ -43,37 +43,29 @@ bool Join::OpenSocket()
 
 bool Join::ListenSocket()
 {
-	std::cout << "Trying to connect" << std::endl;
-	while (isListening)
+	//std::cout << "Trying to connect" << std::endl;
+	if (!listenSocket)
 	{
-		if (!listenSocket)
+		std::cout << ".";
+		SDL_Delay(1000);
+	}
+	else
+	{
+		clients.push_back(listenSocket);
+		int serverId = clients.size() - 1;
+		//ReceiveMessage(serverId);
+		if (SendMessage(serverId))
 		{
-			std::cout << ".";
-			SDL_Delay(1000);
+			std::cout << "Message sent successfully!" << std::endl;
 		}
-		else
-		{
-			clients.push_back(listenSocket);
-			int serverId = clients.size() - 1;
-			//ReceiveMessage(serverId);
-			if (SendMessage(serverId))
-			{
-				//this->SetConsoleTextColor(6);
-				std::cout << "Message sent successfully!" << std::endl;
-				//this->SetConsoleTextColor(7);
-			}
-			return serverId;
-		}
+		return serverId;
 	}
 }
 
 bool Join::SendMessage(int serverId)
 {
-	//std::cout << "Say Something Or I'm Giving Up On You!" << std::endl;
 	std::cout << "Type Your Message: " << std::endl;
-	//this->SetConsoleTextColor(3);
 	std::getline(std::cin, clientInput);
-	//this->SetConsoleTextColor(7);
 
 	if (SDLNet_TCP_Send(clients[serverId], clientInput.c_str(), clientInput.length() + 1))
 	{
@@ -86,19 +78,21 @@ bool Join::SendMessage(int serverId)
 bool Join::ReceiveMessage(int serverId)
 {
 	TCPsocket serverSock = clients[serverId];
-	//char message[100];
 	while (SDLNet_TCP_Recv(serverSock, message, 100))
 	{
 		SDL_Delay(100);
 		std::cout << "/ / / / / / / / / / / 'Funny Looking Chat Box' / / / / / / / / / / /" << std::endl;
-		//this->SetConsoleTextColor(3);
 		std::cout << this->GetIp(serverSock) << " Sent: " << message << "			|" << std::endl;
-		//this->SetConsoleTextColor(7);
 		std::cout << "/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /" << std::endl;
 		SDL_Delay(100);
 	}
 	std::cout << "Could not receive message" << std::endl;
 	return false;
+}
+
+std::string Join::GetReceivedMessage()
+{
+	return message;
 }
 
 void Join::ShutDown()

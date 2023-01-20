@@ -1,6 +1,6 @@
 #include "ChatBox.h"
 
-ChatBox::ChatBox(const std::string fileName, Screen& screen)
+ChatBox::ChatBox(const std::string fileName, const std::string& message, Screen& screen)
 {
 	this->isStatic = true;
 	m_image.Load("Assets/Images/" + fileName + ".png", screen);
@@ -9,7 +9,9 @@ ChatBox::ChatBox(const std::string fileName, Screen& screen)
 
 	m_text.Load("Assets/Fonts/impact.ttf", 100);
 	m_text.SetColor(255, 255, 255, 255);
-	m_text.SetDimension(70, 50);
+	m_text.SetDimension(250, 40);
+
+	m_incomingText = message;
 }
 
 ChatBox::~ChatBox()
@@ -26,20 +28,25 @@ void ChatBox::Update(Input& input)
 
 void ChatBox::Render(Screen& screen)
 {
-	this->SetPosition((screen.GetResolution().x / 2) - m_image.GetSpriteDimension().x / 2, (screen.GetResolution().y / 2 + 150) - m_image.GetSpriteDimension().y / 2 + 150);
-	m_image.Render(this->GetPosition().x, this->GetPosition().y, screen);
+	// Setting Chat box position on the screen.
+	this->SetPosition((screen.GetResolution().x / 2) - m_image.GetSpriteDimension().x / 2, (screen.GetResolution().y / 2) - m_image.GetSpriteDimension().y / 2);
+	m_image.Render(this->GetPosition().x, this->GetPosition().y + 300, screen);
+
+	m_text.SetText(SetIncomingText());
+	// Setting Text inside the Chat box.
+	m_text.Render(this->GetPosition().x + 25, this->GetPosition().y + 300, screen);
 }
 
-void ChatBox::UpdateText()
+std::string ChatBox::SetIncomingText()
 {
-	//m_text.SetText()
-}
-
-char* ChatBox::GetMsgReceived(char* msg)
-{
-	return msg;
+	return m_incomingText;
 }
 
 void ChatBox::Shutdown()
 {
+}
+
+std::string ChatBox::GetIncomingText(std::string incomingText)
+{
+	return m_incomingText = incomingText;
 }

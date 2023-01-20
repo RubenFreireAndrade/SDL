@@ -35,40 +35,28 @@ bool Host::OpenSocket()
 
 bool Host::ListenSocket()
 {
-	std::cout << "Listening for Clients" << std::endl;
-	while (isListening)
+	TCPsocket tempSock = SDLNet_TCP_Accept(listenSocket);
+	if (!tempSock)
 	{
-		TCPsocket tempSock = SDLNet_TCP_Accept(listenSocket);
-		if (!tempSock)
+		std::cout << ".";
+		SDL_Delay(1000);
+	}
+	else
+	{
+		std::cout << "Client connected: ";
+		std::cout << this->GetIp(tempSock) << std::endl;
+
+		clients.push_back(tempSock);
+		std::cout << "Number of Clients: " << clients.size() << std::endl;
+
+		int clientId = clients.size() - 1;
+		if (SendMessage(clientId, this->welcomeMessage))
 		{
-			//this->SetConsoleTextColor(2);
-			std::cout << ".";
-			//this->SetConsoleTextColor(7);
-			SDL_Delay(1000);
+			std::cout << "Welcome message sent successfully!" << std::endl;
 		}
-		else
-		{
-			std::cout << "Client connected: ";
-			//this->SetConsoleTextColor(3);
-			std::cout << this->GetIp(tempSock) << std::endl;
-			//this->SetConsoleTextColor(7);
-
-			clients.push_back(tempSock);
-			std::cout << "Number of Clients: " << clients.size() << std::endl;
-
-			int clientId = clients.size() - 1;
-			if (SendMessage(clientId, this->welcomeMessage))
-			{
-				//this->SetConsoleTextColor(6);
-				std::cout << "Welcome message sent successfully!" << std::endl;
-				//this->SetConsoleTextColor(7);
-			}
-
-			ReceiveMessage(clientId);
-
-			//return clientId;
-			return true;
-		}
+		//ReceiveMessage(clientId);
+		//return true;
+		return clientId;
 	}
 }
 
@@ -85,15 +73,14 @@ bool Host::SendMessage(int clientId, std::string message)
 bool Host::ReceiveMessage(int clientId)
 {
 	TCPsocket sock = clients[clientId];
-	//char message[100];
 	while (SDLNet_TCP_Recv(sock, message, 100))
 	{
 		SDL_Delay(100);
 		std::cout << "/ / / / / / / / / / / 'Funny Looking Chat Box' / / / / / / / / / / /" << std::endl;
-		//this->SetConsoleTextColor(3);
 		std::cout << this->GetIp(sock) << ":" << clientId << " Sent: " << message << "			|" << std::endl;
-		//this->SetConsoleTextColor(7);
 		std::cout << "/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /" << std::endl;
+
+		// Relaying incoming messages from a Client to other Clients.
 		for (int cId = 0; cId < clients.size(); cId++)
 		{
 			if (cId == clientId) continue;
@@ -103,6 +90,11 @@ bool Host::ReceiveMessage(int clientId)
 	}
 	std::cout << "Could not receive message" << std::endl;
 	return false;
+}
+
+std::string Host::GetReceivedMessage()
+{
+	return message;
 }
 
 bool Host::GetListenSocket(TCPsocket sock)

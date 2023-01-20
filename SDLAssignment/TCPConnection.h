@@ -15,12 +15,12 @@ public:
 
 	virtual Uint32 GetIp(TCPsocket sock) = 0;
 	virtual bool GetListenSocket(TCPsocket sock) = 0;
+	const std::string welcomeMessage = "Hello! Welcome to the chat.";
 protected:
 	char message[100];
 	const int port = 1234;
 	bool isListening = true;
 	std::string clientInput;
-	const std::string welcomeMessage = "Hello! Welcome to the chat.";
 
 	IPaddress ip{};
 	std::vector<TCPsocket> clients;

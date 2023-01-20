@@ -13,6 +13,7 @@ public:
 	explicit MultiplayerState(Player* p, std::string onlineMode);
 	~MultiplayerState() override {}
 	virtual bool OnEnter(Screen& screen, Input& input);
+	virtual GameState* Update(Input& input);
 
 protected:
 	std::string connectType;
@@ -21,5 +22,6 @@ protected:
 	ChatBox* m_chatBox;
 
 private:
+	std::string m_message;
 };
 

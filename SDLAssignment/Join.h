@@ -15,6 +15,8 @@ public:
 
 	bool SendMessage(int serverId);
 	bool ReceiveMessage(int serverId);
+
+	std::string GetReceivedMessage();
 private:
 
 	// Inherited via TCPConnection
