@@ -43,22 +43,20 @@ bool Join::OpenSocket()
 
 bool Join::ListenSocket()
 {
-	//std::cout << "Trying to connect" << std::endl;
 	if (!listenSocket)
 	{
 		std::cout << ".";
-		SDL_Delay(1000);
 	}
 	else
 	{
 		clients.push_back(listenSocket);
-		int serverId = clients.size() - 1;
+		serverId = clients.size() - 1;
 		//ReceiveMessage(serverId);
-		if (SendMessage(serverId))
+		/*if (SendMessage(serverId))
 		{
 			std::cout << "Message sent successfully!" << std::endl;
-		}
-		return serverId;
+		}*/
+		return true;
 	}
 }
 
@@ -80,11 +78,11 @@ bool Join::ReceiveMessage(int serverId)
 	TCPsocket serverSock = clients[serverId];
 	while (SDLNet_TCP_Recv(serverSock, message, 100))
 	{
-		SDL_Delay(100);
 		std::cout << "/ / / / / / / / / / / 'Funny Looking Chat Box' / / / / / / / / / / /" << std::endl;
 		std::cout << this->GetIp(serverSock) << " Sent: " << message << "			|" << std::endl;
 		std::cout << "/ / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /" << std::endl;
-		SDL_Delay(100);
+		isMsgReceived = true;
+		//isClientConnected = true;
 	}
 	std::cout << "Could not receive message" << std::endl;
 	return false;
@@ -93,6 +91,16 @@ bool Join::ReceiveMessage(int serverId)
 std::string Join::GetReceivedMessage()
 {
 	return message;
+}
+
+int Join::GetServerId()
+{
+	return serverId;
+}
+
+bool Join::IsMsgReceived()
+{
+	return isMsgReceived;
 }
 
 void Join::ShutDown()

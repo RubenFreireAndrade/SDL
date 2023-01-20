@@ -92,6 +92,11 @@ bool Host::ReceiveMessage(int clientId)
 	return false;
 }
 
+int Host::GetClientId()
+{
+	return clientId;
+}
+
 std::string Host::GetReceivedMessage()
 {
 	return message;

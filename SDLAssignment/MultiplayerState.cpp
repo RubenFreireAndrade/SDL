@@ -13,7 +13,7 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 	{
 		m_host = new Host();
 		
-		auto chatBox = new ChatBox("ChatBox", "Listening for Clients", screen);
+		auto chatBox = new ChatBox("ChatBox", "Listening For Clients", screen);
 
 		chatBox->Initialise(screen);
 
@@ -27,7 +27,7 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 	{
 		m_join = new Join();
 
-		auto chatBox = new ChatBox("ChatBox", "Attempting to find server", screen);
+		auto chatBox = new ChatBox("ChatBox", "Attempting To Find Server", screen);
 
 		chatBox->Initialise(screen);
 
@@ -45,23 +45,32 @@ GameState* MultiplayerState::Update(Input& input)
 
 	if (this->connectType == "HOST")
 	{
-		//int clientId = m_host->ListenSocket();
 		std::thread listenSockThr(&Host::ListenSocket, m_host);
 		listenSockThr.detach();
-		if (m_host->clientId > 0)
+
+		if (m_host->GetClientId() > 0)
 		{
-			std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, m_host->clientId);
+			std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, m_host->GetClientId());
 			receiveMsgThr.detach();
 		}
 	}
 
 	if (this->connectType == "CLIENT")
 	{
-		int serverId = m_join->ListenSocket();
-		/* std::thread listenSockThr(&Join::ListenSocket, m_join);
-		 listenSockThr.detach();*/
-		std::thread receiveMsgThr(&Join::ReceiveMessage, m_join, serverId);
-		receiveMsgThr.detach();
+		std::thread listenSockThr(&Join::ListenSocket, m_join);
+		listenSockThr.detach();
+
+		if (m_join->GetServerId() > 0)
+		{
+			std::thread receiveMsgThr(&Join::ReceiveMessage, m_join, m_join->GetServerId());
+			receiveMsgThr.detach();
+		}
+
+		if (m_join->IsMsgReceived() == true)
+		{
+			std::thread sendMsgThr(&Join::SendMessage, m_join, m_join->GetServerId());
+			sendMsgThr.detach();
+		}
 	}
 	return this;
 }

@@ -16,8 +16,13 @@ public:
 	bool SendMessage(int serverId);
 	bool ReceiveMessage(int serverId);
 
+	int GetServerId();
+	bool IsMsgReceived();
 	std::string GetReceivedMessage();
+
 private:
+	int serverId = 0;
+	bool isMsgReceived = false;
 
 	// Inherited via TCPConnection
 	virtual Uint32 GetIp(TCPsocket sock) override;

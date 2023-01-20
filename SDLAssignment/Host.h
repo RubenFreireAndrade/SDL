@@ -11,13 +11,14 @@ public:
 	virtual bool GetListenSocket(TCPsocket sock) override;
 	virtual void ShutDown() override;
 	
-	int clientId = 0;
 	bool SendMessage(int clientId, std::string message);
 	bool ReceiveMessage(int clientId);
 
+	int GetClientId();
 	std::string GetReceivedMessage();
 
 private:
+	int clientId = 0;
 	virtual Uint32 GetIp(TCPsocket sock) override;
 
 };
