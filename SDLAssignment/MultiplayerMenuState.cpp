@@ -26,10 +26,6 @@ GameState* MultiplayerMenuState::Update(Input& input)
         auto& tag = btnText.GetTag();
         if (btnText.GetState() == MenuButtonText::ButtonState::CLICKED)
         {
-            if (tag == "HOST GAME")
-            {
-                return new MultiplayerLevel1(new Player(true), "HOST");
-            }
             if (tag == "JOIN GAME")
             {
                 return new MultiplayerLevel1(new Player(true), "CLIENT");

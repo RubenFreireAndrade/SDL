@@ -9,68 +9,35 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 {
 	PlayState::OnEnter(screen, input);
 
-	if (this->connectType == "HOST")
-	{
-		m_host = new Host();
-		
-		auto chatBox = new ChatBox("ChatBox", "Listening For Clients", screen);
-
-		chatBox->Initialise(screen);
-
-		this->objects.push_back(chatBox);
-
-		m_host->SDLNetInitialize();
-		m_host->OpenSocket();
-	}
-
 	if (this->connectType == "CLIENT")
 	{
-		m_join = new Join();
+		m_chatBox = new ChatBox("ChatBox", "Attempting To Find Server", screen);
 
-		auto chatBox = new ChatBox("ChatBox", "Attempting To Find Server", screen);
+		m_chatBox->Initialise(screen);
 
-		chatBox->Initialise(screen);
+		this->objects.push_back(m_chatBox);
 
-		this->objects.push_back(chatBox);
-
-		m_join->SDLNetInitialize();
-		m_join->OpenSocket();
+		this->SDLNetInitialize();
+		this->ConnectToServer();
 	}
 	return true;
 }
 
 GameState* MultiplayerState::Update(Input& input)
 {
+	// TODO - Delete Update func if not using it.
 	PlayState::Update(input);
-
-	if (this->connectType == "HOST")
-	{
-		std::thread listenSockThr(&Host::ListenSocket, m_host);
-		listenSockThr.detach();
-
-		if (m_host->GetClientId() > 0)
-		{
-			std::thread receiveMsgThr(&Host::ReceiveMessage, m_host, m_host->GetClientId());
-			receiveMsgThr.detach();
-		}
-	}
-
-	if (this->connectType == "CLIENT")
-	{
-		std::thread listenSockThr(&Join::ListenSocket, m_join);
-		listenSockThr.detach();
-
-		if (m_join->GetServerId() > 0)
-		{
-			std::thread receiveMsgThr(&Join::ReceiveMessage, m_join, m_join->GetServerId());
-			receiveMsgThr.detach();
-		}
-
-		if (m_join->IsMsgReceived() == true)
-		{
-			std::thread sendMsgThr(&Join::SendMessage, m_join, m_join->GetServerId());
-			sendMsgThr.detach();
-		}
-	}
 	return this;
+}
+
+void MultiplayerState::SentMessage(std::string message)
+{
+	std::cout << "You Sent: " << message << std::endl;
+}
+
+void MultiplayerState::ReceiveMessage(std::string message)
+{
+	std::cout << this->GetIp(serverSocket) << " Sent: " << message << std::endl;
+	// Add message to chatbox
+	m_chatBox->SetIncomingText(message);
 }

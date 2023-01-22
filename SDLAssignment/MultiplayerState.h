@@ -1,12 +1,9 @@
 #pragma once
-#include "Host.h"
-#include "Join.h"
+#include "TCPConnection.h"
 #include "ChatBox.h"
 #include "PlayState.h"
 
-#include <thread>
-
-class MultiplayerState : public PlayState
+class MultiplayerState : public PlayState, public TCPConnection
 {
 
 public:
@@ -15,10 +12,11 @@ public:
 	virtual bool OnEnter(Screen& screen, Input& input);
 	virtual GameState* Update(Input& input);
 
+	void ReceiveMessage(std::string message);
+	void SentMessage(std::string message);
+
 protected:
 	std::string connectType;
-	Host* m_host;
-	Join* m_join;
 	ChatBox* m_chatBox;
 
 private:

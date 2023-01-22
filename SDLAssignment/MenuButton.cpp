@@ -24,7 +24,6 @@ void MenuButton::Update(Input& input)
 	mousePosition.y = input.GetMousePosition().y;
 	if (SDL_PointInRect(&mousePosition, &buttonPosition))
 	{
-		std::cout << "Mouse is hovering over button" << std::endl;
 		buttonState = ButtonState::HOVER;
 		if (input.IsMouseClicked())
 		{

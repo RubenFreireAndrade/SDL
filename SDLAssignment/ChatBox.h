@@ -14,11 +14,11 @@ public:
 	void Render(Screen& screen);
 	void Shutdown();
 
-	std::string SetIncomingText();
-	std::string GetIncomingText(std::string incomingText);
+	std::string GetIncomingText();
+	void SetIncomingText(std::string t);
 
 private:
-	std::string m_incomingText = "";
+	std::string m_incomingText;
 
 	Sprite m_image;
 	TextToScreen m_text;

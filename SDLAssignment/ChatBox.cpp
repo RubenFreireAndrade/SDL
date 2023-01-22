@@ -32,21 +32,21 @@ void ChatBox::Render(Screen& screen)
 	this->SetPosition((screen.GetResolution().x / 2) - m_image.GetSpriteDimension().x / 2, (screen.GetResolution().y / 2) - m_image.GetSpriteDimension().y / 2);
 	m_image.Render(this->GetPosition().x, this->GetPosition().y + 300, screen);
 
-	m_text.SetText(SetIncomingText());
+	m_text.SetText(GetIncomingText());
 	// Setting Text inside the Chat box.
 	m_text.Render(this->GetPosition().x + 25, this->GetPosition().y + 300, screen);
-}
-
-std::string ChatBox::SetIncomingText()
-{
-	return m_incomingText;
 }
 
 void ChatBox::Shutdown()
 {
 }
 
-std::string ChatBox::GetIncomingText(std::string incomingText)
+std::string ChatBox::GetIncomingText()
 {
-	return m_incomingText = incomingText;
+	return m_incomingText;
+}
+
+void ChatBox::SetIncomingText(std::string t)
+{
+	m_incomingText = t;
 }

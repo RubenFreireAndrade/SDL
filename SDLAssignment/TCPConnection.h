@@ -3,27 +3,33 @@
 #include<vector>
 #include<iostream>
 #include<SDL_net.h>
+#include<thread>
 
 class TCPConnection
 {
 public:
-	virtual ~TCPConnection() = 0 {};
-	virtual bool SDLNetInitialize() = 0;
-	virtual bool OpenSocket() = 0;
-	virtual bool ListenSocket() = 0;
-	virtual void ShutDown() = 0;
+	~TCPConnection();
+	virtual bool SDLNetInitialize();
+	virtual bool ConnectToServer();
+	virtual void ShutDown();
+	
+	void SendMessageToServer(std::string message);
 
-	virtual Uint32 GetIp(TCPsocket sock) = 0;
-	virtual bool GetListenSocket(TCPsocket sock) = 0;
-	const std::string welcomeMessage = "Hello! Welcome to the chat.";
+	Uint32 GetIp(TCPsocket sock);
+
 protected:
-	char message[100];
-	const int port = 1234;
-	bool isListening = true;
-	std::string clientInput;
+	virtual void SentMessage(std::string message) = 0;
+	virtual void ReceiveMessage(std::string message) = 0;
 
+	bool isListening = false;
+	
 	IPaddress ip{};
-	std::vector<TCPsocket> clients;
-	TCPsocket listenSocket = nullptr;
+	const int port = 1234;
+
+	TCPsocket serverSocket = nullptr;
+
+private:
+	std::thread serverListener;
+	void ListenToServer();
 };
 

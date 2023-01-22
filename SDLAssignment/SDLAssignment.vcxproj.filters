@@ -135,14 +135,8 @@
     <ClCompile Include="TCPConnection.cpp">
       <Filter>Source Files\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="Join.cpp">
-      <Filter>Source Files\Networking</Filter>
-    </ClCompile>
     <ClCompile Include="MultiplayerMenuState.cpp">
       <Filter>Source Files\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Host.cpp">
-      <Filter>Source Files\Networking</Filter>
     </ClCompile>
     <ClCompile Include="Score.cpp">
       <Filter>Source Files\Character Stuff</Filter>
@@ -242,13 +236,7 @@
     <ClInclude Include="Parser.h">
       <Filter>Header Files\Core Components</Filter>
     </ClInclude>
-    <ClInclude Include="Join.h">
-      <Filter>Header Files\Networking</Filter>
-    </ClInclude>
     <ClInclude Include="TCPConnection.h">
-      <Filter>Header Files\Networking</Filter>
-    </ClInclude>
-    <ClInclude Include="Host.h">
       <Filter>Header Files\Networking</Filter>
     </ClInclude>
     <ClInclude Include="MultiplayerMenuState.h">

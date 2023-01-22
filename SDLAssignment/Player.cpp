@@ -225,7 +225,6 @@ void Player::MoveLeft()
 	m_velocity.x -= speed;
 	m_state = RUN;
 	m_spriteDirection = Player::Direction::LEFT;
-	std::cout << "moving left" << std::endl;
 }
 
 void Player::MoveRight()
@@ -234,7 +233,6 @@ void Player::MoveRight()
 	m_velocity.x += speed;
 	m_state = RUN;
 	m_spriteDirection = Player::Direction::RIGHT;
-	std::cout << "moving right" << std::endl;
 }
 
 void Player::Jump()

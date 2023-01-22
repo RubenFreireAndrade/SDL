@@ -155,11 +155,9 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="Host.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="MenuButton.cpp" />
-    <ClCompile Include="Join.cpp" />
     <ClCompile Include="MenuButtonText.cpp" />
     <ClCompile Include="MultiplayerLevel1.cpp" />
     <ClCompile Include="MultiplayerLevel2.cpp" />
@@ -193,11 +191,9 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="Host.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MenuButton.h" />
-    <ClInclude Include="Join.h" />
     <ClInclude Include="MenuButtonText.h" />
     <ClInclude Include="MultiplayerLevel1.h" />
     <ClInclude Include="MultiplayerLevel2.h" />

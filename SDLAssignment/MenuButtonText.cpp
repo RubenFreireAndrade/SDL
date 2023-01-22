@@ -9,6 +9,7 @@ MenuButtonText::MenuButtonText(std::string text)
 	this->SetTag(text);
 	m_btnText.Load("Assets/Fonts/impact.ttf", 100);
 	m_btnText.SetText(this->GetTag());
+	//m_btnText.SetDimension(100, 70);
 }
 
 void MenuButtonText::Update(Input& input)
@@ -18,7 +19,6 @@ void MenuButtonText::Update(Input& input)
 	mousePosition.y = input.GetMousePosition().y;
 	if (SDL_PointInRect(&mousePosition, &buttonPosition))
 	{
-		std::cout << "Mouse is hovering over button" << std::endl;
 		buttonState = ButtonState::HOVER;
 		if (input.IsMouseClicked())
 		{
