@@ -5,14 +5,13 @@ bool MultiplayerMenuState::OnEnter(Screen& screen, Input& input)
 {
     m_background = std::make_unique<Background>(Background("Moon", screen));
 
-    m_btnText.push_back(MenuButtonText("HOST GAME"));
     m_btnText.push_back(MenuButtonText("JOIN GAME"));
     // Making each element in the container spread out by 100px.
     for (auto i = 0; i < m_btnText.size(); i++)
     {
         auto btnText = &m_btnText[i];
         auto newX = btnText->GetPosition().x;
-        auto newY = btnText->GetPosition().y + 100 * i + screen.GetResolution().y / m_btnText.size();
+        auto newY = btnText->GetPosition().y + 100 * i + screen.GetResolution().y / 2;
         btnText->SetPosition(newX, newY);
     }
     return true;

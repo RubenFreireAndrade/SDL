@@ -38,6 +38,5 @@ void MultiplayerState::SentMessage(std::string message)
 void MultiplayerState::ReceiveMessage(std::string message)
 {
 	std::cout << this->GetIp(serverSocket) << " Sent: " << message << std::endl;
-	// Add message to chatbox
 	m_chatBox->SetIncomingText(message);
 }
