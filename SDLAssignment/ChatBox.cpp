@@ -11,6 +11,10 @@ ChatBox::ChatBox(const std::string fileName, const std::string& message, Screen&
 	m_text.SetColor(255, 255, 255, 255);
 	m_text.SetDimension(250, 40);
 
+	m_chatText.Load("Assets/Fonts/impact.ttf", 100);
+	m_chatText.SetColor(255, 255, 255, 255);
+	m_chatText.SetDimension(250, 40);
+
 	m_incomingText = message;
 }
 
@@ -34,6 +38,9 @@ void ChatBox::Render(Screen& screen)
 	m_text.SetText(GetIncomingText());
 	// Setting Text inside the Chat box.
 	m_text.Render((screen.GetResolution().x / 2) - m_text.GetDimension().x / 2, (screen.GetResolution().y - screen.GetResolution().y + 20) - m_text.GetDimension().y / 2, screen);
+
+	m_chatText.SetText(GetChatInput());
+	m_chatText.Render((screen.GetResolution().x / 2) - m_chatText.GetDimension().x / 2, (screen.GetResolution().y / 2) - m_chatText.GetDimension().y / 2 + 20, screen);
 }
 
 void ChatBox::Shutdown()
@@ -43,6 +50,16 @@ void ChatBox::Shutdown()
 std::string ChatBox::GetIncomingText()
 {
 	return m_incomingText;
+}
+
+std::string ChatBox::GetChatInput()
+{
+	return m_chatInput;
+}
+
+void ChatBox::SetChatInput(std::string t)
+{
+	m_chatInput = t;
 }
 
 void ChatBox::SetIncomingText(std::string t)

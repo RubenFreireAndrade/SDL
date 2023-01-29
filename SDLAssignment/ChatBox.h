@@ -15,11 +15,15 @@ public:
 	void Shutdown();
 
 	std::string GetIncomingText();
+	std::string GetChatInput();
+	void SetChatInput(std::string t);
 	void SetIncomingText(std::string t);
 
 private:
 	std::string m_incomingText;
+	std::string m_chatInput;
 
 	Sprite m_image;
 	TextToScreen m_text;
+	TextToScreen m_chatText;
 };

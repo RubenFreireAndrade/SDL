@@ -2,6 +2,7 @@
 
 MultiplayerState::MultiplayerState(Player* p, std::string connectType) : PlayState(p)
 {
+	this->m_player = p;
 	this->connectType = connectType;
 }
 
@@ -33,6 +34,7 @@ GameState* MultiplayerState::Update(Input& input)
 void MultiplayerState::SentMessage(std::string message)
 {
 	std::cout << "You Sent: " << message << std::endl;
+	m_chatBox->SetChatInput(message);
 }
 
 void MultiplayerState::ReceiveMessage(std::string message)
