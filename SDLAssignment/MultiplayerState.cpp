@@ -26,6 +26,16 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 
 GameState* MultiplayerState::Update(Input& input)
 {
+	// TODO
+	if (m_player->isChatting)
+	{
+		m_chatBox->SetChatInput(m_player->GetChatInput());
+		if (!m_player->isChatting)
+		{
+			this->SendMessageToServer(m_player->GetChatInput());
+		}
+	}
+
 	// TODO - Delete Update func if not using it.
 	PlayState::Update(input);
 	return this;

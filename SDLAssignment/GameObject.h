@@ -49,7 +49,7 @@ protected:
 	bool isDead;
 	bool isStatic;
 	bool isBlocked;
-	bool isChatting;
+	//bool isChatting;
 	bool isGrounded;
 	bool deleteFlag;
 

@@ -48,6 +48,8 @@ public:
 	void Jump();
 
 	int GetScore();
+	std::string GetChatInput();
+	bool isChatting = false;
 
 private:
 
@@ -65,6 +67,7 @@ private:
 	bool m_shooting = false;
 	bool isJumping = false;
 	bool isOnlineMode = false;
+
 	std::string chatInput;
 
 	std::list<GameObject*>* m_gameObjects = {};
