@@ -210,15 +210,17 @@ void Player::ToggleChatMode()
 	}
 	else
 	{
-		// This is when to send chatInput to server.
 		std::cout << std::endl << "chat mode disabled" << std::endl;
-		std::cout << chatInput << std::endl;
 	}
 }
 
 void Player::RecordChatInput(char key)
 {
-	if (!isChatting) return;
+	if (!isChatting)
+	{
+		chatInput.clear();
+		return;
+	}
 	chatInput += key;
 	std::cout << key;
 }
