@@ -60,9 +60,6 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Inp
 			m_image[i].SetImageDimension(4, 1, 2268, 556);
 		}
 	}
-
-	input.RegisterKeyBind(SDLK_RETURN, std::bind(&Player::ToggleChatMode, this));
-	input.RegisterAnyKeyBind(std::bind(&Player::RecordChatInput, this, std::placeholders::_1));
 }
 
 void Player::Update(Input& input)
@@ -191,38 +188,14 @@ int Player::GetScore()
 	return score;
 }
 
-std::string Player::GetChatInput()
-{
-	return chatInput;
-}
+//std::string Player::GetChatInput()
+//{
+//	return chatInput;
+//}
 
 void Player::SetState(State state)
 {
 	m_state = state;
-}
-
-void Player::ToggleChatMode()
-{
-	isChatting = !isChatting;
-	if (isChatting)
-	{
-		std::cout << "chat mode enabled" << std::endl;
-	}
-	else
-	{
-		std::cout << std::endl << "chat mode disabled" << std::endl;
-	}
-}
-
-void Player::RecordChatInput(char key)
-{
-	if (!isChatting)
-	{
-		chatInput.clear();
-		return;
-	}
-	chatInput += key;
-	std::cout << key;
 }
 
 void Player::MoveLeft()

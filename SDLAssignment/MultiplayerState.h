@@ -14,12 +14,17 @@ public:
 
 	void ReceiveMessage(std::string message);
 	void SentMessage(std::string message);
+	void ToggleChatMode();
+	void RecordChatInput(char key);
 
 protected:
 	std::string connectType;
 	ChatBox* m_chatBox;
 
 private:
+	std::string chatInput;
 	std::string m_message;
+
+	//bool isChatting = false;
 };
 

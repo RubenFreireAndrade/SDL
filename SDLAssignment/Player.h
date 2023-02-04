@@ -41,14 +41,13 @@ public:
 
 	void AddScore(int amount);
 	void SetState(State state);
-	void ToggleChatMode();
-	void RecordChatInput(char key);
 	void MoveLeft();
 	void MoveRight();
 	void Jump();
 
 	int GetScore();
-	std::string GetChatInput();
+	//std::string GetChatInput();
+
 	bool isChatting = false;
 
 private:
@@ -67,8 +66,6 @@ private:
 	bool m_shooting = false;
 	bool isJumping = false;
 	bool isOnlineMode = false;
-
-	std::string chatInput;
 
 	std::list<GameObject*>* m_gameObjects = {};
 };

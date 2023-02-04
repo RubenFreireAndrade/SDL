@@ -39,11 +39,15 @@ void ChatBox::Render(Screen& screen)
 	m_text.Render((screen.GetResolution().x / 2) - m_text.GetDimension().x / 2, (screen.GetResolution().y - screen.GetResolution().y + 20) - m_text.GetDimension().y / 2, screen);
 
 	m_chatText.SetText(GetChatInput());
+	// Setting Chat Text position of Chat Box.
 	m_chatText.Render((screen.GetResolution().x / 2) - m_chatText.GetDimension().x / 2, (screen.GetResolution().y / 2) - m_chatText.GetDimension().y / 2 + 300, screen);
 }
 
 void ChatBox::Shutdown()
 {
+	m_text.ShutDown();
+	m_chatText.ShutDown();
+	m_image.Unload();
 }
 
 std::string ChatBox::GetIncomingText()
