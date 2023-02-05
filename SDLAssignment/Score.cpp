@@ -28,6 +28,6 @@ void Score::AddToScore()
 	m_text.SetText("Score: " + std::to_string(m_player->GetScore()));
 }
 
-void Score::Update(Input& input)
+void Score::Update(Input& input, GameState& state)
 {
 }

@@ -19,7 +19,7 @@ void ServerText::Initialise(Screen& screen)
 {
 }
 
-void ServerText::Update(Input& input)
+void ServerText::Update(Input& input, GameState& state)
 {
 }
 

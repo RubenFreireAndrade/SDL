@@ -9,6 +9,8 @@
 #include "Vector.h"
 #include "Sprite.h"
 
+class GameState;
+
 class GameObject
 {
 	int gravitySpeed = 6;
@@ -18,10 +20,11 @@ public:
 
 	GameObject();
 
-	void PreUpdate(Input& input);
-	virtual void Update(Input& input) = 0;
+	void PreUpdate(Input& input, GameState& state);
+	virtual void Update(Input& input, GameState& state) = 0;
 	virtual void Render(Screen& screen) = 0;
 	virtual void CheckCollision(std::list<GameObject*> objects);
+	virtual void Instantiate(Screen& screen, GameState& state);
 
 	void SetPosition(int x, int y);
 	void SetPosition(const Vector2D& position);
@@ -43,13 +46,11 @@ public:
 	void FlagForDeletion();
 
 protected:
-	bool GetIsChatting();
 	bool IsCollidingWith(GameObject* obj);
 
 	bool isDead;
 	bool isStatic;
 	bool isBlocked;
-	//bool isChatting;
 	bool isGrounded;
 	bool deleteFlag;
 

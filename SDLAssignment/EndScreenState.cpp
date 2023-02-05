@@ -34,7 +34,7 @@ GameState* EndScreenState::Update(Input& input)
 {
 	for (auto& button : m_button)
 	{
-		button.Update(input);
+		button.Update(input, *this);
 		auto tag = button.GetTag();
 		if (button.GetState() == MenuButton::ButtonState::CLICKED)
 		{
@@ -77,7 +77,7 @@ bool EndScreenState::Render(Screen& screen)
     return true;
 }
 
-void EndScreenState::OnExit()
+void EndScreenState::OnExit(Screen& screen, Input& input)
 {
 	m_textToScreen.ShutDown();
 	m_background->ShutDown();

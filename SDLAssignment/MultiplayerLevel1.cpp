@@ -44,7 +44,6 @@ GameState* MultiplayerLevel1::UpdateStateChange(Input& input)
 {
 	if (m_player->GetScore() >= maxCoinPoints)
 	{
-		std::cout << "entering endscreen condition" << std::endl;
 		return new EndScreenState(ConditionState::WIN);
 	}
 	if (m_player->IsFlaggedForDeletion())

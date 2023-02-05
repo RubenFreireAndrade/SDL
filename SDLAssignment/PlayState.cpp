@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "GameObject.h"
 
 PlayState::PlayState(Player* p)
 {
@@ -8,16 +9,16 @@ PlayState::PlayState(Player* p)
 	}
 	else
 	{
-		m_player = new Player(false);
+		m_player = new Player();
 	}
 }
 
 bool PlayState::OnEnter(Screen& screen, Input& input)
 {
+	m_screen = screen;
 	CreateLevel(screen);
 
-	m_player->Initialise(screen, &objects, input);
-	objects.push_back(m_player);
+	SpawnObject(m_player);
 	return true;
 }
 
@@ -37,7 +38,7 @@ GameState* PlayState::Update(Input& input)
 		else
 		{
 			(*it)->CheckCollision(objects);
-			(*it)->PreUpdate(input);
+			(*it)->PreUpdate(input, *this);
 			++it;
 		}
 	}
@@ -76,10 +77,16 @@ bool PlayState::Render(Screen& screen)
 	return true;
 }
 
-void PlayState::OnExit()
+void PlayState::OnExit(Screen& screen, Input& input)
 {
 	for (auto obj = objects.begin(); obj != objects.end(); obj++)
 	{
 		(*obj)->ShutDown();
 	}
+}
+
+void PlayState::SpawnObject(GameObject* gObj)
+{
+	gObj->Instantiate(m_screen, *this);
+	objects.push_back(gObj);
 }

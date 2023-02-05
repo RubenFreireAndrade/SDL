@@ -168,6 +168,9 @@
     <ClCompile Include="ServerText.cpp">
       <Filter>Source Files\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="MpPlayer.cpp">
+      <Filter>Source Files\Character Stuff</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -274,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="ServerText.h">
       <Filter>Header Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="MpPlayer.h">
+      <Filter>Header Files\Character Stuff</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

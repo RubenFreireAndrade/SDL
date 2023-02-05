@@ -17,7 +17,7 @@ public:
 	virtual bool OnEnter(Screen& screen, Input& input) = 0;
 	virtual GameState* Update(Input& input) = 0;
 	virtual bool Render(Screen& screen) = 0;
-	virtual void OnExit() = 0;
+	virtual void OnExit(Screen& screen, Input& input) = 0;
 
 protected:
 	int maxCoinPoints = 4;

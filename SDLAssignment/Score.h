@@ -10,7 +10,7 @@ public:
 	~Score();
 
 	void Initialise(Screen& screen, Player* p);
-	virtual void Update(Input& input) override;
+	virtual void Update(Input& input, GameState& state) override;
 	void Render(Screen& screen);
 	void AddToScore();
 private:

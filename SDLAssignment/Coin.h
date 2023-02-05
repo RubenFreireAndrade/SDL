@@ -15,7 +15,7 @@ public:
 	~Coin();
 
 	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
 
 	void Pickup(Player* player);

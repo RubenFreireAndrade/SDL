@@ -15,7 +15,7 @@ public:
 	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);
 	void ShutDown();
 
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
 
 private:

@@ -19,7 +19,7 @@ void Rocket::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 	m_rocket.SetImageDimension(1, 1, 566, 512);
 }
 
-void Rocket::Update(Input& input)
+void Rocket::Update(Input& input, GameState& state)
 {
 	m_rocket.Update();
 }

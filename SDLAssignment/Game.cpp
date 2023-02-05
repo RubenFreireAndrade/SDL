@@ -27,7 +27,7 @@ bool Game::Run()
 		m_gameState->Render(m_screen);
 		if (nextState != m_gameState.get())
 		{
-			m_gameState->OnExit();
+			m_gameState->OnExit(m_screen, m_input);
 			m_gameState.reset(nextState);
 			if (m_gameState)
 			{

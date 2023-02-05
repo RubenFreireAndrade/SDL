@@ -11,11 +11,12 @@ class Bullet : public GameObject
 
 public:
 
-	Bullet(Vector2D spawnPos, Vector2D bulletDir, Screen& screen);
+	Bullet(Vector2D spawnPos, Vector2D bulletDir);
 	~Bullet();
 
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
+	virtual void Instantiate(Screen& screen, GameState& state);
 	void CheckCollision(std::list<GameObject*> objects);
 
 private:

@@ -23,7 +23,7 @@ void Coin::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 	m_image.IsAnimationLooping(true);
 }
 
-void Coin::Update(Input& input)
+void Coin::Update(Input& input, GameState& state)
 {
 	m_image.Update();
 }

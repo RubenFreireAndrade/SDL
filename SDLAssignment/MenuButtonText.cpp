@@ -12,7 +12,7 @@ MenuButtonText::MenuButtonText(std::string text)
 	m_btnText.SetDimension(200, 70);
 }
 
-void MenuButtonText::Update(Input& input)
+void MenuButtonText::Update(Input& input, GameState& state)
 {
 	this->GetButtonRect();
 	mousePosition.x = input.GetMousePosition().x;

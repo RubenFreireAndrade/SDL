@@ -14,8 +14,10 @@ public:
 
 	Input();
 	void Update();
-	void RegisterKeyBind(char key, std::function<void()> bind);
-	void RegisterAnyKeyBind(std::function<void(char)> bind);
+	void RegisterKeyBind(char key, std::function<void()> bind, std::string domain);
+	void RegisterAnyKeyBind(std::function<void(char)> bind, std::string domain);
+	void UnRegisterAnyKeyBind(std::string domain);
+	void UnRegisterKeyBind(char key, std::string domain);
 
 	bool IsKeyUp(char key);
 	bool IsKeyDown(char key);
@@ -32,8 +34,8 @@ public:
 private:
 
 	std::list<char> m_keys;
-	std::list<std::function<void(char)>> m_onAnyKeyBinds;
-	std::map<char, std::list<std::function<void()>>> m_keyBinds;
+	std::map<std::string, std::list<std::function<void(char)>>> m_onAnyKeyBinds;
+	std::map<char, std::map<std::string, std::list<std::function<void()>>>> m_keyBinds;
 
 	bool m_isMouseClicked;
 	bool m_isWindowClosed;

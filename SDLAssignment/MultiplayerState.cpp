@@ -23,22 +23,39 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 		this->SDLNetInitialize();
 		this->ConnectToServer();
 
-		input.RegisterKeyBind(SDLK_RETURN, std::bind(&MultiplayerState::ToggleChatMode, this));
-		input.RegisterAnyKeyBind(std::bind(&MultiplayerState::RecordChatInput, this, std::placeholders::_1));
+		input.RegisterKeyBind(SDLK_RETURN, std::bind(&MultiplayerState::ToggleChatMode, this), "MP");
+		input.RegisterAnyKeyBind(std::bind(&MultiplayerState::RecordChatInput, this, std::placeholders::_1), "MP");
 	}
 	return true;
 }
 
+void MultiplayerState::OnExit(Screen& screen, Input& input)
+{
+	PlayState::OnExit(screen, input);
+	input.UnRegisterKeyBind(SDLK_RETURN, "MP");
+	input.UnRegisterAnyKeyBind("MP");
+}
+
 GameState* MultiplayerState::Update(Input& input)
 {
-	PlayState::Update(input);
-	return this;
+	if (isNewPlayer)
+	{
+		auto newPlayer = new MpPlayer();
+
+		SpawnObject(newPlayer);
+
+		newPlayer->SetPosition(700, 200);
+
+		isNewPlayer = false;
+	}
+	auto playStateUpdate = PlayState::Update(input);
+	return playStateUpdate;
 }
 
 bool MultiplayerState::Render(Screen& screen)
 {
 	PlayState::Render(screen);
-	if (m_player->isChatting)
+	if (m_isChatEnabled)
 	{
 		m_chatBox->Render(screen);
 	}
@@ -47,39 +64,45 @@ bool MultiplayerState::Render(Screen& screen)
 
 void MultiplayerState::SentMessage(std::string message)
 {
+	std::cout << "test " << message << std::endl;
 	std::cout << "You Sent: " << message << std::endl;
 }
 
 void MultiplayerState::ReceiveMessage(std::string message)
 {
 	std::cout << this->GetIp(serverSocket) << " Sent: " << message << std::endl;
+
+	if (message == "Client Connected!")
+	{
+		isNewPlayer = true;
+	}
+
 	//m_chatBox->SetIncomingText(message);
 	m_serverTxt->SetIncomingText(message);
 }
 
 void MultiplayerState::ToggleChatMode()
 {
-	m_player->isChatting = !m_player->isChatting;
-	if (m_player->isChatting)
+	m_isChatEnabled = !m_isChatEnabled;
+	m_player->SetFrozen(m_isChatEnabled);
+	if (!m_isChatEnabled)
 	{
-		std::cout << "chat mode enabled" << std::endl;
-	}
-	else
-	{
-		std::cout << std::endl << "chat mode disabled" << std::endl;
+		if (serverSocket) this->SendMessageToServer(chatInput);
+		chatInput = "";
 	}
 }
 
 void MultiplayerState::RecordChatInput(char key)
 {
-	if (!m_player->isChatting)
+	if (!m_isChatEnabled) return;
+
+	if (key == '0x08')
 	{
-		// TODO - fix to not break whenever user presses Enter twice.
-		if(serverSocket) this->SendMessageToServer(chatInput);
-		chatInput.clear();
-		return;
+		chatInput.pop_back();
 	}
-	chatInput += key;
-	std::cout << key;
+	else 
+	{ 
+		chatInput += key;
+	}
 	m_chatBox->SetChatInput(chatInput);
 }

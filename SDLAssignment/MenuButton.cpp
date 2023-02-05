@@ -17,7 +17,7 @@ void MenuButton::Initialise(Screen& screen)
 {
 }
 
-void MenuButton::Update(Input& input)
+void MenuButton::Update(Input& input, GameState& state)
 {
 	this->GetButtonRect();
 	mousePosition.x = input.GetMousePosition().x;

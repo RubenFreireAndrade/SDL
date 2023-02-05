@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "GameState.h"
 
+class GameObject;
+
 class PlayState : public GameState
 {
 public: 
@@ -14,12 +16,15 @@ public:
 	virtual GameState* UpdateStateChange(Input& input);
 	virtual GameState* Update(Input& input);
 	virtual bool Render(Screen& screen);
-	virtual void OnExit();
+	virtual void OnExit(Screen& screen, Input& input);
+
+	void SpawnObject(GameObject* gObj);
 
 protected:
 	Player* m_player;
 	std::list<GameObject*> objects{};
 
 private:
+	Screen m_screen;
 };
 

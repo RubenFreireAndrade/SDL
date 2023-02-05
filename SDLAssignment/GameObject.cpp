@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "GameState.h"
 
 
 GameObject::GameObject()
@@ -13,10 +14,10 @@ GameObject::GameObject()
 	isBlocked = false;
 }
 
-void GameObject::PreUpdate(Input& input) // Adding gravity to objects before Update();
+void GameObject::PreUpdate(Input& input, GameState& state) // Adding gravity to objects before Update();
 {
 	m_velocity = { 0, m_velocity.y };
-	this->Update(input);
+	this->Update(input, state);
 	if (!isStatic)
 	{
 		m_velocity.y += gravitySpeed;
@@ -35,7 +36,7 @@ void GameObject::PreUpdate(Input& input) // Adding gravity to objects before Upd
 	}
 }
 
-void GameObject::Update(Input& input)
+void GameObject::Update(Input& input, GameState& state)
 {	
 }
 
@@ -44,6 +45,10 @@ void GameObject::Render(Screen& screen)
 }
 
 void GameObject::CheckCollision(std::list<GameObject*> objects)
+{
+}
+
+void GameObject::Instantiate(Screen& screen, GameState& state)
 {
 }
 

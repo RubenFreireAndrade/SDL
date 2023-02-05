@@ -53,13 +53,19 @@ void Input::Update()
 		else if (events.type == SDL_KEYDOWN) //Key has been pressed.
 		{
 			m_keys.push_back(input);
-			for (auto func = m_keyBinds[input].begin(); func != m_keyBinds[input].end(); func++)
+			for (auto funcs = m_keyBinds[input].begin(); funcs != m_keyBinds[input].end(); funcs++)
 			{
-				(*func)();
+				for (auto func = (*funcs).second.begin(); func != (*funcs).second.end(); func++)
+				{
+					(*func)();
+				}
 			}
-			for (auto func = m_onAnyKeyBinds.begin(); func != m_onAnyKeyBinds.end(); func++)
+			for (auto funcs = m_onAnyKeyBinds.begin(); funcs != m_onAnyKeyBinds.end(); funcs++)
 			{
-				(*func)(input);
+				for (auto func = (*funcs).second.begin(); func != (*funcs).second.end(); func++)
+				{
+					(*func)(input);
+				}
 			}
 		}
 
@@ -100,14 +106,24 @@ void Input::Update()
 	}
 }
 
-void Input::RegisterKeyBind(char key, std::function<void()> bind)
+void Input::RegisterKeyBind(char key, std::function<void()> bind, std::string domain)
 {
-	m_keyBinds[key].push_back(bind);
+	m_keyBinds[key][domain].push_back(bind);
 }
 
-void Input::RegisterAnyKeyBind(std::function<void(char)> bind)
+void Input::RegisterAnyKeyBind(std::function<void(char)> bind, std::string domain)
 {
-	m_onAnyKeyBinds.push_back(bind);
+	m_onAnyKeyBinds[domain].push_back(bind);
+}
+
+void Input::UnRegisterAnyKeyBind(std::string domain)
+{
+	m_onAnyKeyBinds.erase(domain);
+}
+
+void Input::UnRegisterKeyBind(char key, std::string domain)
+{
+	m_keyBinds[key].erase(domain);
 }
 
 bool Input::IsKeyUp(char key)

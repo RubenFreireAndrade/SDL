@@ -38,7 +38,7 @@ GameState* MainMenuState::Update(Input& input)
 {
 	for (auto& button : m_button)
 	{
-		button.Update(input);
+		button.Update(input, *this);
 		auto& tag = button.GetTag();
 		if (button.GetState() == MenuButton::ButtonState::CLICKED)
 		{
@@ -69,7 +69,7 @@ bool MainMenuState::Render(Screen& screen)
 	return true;
 }
 
-void MainMenuState::OnExit()
+void MainMenuState::OnExit(Screen& screen, Input& input)
 {
 	m_background->ShutDown();
 	for (auto& button : m_button)

@@ -159,6 +159,7 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MenuButtonText.cpp" />
+    <ClCompile Include="MpPlayer.cpp" />
     <ClCompile Include="MultiplayerLevel1.cpp" />
     <ClCompile Include="MultiplayerLevel2.cpp" />
     <ClCompile Include="MultiplayerMenuState.cpp" />
@@ -196,6 +197,7 @@
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MenuButtonText.h" />
+    <ClInclude Include="MpPlayer.h" />
     <ClInclude Include="MultiplayerLevel1.h" />
     <ClInclude Include="MultiplayerLevel2.h" />
     <ClInclude Include="MultiplayerMenuState.h" />

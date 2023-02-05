@@ -30,14 +30,13 @@ public:
 		RIGHT
 	};
 
-	Player(bool isOnlineMode);
+	Player();
 	~Player();
 
-	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Input& input);
-
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
 	virtual void CheckCollision(std::list<GameObject*> objects);
+	virtual void Instantiate(Screen& screen, GameState& state);
 
 	void AddScore(int amount);
 	void SetState(State state);
@@ -46,9 +45,8 @@ public:
 	void Jump();
 
 	int GetScore();
-	//std::string GetChatInput();
 
-	bool isChatting = false;
+	void SetFrozen(bool status);
 
 private:
 
@@ -65,7 +63,5 @@ private:
 	bool isTouching = false;
 	bool m_shooting = false;
 	bool isJumping = false;
-	bool isOnlineMode = false;
-
-	std::list<GameObject*>* m_gameObjects = {};
+	bool isFrozen = false;
 };

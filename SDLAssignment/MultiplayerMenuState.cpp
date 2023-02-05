@@ -24,7 +24,7 @@ GameState* MultiplayerMenuState::Update(Input& input)
 {
     for (auto& btnText : m_btnText)
     {
-        btnText.Update(input);
+        btnText.Update(input, *this);
         auto& tag = btnText.GetTag();
         if (btnText.GetState() == MenuButtonText::ButtonState::CLICKED)
         {
@@ -34,7 +34,7 @@ GameState* MultiplayerMenuState::Update(Input& input)
             }
             if (tag == "JOIN GAME")
             {
-                return new MultiplayerLevel1(new Player(true), "CLIENT");
+                return new MultiplayerLevel1(new Player(), "CLIENT");
             }
         }
     }
@@ -56,7 +56,7 @@ bool MultiplayerMenuState::Render(Screen& screen)
     return true;
 }
 
-void MultiplayerMenuState::OnExit()
+void MultiplayerMenuState::OnExit(Screen& screen, Input& input)
 {
     m_background->ShutDown();
     for (auto& btnText : m_btnText)

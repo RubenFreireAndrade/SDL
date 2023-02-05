@@ -15,7 +15,7 @@ public:
 	void ShutDown();
 
 	// Inherited via GameObject
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
 
 private:

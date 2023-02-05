@@ -17,7 +17,7 @@ public:
 	MenuButton(const std::string& filename, int imgWidth, int imgHeight, Screen& screen);
 	void Initialise(Screen& screen);
 	// Inherited via GameObject
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
 	void ShutDown();
 	

@@ -17,7 +17,7 @@ public:
 	virtual bool OnEnter(Screen& screen, Input& input);
 	virtual GameState* Update(Input& input) override;
 	virtual bool Render(Screen& screen) override;
-	virtual void OnExit() override;
+	virtual void OnExit(Screen& screen, Input& input) override;
 
 private:
 	MenuButton* m_backBtn;

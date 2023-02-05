@@ -17,7 +17,7 @@ public:
 
 	MenuButtonText(std::string text);
 	// Inherited via GameObject
-	virtual void Update(Input& input);
+	virtual void Update(Input& input, GameState& state);
 	virtual void Render(Screen& screen);
 	void ShutDown();
 

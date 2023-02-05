@@ -19,7 +19,7 @@ void Platform::Initialise(Screen& screen, std::list<GameObject*>* gameObjects)
 	m_image.SetImageDimension(1, 1, 64, 64);
 }
 
-void Platform::Update(Input& input)
+void Platform::Update(Input& input, GameState& state)
 {
 }
 

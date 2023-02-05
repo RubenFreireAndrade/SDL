@@ -17,7 +17,7 @@ void Background::Render(Screen& screen)
 	m_image.Render(this->GetPosition().x, this->GetPosition().y, screen);
 }
 
-void Background::Update(Input& input)
+void Background::Update(Input& input, GameState& state)
 {
 }
 

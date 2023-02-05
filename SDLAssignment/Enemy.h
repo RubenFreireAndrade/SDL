@@ -16,7 +16,7 @@ public:
 	~Enemy();
 	void Initialise(Screen& screen, std::list<GameObject*>* gameObjects);
 	void Render(Screen& screen);
-	void Update(Input& input);
+	void Update(Input& input, GameState& state);
 	void EnemyHit();
 private:
 

@@ -30,7 +30,7 @@ void Enemy::Render(Screen& screen)
 	m_image.Render(m_position.x, m_position.y, screen);
 }
 
-void Enemy::Update(Input& input)
+void Enemy::Update(Input& input, GameState& state)
 {
 	Vector2D toDest;
 	if (toDestination)

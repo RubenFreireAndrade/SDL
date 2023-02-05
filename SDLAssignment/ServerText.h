@@ -10,7 +10,7 @@ public:
 
 	// Inherited via GameObject
 	void Initialise(Screen& screen);
-	void Update(Input& input);
+	void Update(Input& input, GameState& state);
 	void Render(Screen& screen);
 	void Shutdown();
 

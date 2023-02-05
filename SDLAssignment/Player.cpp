@@ -1,13 +1,13 @@
 #include "Player.h"
 #include "Coin.h"
+#include "PlayState.h"
 
-Player::Player(bool isOnlineMode)
+Player::Player()
 {
 	score = 0;
 	isStatic = false;
 	this->SetTag("player");
 	this->SetSize(50, 110);
-	this->isOnlineMode = isOnlineMode;
 }
 
 Player::~Player()
@@ -15,12 +15,11 @@ Player::~Player()
 	m_image[IDLE].Unload();
 }
 
-void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Input& input)
+void Player::Instantiate(Screen& screen, GameState& state)
 {
 	this->m_position.x = 500;
 	this->m_position.y = 100;
 
-	m_gameObjects = gameObjects;
 	m_state = IDLE;
 	m_spriteDirection = Player::Direction::RIGHT;
 
@@ -29,7 +28,7 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Inp
 	m_image[SHOOT].Load("Assets/Images/HeroShootAnimation.png", screen);
 	m_image[JUMP].Load("Assets/Images/HeroJumpAnimation.png", screen);
 	m_image[DEAD].Load("Assets/Images/HeroDeadAnimation.png", screen);
-	
+
 	for (int i = 0; i < TOTAL_STATES; i++)
 	{
 		m_image[i].SetSpriteDimension(120, 120);
@@ -62,7 +61,7 @@ void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Inp
 	}
 }
 
-void Player::Update(Input& input)
+void Player::Update(Input& input, GameState& state)
 {
 	if (input.IsKeyDown(SDLK_a))
 	{
@@ -79,10 +78,27 @@ void Player::Update(Input& input)
 		this->Jump();
 	}
 
-	if (input.IsMouseClicked() && !m_shooting && !isChatting)
+	if (input.IsMouseClicked() && !m_shooting && !isFrozen)
 	{
 		m_state = SHOOT;
 		m_shooting = true;
+
+		Bullet* bullet;
+		Vector2D offSet;
+		Vector2D direction;
+		if (m_spriteDirection == Player::Direction::RIGHT)
+		{
+			offSet = Vector2D(90, 40);
+			direction = Vector2D(1, 0);
+		}
+		if (m_spriteDirection == Player::Direction::LEFT)
+		{
+			offSet = Vector2D(-30, 40);
+			direction = Vector2D(-1, 0);
+		}
+		Vector2D spawnPos = m_position.Add(offSet);
+		bullet = new Bullet(spawnPos, direction);
+		((PlayState*)&state)->SpawnObject(bullet);
 	}
 
 	if (!input.IsMouseClicked())
@@ -100,7 +116,6 @@ void Player::Update(Input& input)
 		isJumping = false;
 	}
 	m_image[m_state].Update();
-
 }
 
 void Player::Render(Screen& screen)
@@ -112,26 +127,6 @@ void Player::Render(Screen& screen)
 	else
 	{
 		m_image[m_state].Render(m_position.x, m_position.y, screen, Sprite::Flip::NO_FLIP);
-	}
-
-	if (m_shooting == true)
-	{
-		Bullet* bullet;
-		Vector2D offSet;
-		Vector2D direction;
-		if (m_spriteDirection == Player::Direction::RIGHT)
-		{
-			offSet = Vector2D(90, 40);
-			direction = Vector2D(1, 0);
-		}
-		if (m_spriteDirection == Player::Direction::LEFT)
-		{
-			offSet = Vector2D(-30, 40);
-			direction = Vector2D(-1, 0);
-		}
-		Vector2D spawnPos = m_position.Add(offSet);
-		bullet = new Bullet(spawnPos, direction, screen);
-		m_gameObjects->push_back(bullet);
 	}
 }
 
@@ -188,6 +183,11 @@ int Player::GetScore()
 	return score;
 }
 
+void Player::SetFrozen(bool status)
+{
+	isFrozen = status;
+}
+
 void Player::SetState(State state)
 {
 	m_state = state;
@@ -195,7 +195,7 @@ void Player::SetState(State state)
 
 void Player::MoveLeft()
 {
-	if (isChatting) return;
+	if (isFrozen) return;
 	m_velocity.x -= speed;
 	m_state = RUN;
 	m_spriteDirection = Player::Direction::LEFT;
@@ -203,7 +203,7 @@ void Player::MoveLeft()
 
 void Player::MoveRight()
 {
-	if (isChatting) return;
+	if (isFrozen) return;
 	m_velocity.x += speed;
 	m_state = RUN;
 	m_spriteDirection = Player::Direction::RIGHT;
@@ -211,7 +211,7 @@ void Player::MoveRight()
 
 void Player::Jump()
 {
-	if (!isGrounded || isJumping || isChatting) return;
+	if (!isGrounded || isJumping || isFrozen) return;
 	m_state = JUMP;
 	m_velocity.y -= jumpHeight;
 	isJumping = true;
