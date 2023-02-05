@@ -2,11 +2,13 @@
 #include"PlayState.h"
 #include"GameState.h"
 #include"Background.h"
+#include"MenuButton.h"
 #include"MenuButtonText.h"
 
 #include<thread>
 
 class MultiplayerLevel1;
+class MainMenuState;
 
 class MultiplayerMenuState : public GameState
 {
@@ -18,6 +20,8 @@ public:
 	virtual void OnExit() override;
 
 private:
+	MenuButton* m_backBtn;
+
 	std::vector<MenuButtonText> m_btnText;
 	std::unique_ptr<Background> m_background;
 };

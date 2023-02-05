@@ -1,6 +1,6 @@
 #include "MenuButton.h"
 
-MenuButton::MenuButton(const std::string& fileName, Screen& screen)
+MenuButton::MenuButton(const std::string& fileName, int imgWidth, int imgHeight, Screen& screen)
 {
 	mousePosition = { 0, 0 };
 	buttonPosition = { 0, 0 };
@@ -8,7 +8,7 @@ MenuButton::MenuButton(const std::string& fileName, Screen& screen)
 
 	this->SetTag(fileName);
 	m_btnSprite.Load("Assets/Images/" + this->GetTag() + ".png", screen);
-	m_btnSprite.SetImageDimension(2, 1, 1200, 200);
+	m_btnSprite.SetImageDimension(2, 1, imgWidth, imgHeight);
 	m_btnSprite.SetSpriteDimension(150, 50);
 	m_btnSprite.SetImageCell(1, 1);
 }

@@ -6,6 +6,8 @@
 #include "Background.h"
 #include "MultiplayerState.h"
 
+class EndScreenState;
+
 class MultiplayerLevel1 : public MultiplayerState
 {
 	using MultiplayerState::MultiplayerState;

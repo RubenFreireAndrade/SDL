@@ -9,7 +9,7 @@ MenuButtonText::MenuButtonText(std::string text)
 	this->SetTag(text);
 	m_btnText.Load("Assets/Fonts/impact.ttf", 100);
 	m_btnText.SetText(this->GetTag());
-	m_btnText.SetDimension(170, 70);
+	m_btnText.SetDimension(200, 70);
 }
 
 void MenuButtonText::Update(Input& input)

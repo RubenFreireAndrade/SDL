@@ -12,6 +12,7 @@ void MultiplayerLevel1::CreateLevel(Screen& screen)
 	auto platform2 = new Platform();
 	auto platform3 = new Platform();
 	auto enemy = new Enemy({ 1100, 500 }, { 100, 500 });
+	auto enemy2 = new Enemy({ 500, 500 }, { 100, 500 });
 
 	score->Initialise(screen, m_player);
 	coin1->Initialise(screen, &objects);
@@ -20,6 +21,7 @@ void MultiplayerLevel1::CreateLevel(Screen& screen)
 	platform2->Initialise(screen, &objects);
 	platform3->Initialise(screen, &objects);
 	enemy->Initialise(screen, &objects);
+	enemy2->Initialise(screen, &objects);
 
 	objects.push_back(background);
 	objects.push_back(score);
@@ -29,9 +31,10 @@ void MultiplayerLevel1::CreateLevel(Screen& screen)
 	objects.push_back(platform2);
 	objects.push_back(platform3);
 	objects.push_back(enemy);
+	objects.push_back(enemy2);
 
 	coin1->SetPosition(1000, 140);
-	coin2->SetPosition(550, 350);
+	coin2->SetPosition(550, 550);
 	platform1->SetPosition(500, 400);
 	platform2->SetPosition(950, 200);
 	platform3->SetPosition(700, 300);
@@ -41,6 +44,7 @@ GameState* MultiplayerLevel1::UpdateStateChange(Input& input)
 {
 	if (m_player->GetScore() >= maxCoinPoints)
 	{
+		std::cout << "entering endscreen condition" << std::endl;
 		return new EndScreenState(ConditionState::WIN);
 	}
 	if (m_player->IsFlaggedForDeletion())

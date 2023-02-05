@@ -52,6 +52,11 @@ void ChatBox::Shutdown()
 
 std::string ChatBox::GetIncomingText()
 {
+	/*for (auto i = 0; i < m_incomingTexts.size(); i++)
+	{
+		return m_incomingTexts[i];
+		std::cout << m_incomingTexts[i] << std::endl;
+	}*/
 	return m_incomingText;
 }
 

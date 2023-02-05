@@ -18,7 +18,7 @@ bool EndScreenState::OnEnter(Screen& screen, Input& input)
 	m_textToScreen.SetColor(0, 168, 255, 255);
     m_endScreen->Initialise(screen);
 
-	m_button.push_back(MenuButton("QuitButton", screen ));
+	m_button.push_back(MenuButton("QuitButton", 1200, 200, screen ));
 	// Making each element in the container spread out by 100px.
 	for (auto i = 0; i < m_button.size(); i++)
 	{

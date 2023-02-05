@@ -1,11 +1,14 @@
 #include "MultiplayerMenuState.h"
 #include "MultiplayerLevel1.h"
+#include "MainMenuState.h"
 
 bool MultiplayerMenuState::OnEnter(Screen& screen, Input& input)
 {
     m_background = std::make_unique<Background>(Background("Moon", screen));
 
+    m_btnText.push_back(MenuButtonText("MAIN MENU"));
     m_btnText.push_back(MenuButtonText("JOIN GAME"));
+
     // Making each element in the container spread out by 100px.
     for (auto i = 0; i < m_btnText.size(); i++)
     {
@@ -25,16 +28,14 @@ GameState* MultiplayerMenuState::Update(Input& input)
         auto& tag = btnText.GetTag();
         if (btnText.GetState() == MenuButtonText::ButtonState::CLICKED)
         {
+            if (tag == "MAIN MENU")
+            {
+                return new MainMenuState();
+            }
             if (tag == "JOIN GAME")
             {
                 return new MultiplayerLevel1(new Player(true), "CLIENT");
             }
-
-            // TODO - Add BACK button when have time
-            /*if (tag == "QuitButton")
-            {
-                return 0;
-            }*/
         }
     }
     // TODO - change this when proper buttons are implemented.

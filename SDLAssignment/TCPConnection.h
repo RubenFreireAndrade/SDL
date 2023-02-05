@@ -1,9 +1,9 @@
 #pragma once
 #include<string>
 #include<vector>
+#include<thread>
 #include<iostream>
 #include<SDL_net.h>
-#include<thread>
 
 class TCPConnection
 {

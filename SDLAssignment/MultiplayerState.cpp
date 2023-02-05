@@ -21,8 +21,11 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 		this->SDLNetInitialize();
 		this->ConnectToServer();
 
-		input.RegisterKeyBind(SDLK_RETURN, std::bind(&MultiplayerState::ToggleChatMode, this));
-		input.RegisterAnyKeyBind(std::bind(&MultiplayerState::RecordChatInput, this, std::placeholders::_1));
+		if (serverSocket)
+		{
+			input.RegisterKeyBind(SDLK_RETURN, std::bind(&MultiplayerState::ToggleChatMode, this));
+			input.RegisterAnyKeyBind(std::bind(&MultiplayerState::RecordChatInput, this, std::placeholders::_1));
+		}
 	}
 	return true;
 }

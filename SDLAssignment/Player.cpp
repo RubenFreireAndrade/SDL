@@ -17,8 +17,8 @@ Player::~Player()
 
 void Player::Initialise(Screen& screen, std::list<GameObject*>* gameObjects, Input& input)
 {
-	this->m_position.x = 20;
-	this->m_position.y = 500;
+	this->m_position.x = 500;
+	this->m_position.y = 100;
 
 	m_gameObjects = gameObjects;
 	m_state = IDLE;

@@ -26,4 +26,6 @@ private:
 	Sprite m_image;
 	TextToScreen m_text;
 	TextToScreen m_chatText;
+
+	std::vector<std::string> m_incomingTexts;
 };

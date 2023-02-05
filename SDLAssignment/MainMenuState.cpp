@@ -13,14 +13,16 @@ bool MainMenuState::OnEnter(Screen& screen, Input& input)
 	m_background = std::make_unique<Background>(Background("MountainBackgrundBlue", screen));
 	m_music.Initialise();
 
-	m_button.push_back(MenuButton("PlayButton", screen));
-	m_button.push_back(MenuButton("MultiplayerButton", screen));
-	m_button.push_back(MenuButton("ControlsButton", screen));
-	m_button.push_back(MenuButton("SettingsButton", screen));
-	m_button.push_back(MenuButton("QuitButton", screen));
+	m_button.push_back(MenuButton("PlayButton", 1200, 200, screen));
+	m_button.push_back(MenuButton("MultiPlayerButton", 1200, 200, screen));
+	m_button.push_back(MenuButton("ControlsButton", 1200, 200, screen));
+	m_button.push_back(MenuButton("SettingsButton", 1200, 200, screen));
+	m_button.push_back(MenuButton("QuitButton", 1200, 200, screen));
+
 	m_music.Load("Assets/Audio/MenuBGM.mp3");
 	m_music.SetVolume(2);
 	m_music.Play();
+
 	// Making each element in the container spread out by 100px.
 	for (auto i = 0; i < m_button.size(); i++)
 	{
@@ -44,7 +46,7 @@ GameState* MainMenuState::Update(Input& input)
 			{
 				return new Level1(nullptr);
 			}
-			if (tag == "MultiplayerButton")
+			if (tag == "MultiPlayerButton")
 			{
 				return new MultiplayerMenuState;
 			}
@@ -69,7 +71,6 @@ bool MainMenuState::Render(Screen& screen)
 
 void MainMenuState::OnExit()
 {
-	//m_music.Shutdown();
 	m_background->ShutDown();
 	for (auto& button : m_button)
 	{

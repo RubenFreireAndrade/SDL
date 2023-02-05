@@ -31,7 +31,7 @@ void Level1::CreateLevel(Screen& screen)
 	objects.push_back(enemy);
 
 	coin1->SetPosition(1000, 140);
-	coin2->SetPosition(550, 350);
+	coin2->SetPosition(550, 550);
 	platform1->SetPosition(500, 400);
 	platform2->SetPosition(950, 200);
 	platform3->SetPosition(700, 300);
