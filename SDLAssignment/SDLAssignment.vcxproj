@@ -169,6 +169,7 @@
     <ClCompile Include="Level2.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="ServerText.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="Level2.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="Score.h" />
+    <ClInclude Include="ServerText.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Music.h" />

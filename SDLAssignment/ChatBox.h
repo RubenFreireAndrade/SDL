@@ -6,7 +6,7 @@
 class ChatBox : public GameObject
 {
 public:
-	ChatBox(const std::string fileName, const std::string& message, Screen& screen);
+	ChatBox(const std::string fileName, Screen& screen);
 	~ChatBox();
 	// Inherited via GameObject
 	void Initialise(Screen& screen);
@@ -24,7 +24,7 @@ private:
 	std::string m_chatInput;
 
 	Sprite m_image;
-	TextToScreen m_text;
+	TextToScreen m_textForServer;
 	TextToScreen m_chatText;
 
 	std::vector<std::string> m_incomingTexts;

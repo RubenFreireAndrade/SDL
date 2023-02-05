@@ -12,29 +12,37 @@ bool MultiplayerState::OnEnter(Screen& screen, Input& input)
 
 	if (this->connectType == "CLIENT")
 	{
-		m_chatBox = new ChatBox("ChatBox", "Attempting To Find Server", screen);
+		m_chatBox = new ChatBox("ChatBox", screen);
+		m_serverTxt = new ServerText("Attempting To Find Server", screen);
+
+		this->objects.push_back(m_serverTxt);
 
 		m_chatBox->Initialise(screen);
-
-		this->objects.push_back(m_chatBox);
+		m_serverTxt->Initialise(screen);
 
 		this->SDLNetInitialize();
 		this->ConnectToServer();
 
-		if (serverSocket)
-		{
-			input.RegisterKeyBind(SDLK_RETURN, std::bind(&MultiplayerState::ToggleChatMode, this));
-			input.RegisterAnyKeyBind(std::bind(&MultiplayerState::RecordChatInput, this, std::placeholders::_1));
-		}
+		input.RegisterKeyBind(SDLK_RETURN, std::bind(&MultiplayerState::ToggleChatMode, this));
+		input.RegisterAnyKeyBind(std::bind(&MultiplayerState::RecordChatInput, this, std::placeholders::_1));
 	}
 	return true;
 }
 
 GameState* MultiplayerState::Update(Input& input)
 {
-	// TODO - Delete Update func if not using it.
 	PlayState::Update(input);
 	return this;
+}
+
+bool MultiplayerState::Render(Screen& screen)
+{
+	PlayState::Render(screen);
+	if (m_player->isChatting)
+	{
+		m_chatBox->Render(screen);
+	}
+	return true;
 }
 
 void MultiplayerState::SentMessage(std::string message)
@@ -45,7 +53,8 @@ void MultiplayerState::SentMessage(std::string message)
 void MultiplayerState::ReceiveMessage(std::string message)
 {
 	std::cout << this->GetIp(serverSocket) << " Sent: " << message << std::endl;
-	m_chatBox->SetIncomingText(message);
+	//m_chatBox->SetIncomingText(message);
+	m_serverTxt->SetIncomingText(message);
 }
 
 void MultiplayerState::ToggleChatMode()
@@ -65,7 +74,8 @@ void MultiplayerState::RecordChatInput(char key)
 {
 	if (!m_player->isChatting)
 	{
-		this->SendMessageToServer(chatInput);
+		// TODO - fix to not break whenever user presses Enter twice.
+		if(serverSocket) this->SendMessageToServer(chatInput);
 		chatInput.clear();
 		return;
 	}

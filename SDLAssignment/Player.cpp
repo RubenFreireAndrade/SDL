@@ -188,11 +188,6 @@ int Player::GetScore()
 	return score;
 }
 
-//std::string Player::GetChatInput()
-//{
-//	return chatInput;
-//}
-
 void Player::SetState(State state)
 {
 	m_state = state;

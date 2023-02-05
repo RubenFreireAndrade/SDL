@@ -165,6 +165,9 @@
     <ClCompile Include="ChatBox.cpp">
       <Filter>Source Files\HUD</Filter>
     </ClCompile>
+    <ClCompile Include="ServerText.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -267,6 +270,9 @@
       <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="ChatBox.h">
+      <Filter>Header Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerText.h">
       <Filter>Header Files\HUD</Filter>
     </ClInclude>
   </ItemGroup>

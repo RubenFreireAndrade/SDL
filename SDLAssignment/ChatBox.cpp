@@ -1,21 +1,19 @@
 #include "ChatBox.h"
 
-ChatBox::ChatBox(const std::string fileName, const std::string& message, Screen& screen)
+ChatBox::ChatBox(const std::string fileName, Screen& screen)
 {
 	this->isStatic = true;
 	m_image.Load("Assets/Images/" + fileName + ".png", screen);
 	m_image.SetImageDimension(1, 1, 1280, 720);
 	m_image.SetSpriteDimension(300, 100);
 
-	m_text.Load("Assets/Fonts/impact.ttf", 100);
-	m_text.SetColor(255, 255, 255, 255);
-	m_text.SetDimension(250, 40);
+	m_textForServer.Load("Assets/Fonts/impact.ttf", 100);
+	m_textForServer.SetColor(255, 255, 255, 255);
+	m_textForServer.SetDimension(250, 40);
 
 	m_chatText.Load("Assets/Fonts/impact.ttf", 100);
 	m_chatText.SetColor(255, 255, 255, 255);
 	m_chatText.SetDimension(250, 40);
-
-	m_incomingText = message;
 }
 
 ChatBox::~ChatBox()
@@ -35,8 +33,8 @@ void ChatBox::Render(Screen& screen)
 	// Setting Chat box position on the screen.
 	m_image.Render((screen.GetResolution().x / 2) - m_image.GetSpriteDimension().x / 2, (screen.GetResolution().y / 2) - m_image.GetSpriteDimension().y / 2 + 300, screen);
 
-	m_text.SetText(GetIncomingText());
-	m_text.Render((screen.GetResolution().x / 2) - m_text.GetDimension().x / 2, (screen.GetResolution().y - screen.GetResolution().y + 20) - m_text.GetDimension().y / 2, screen);
+	/*m_textForServer.SetText(GetIncomingText());
+	m_textForServer.Render((screen.GetResolution().x / 2) - m_textForServer.GetDimension().x / 2, (screen.GetResolution().y - screen.GetResolution().y + 20) - m_textForServer.GetDimension().y / 2, screen);*/
 
 	m_chatText.SetText(GetChatInput());
 	// Setting Chat Text position of Chat Box.
@@ -45,7 +43,7 @@ void ChatBox::Render(Screen& screen)
 
 void ChatBox::Shutdown()
 {
-	m_text.ShutDown();
+	m_textForServer.ShutDown();
 	m_chatText.ShutDown();
 	m_image.Unload();
 }
