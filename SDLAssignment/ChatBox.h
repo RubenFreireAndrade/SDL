@@ -14,18 +14,14 @@ public:
 	void Render(Screen& screen);
 	void Shutdown();
 
-	std::string GetIncomingText();
-	std::string GetChatInput();
 	void SetChatInput(std::string t);
-	void SetIncomingText(std::string t);
+	void AddChatText(std::string t);
+	void AddIncomingText(std::string username, std::string t);
+	void AddOutgoingText(std::string t);
 
 private:
-	std::string m_incomingText;
-	std::string m_chatInput;
+	TextToScreen m_inputLine;
+	std::vector<TextToScreen> m_chat;
 
 	Sprite m_image;
-	TextToScreen m_textForServer;
-	TextToScreen m_chatText;
-
-	std::vector<std::string> m_incomingTexts;
 };

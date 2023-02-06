@@ -18,6 +18,11 @@ void TextToScreen::SetText(const std::string& text)
 	m_isDirty = true;
 }
 
+std::string TextToScreen::GetText()
+{
+	return m_line;
+}
+
 void TextToScreen::SetColor(const SDL_Color& color)
 {
 	m_color = color;

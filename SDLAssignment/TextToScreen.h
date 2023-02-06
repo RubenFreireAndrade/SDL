@@ -17,6 +17,7 @@ public:
 	SDL_Point GetDimension() const;
 	
 	void SetText(const std::string& text);
+	std::string GetText();
 	void SetColor(const SDL_Color& color);
 	void SetColor(const Uint8 r, const Uint8 g, const Uint8 b, const Uint8 a);
 	void SetDimension(const int width, const int height);

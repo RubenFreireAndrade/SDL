@@ -35,4 +35,3 @@ private:
 	std::string chatInput;
 	std::string m_message;
 };
-
