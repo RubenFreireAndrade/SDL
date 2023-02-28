@@ -44,11 +44,6 @@ void Player::Instantiate(Screen& screen, GameState& state)
 			m_image[i].IsAnimationLooping(true);
 		}
 
-		if (i == IDLE)
-		{
-			m_image[i].IsAnimationLooping(false);
-		}
-
 		if (i == RUN)
 		{
 			m_image[i].SetImageDimension(8, 1, 4536, 556);
@@ -62,6 +57,11 @@ void Player::Instantiate(Screen& screen, GameState& state)
 		if (i == SHOOT)
 		{
 			m_image[i].SetImageDimension(4, 1, 2268, 556);
+		}
+
+		if (i == IDLE)
+		{
+			m_image[i].IsAnimationLooping(false);
 		}
 	}
 }
